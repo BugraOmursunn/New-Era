@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d9c2f46639eb949956a78052f352aa, type: 3}
+  m_Name: MinimapData
+  m_EditorClassIdentifier: 
+  minimapIcons:
+  - iconType: 0
+    iconSprite: {fileID: 21300000, guid: 2e166ad92c4ab4ee6861f06a3b7b3a52, type: 3}
+  - iconType: 1
+    iconSprite: {fileID: 21300000, guid: 2e9e5d3067590485f9addb0a8f8b708c, type: 3}
+  iconOffset: {x: 0, y: 14, z: 0}

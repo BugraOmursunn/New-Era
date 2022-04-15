@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "BarControllerData", menuName = "ScriptableObjects/BarControllerData_ScriptableObject", order = 2)]
+[CreateAssetMenu(fileName = "BarControllerData", menuName = "BarItems/BarControllerData", order = 0)]
 public class BarControllerData : ScriptableObject
 {
-	public SlotData[] slots = new SlotData[10];
+	public SlotsData slots;
 }

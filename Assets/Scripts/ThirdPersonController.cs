@@ -9,9 +9,9 @@ using UnityEngine.InputSystem;
 namespace StarterAssets
 {
 	[RequireComponent(typeof(CharacterController))]
-#if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
+	#if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 	[RequireComponent(typeof(PlayerInput))]
-#endif
+	#endif
 	public class ThirdPersonController : MonoBehaviour
 	{
 		[Header("Player")]
@@ -120,7 +120,7 @@ namespace StarterAssets
 		private void Update()
 		{
 			_hasAnimator = TryGetComponent(out _animator);
-			
+
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
@@ -160,7 +160,7 @@ namespace StarterAssets
 			{
 				//Don't multiply mouse input by Time.deltaTime;
 				float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
-				
+
 				_cinemachineTargetYaw += _input.look.x * deltaTimeMultiplier;
 				_cinemachineTargetPitch += _input.look.y * deltaTimeMultiplier;
 			}
@@ -217,7 +217,15 @@ namespace StarterAssets
 				float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity, RotationSmoothTime);
 
 				// rotate to face input direction relative to camera position
-				transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
+				if (_input.move.y > 0)
+				{
+					transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
+				}
+				else
+				{
+					transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.Euler(0.0f, CinemachineCameraTarget.transform.eulerAngles.y, 0.0f), 
+						Time.deltaTime * SpeedChangeRate);
+				}
 			}
 
 
@@ -317,7 +325,7 @@ namespace StarterAssets
 
 			if (Grounded) Gizmos.color = transparentGreen;
 			else Gizmos.color = transparentRed;
-			
+
 			// when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
 			Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
 		}

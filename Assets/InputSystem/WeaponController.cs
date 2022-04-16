@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class WeaponController : MonoBehaviour
 {
+	private PlayerInputs playerInputs;
+	
 	[SerializeField] private Transform hand;
 
 	[SerializeField] private Transform weapon;
@@ -16,15 +18,27 @@ public class WeaponController : MonoBehaviour
 	[SerializeField] private Vector3 sheathAttachPos;
 	[SerializeField] private Vector3 sheathAttachRot;
 
+	private bool isDraw;
+
+	private InputAction m_attack;
 	private void OnEnable()
 	{
+		playerInputs.Enable();
 		InputEventManager.Draw2HWeapon += Draw2HWeapon;
 	}
 	private void OnDisable()
 	{
+		playerInputs.Disable();
 		InputEventManager.Draw2HWeapon -= Draw2HWeapon;
 	}
-	private bool isDraw;
+	private void Awake()
+	{
+		playerInputs = new PlayerInputs();
+		
+		m_attack = playerInputs.Player.Attack;
+		m_attack.performed += _ => OnAttack();
+		m_attack.Enable();
+	}
 	private void Draw2HWeapon()
 	{
 		isDraw = !isDraw;
@@ -39,7 +53,7 @@ public class WeaponController : MonoBehaviour
 		this.GetComponent<Animator>().SetBool("isWeaponDraw", isDraw);
 	}
 	
-	public void OnAttack()
+	private void OnAttack()
 	{
 		if (isDraw == true)
 		{

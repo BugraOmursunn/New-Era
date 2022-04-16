@@ -22,6 +22,7 @@ public class MinimapIcon : MonoBehaviour
 		m_MinimapIcon.transform.parent = this.transform;
 		m_MinimapIcon.transform.name= "MinimapIcon";
 		m_MinimapIcon.transform.tag = "MinimapIcon";
+		m_MinimapIcon.layer = 6;
 		m_MinimapIcon.transform.localEulerAngles = new Vector3(90f, 0f, 0f);
 
 		m_MinimapIcon.AddComponent<SpriteRenderer>();

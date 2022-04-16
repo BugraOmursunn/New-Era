@@ -50,6 +50,7 @@ public class WeaponController : MonoBehaviour
 		{
 			this.GetComponent<Animator>().SetTrigger("SheatSword");
 		}
+		this.GetComponent<Animator>().SetBool("isEmptyHand", !isDraw);
 		this.GetComponent<Animator>().SetBool("is2hDraw", isDraw);
 	}
 	

@@ -7,7 +7,7 @@ public static class InputeventManager
 	{
 		switch (interactionType)
 		{
-			case BarInteractableTypes.Draw_2H_Weapon:
+			case BarInteractableTypes.Draw_2h_weapon:
 				InputeventManager.Draw2HWeapon.Invoke();
 				break;
 		}

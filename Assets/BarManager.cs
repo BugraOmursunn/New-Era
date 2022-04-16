@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class BarManager : MonoBehaviour
@@ -49,6 +50,16 @@ public class BarManager : MonoBehaviour
 	private void OnPress1(InputAction.CallbackContext context)
 	{
 		InputeventManager.InteractionHandler(barControllerData.slots.barItems[0].barInteractionType);
+	}
+	
+	[Button]
+	private void OnValidate()
+	{
+		for (int i = 0; i < barControllerData.slots.barItems.Length; i++)
+		{
+			if (barControllerData.slots.barItems[i] != null)
+				buttons[i].GetComponent<BarItemManager>().iconImg.sprite = barControllerData.slots.barItems[i].icon;
+		}
 	}
 }
 		

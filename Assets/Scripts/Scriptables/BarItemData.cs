@@ -8,6 +8,6 @@ using UnityEngine.Rendering;
 public class BarItemData : ScriptableObject
 {
 	public BarItemTypes itemType;
-	public Sprite icon;
 	public BarInteractableTypes barInteractionType;
+	public Sprite icon;
 }

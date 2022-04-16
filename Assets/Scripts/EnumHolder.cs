@@ -7,5 +7,5 @@ public enum BarItemTypes
 }
 public enum BarInteractableTypes
 {
-      Draw_2H_Weapon,
+      Draw_2h_weapon,
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,8 +16,16 @@ public class WeaponController : MonoBehaviour
 	[SerializeField] private Vector3 sheathAttachPos;
 	[SerializeField] private Vector3 sheathAttachRot;
 
+	private void OnEnable()
+	{
+		InputeventManager.Draw2HWeapon += Draw2HWeapon;
+	}
+	private void OnDisable()
+	{
+		InputeventManager.Draw2HWeapon -= Draw2HWeapon;
+	}
 	private bool isDraw;
-	public void OnDrawWeapon()
+	private void Draw2HWeapon()
 	{
 		isDraw = !isDraw;
 		if (isDraw)
@@ -29,6 +38,7 @@ public class WeaponController : MonoBehaviour
 		}
 		this.GetComponent<Animator>().SetBool("isWeaponDraw", isDraw);
 	}
+	
 	public void OnAttack()
 	{
 		if (isDraw == true)
@@ -36,6 +46,7 @@ public class WeaponController : MonoBehaviour
 			this.GetComponent<Animator>().SetTrigger("Attack");
 		}
 	}
+	
 	public void AttachWeaponToHand()
 	{
 		weapon.parent = hand;

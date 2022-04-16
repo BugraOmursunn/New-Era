@@ -5,3 +5,7 @@ public enum BarItemTypes
       Skill,
       Item
 }
+public enum BarInteractableTypes
+{
+      Draw_2H_Weapon,
+}

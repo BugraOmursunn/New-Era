@@ -5,11 +5,11 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class BarManager : MonoBehaviour
 {
-	//[SerializeField] private PlayerInput playerInput;
+	[SerializeField] private PlayerInput playerInput;
 	[SerializeField] private BarControllerData barControllerData;
 	[SerializeField] private Transform[] buttons;
 
-	//private InputAction m_Press1;
+	private InputAction m_Press1;
 	//private InputAction m_DrawWeapon;
 
 	[SerializeField] private PlayerInputs playerInputs;
@@ -25,14 +25,17 @@ public class BarManager : MonoBehaviour
 	private void Awake()
 	{
 		playerInputs = new PlayerInputs();
-
-		//m_Press1 = playerInput.actions["Press1"];
 		
-		//m_Press1 = playerInputs.Player.Press1;
+		m_Press1 = playerInputs.Player.Press1;
+		m_Press1.performed += OnPress1;
+		m_Press1.Enable();
+		
+		
+		//m_Press1 = playerInput.actions["Press1"];
 		//m_Press1.performed += OnPress1;
 		//m_DrawWeapon = playerInputs.Player.DrawWeapon;
 
-		playerInputs.Player.Press1.performed += OnPress1;
+		
 	}
 	private void Start()
 	{
@@ -45,8 +48,7 @@ public class BarManager : MonoBehaviour
 
 	private void OnPress1(InputAction.CallbackContext context)
 	{
-		Debug.Log("Test");
-		//playerInput.actions["DrawWeapon"].Dispose();
+		InputeventManager.InteractionHandler(barControllerData.slots.barItems[0].barInteractionType);
 	}
 }
 		

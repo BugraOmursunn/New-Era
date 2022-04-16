@@ -18,11 +18,11 @@ public class WeaponController : MonoBehaviour
 
 	private void OnEnable()
 	{
-		InputeventManager.Draw2HWeapon += Draw2HWeapon;
+		InputEventManager.Draw2HWeapon += Draw2HWeapon;
 	}
 	private void OnDisable()
 	{
-		InputeventManager.Draw2HWeapon -= Draw2HWeapon;
+		InputEventManager.Draw2HWeapon -= Draw2HWeapon;
 	}
 	private bool isDraw;
 	private void Draw2HWeapon()

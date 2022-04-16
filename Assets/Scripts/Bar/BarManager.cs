@@ -49,7 +49,7 @@ public class BarManager : MonoBehaviour
 
 	private void OnPress1(InputAction.CallbackContext context)
 	{
-		InputeventManager.InteractionHandler(barControllerData.slots.barItems[0].barInteractionType);
+		InputEventManager.InteractionHandler(barControllerData.slots.barItems[0].barInteractionType);
 	}
 	
 	[Button]

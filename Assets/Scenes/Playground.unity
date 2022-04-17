@@ -123,16 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &14857460 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1448837604847332032, guid: 82d142b5f172bee45b90de011104f1c0, type: 3}
-  m_PrefabInstance: {fileID: 1904579943}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &14857461 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 9184474937259757171, guid: 82d142b5f172bee45b90de011104f1c0, type: 3}
-  m_PrefabInstance: {fileID: 1904579943}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &15174060 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7690497447382159287, guid: 09aade0ecefd01e4b8f7661acf64f5c2, type: 3}
@@ -429,9 +419,9 @@ MonoBehaviour:
   - {fileID: 1371798283}
   - {fileID: 546854844}
   - {fileID: 672404625}
-  - {fileID: 1767334147}
-  - {fileID: 14857461}
-  - {fileID: 909165708}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &561768346
 Transform:
   m_ObjectHideFlags: 0
@@ -464,9 +454,9 @@ MonoBehaviour:
   minimapCam: {fileID: 902774604}
   miniMapMask: {fileID: 1114851343}
   miniMap: {fileID: 1818097537}
-  mapSizeValue: 0.73
-  mapZoomValue: 7.08
-  iconSizeValue: 1
+  mapSizeValue: 0.97
+  mapZoomValue: 8
+  iconSizeValue: 2
   miniMapIcons: []
 --- !u!1 &570469403 stripped
 GameObject:
@@ -881,7 +871,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7.08
+  orthographic size: 8
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -911,16 +901,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!1 &909165707 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6214849789427689443, guid: 82d142b5f172bee45b90de011104f1c0, type: 3}
-  m_PrefabInstance: {fileID: 1904579943}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &909165708 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4418336486278038352, guid: 82d142b5f172bee45b90de011104f1c0, type: 3}
-  m_PrefabInstance: {fileID: 1904579943}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &919932963 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1740817458727708515, guid: 09aade0ecefd01e4b8f7661acf64f5c2, type: 3}
@@ -1437,6 +1417,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 605025806, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 3893294197879345259, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -1584,16 +1568,6 @@ ReflectionProbe:
   m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
---- !u!1 &1767334146 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1587140529406490892, guid: 82d142b5f172bee45b90de011104f1c0, type: 3}
-  m_PrefabInstance: {fileID: 1904579943}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &1767334147 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 9036515036433587647, guid: 82d142b5f172bee45b90de011104f1c0, type: 3}
-  m_PrefabInstance: {fileID: 1904579943}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1787553496 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6947449405330383281, guid: 09aade0ecefd01e4b8f7661acf64f5c2, type: 3}
@@ -1845,67 +1819,67 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scenePrefabInstances:
   - _gameObject: {fileID: 440665669}
-    _prefab: Assets/Environment/Prefabs/Environment_Prefab.prefab
+    _prefab: Assets/ThirdParty/Environment/Prefabs/Environment_Prefab.prefab
   - _gameObject: {fileID: 248227902}
-    _prefab: Assets/Environment/Art/Models/Ground_Mesh.fbx
+    _prefab: Assets/ThirdParty/Environment/Art/Models/Ground_Mesh.fbx
   - _gameObject: {fileID: 784471503}
-    _prefab: Assets/Environment/Prefabs/Structure_Prefab.prefab
+    _prefab: Assets/ThirdParty/Environment/Prefabs/Structure_Prefab.prefab
   - _gameObject: {fileID: 1614663797}
-    _prefab: Assets/Environment/Prefabs/Wall_Prefab.prefab
+    _prefab: Assets/ThirdParty/Environment/Prefabs/Wall_Prefab.prefab
   - _gameObject: {fileID: 795090879}
-    _prefab: Assets/Environment/Prefabs/Stairs_650_400_300_Prefab.prefab
+    _prefab: Assets/ThirdParty/Environment/Prefabs/Stairs_650_400_300_Prefab.prefab
   - _gameObject: {fileID: 1787553496}
-    _prefab: Assets/Environment/Prefabs/Box_100x100x100_Prefab.prefab
+    _prefab: Assets/ThirdParty/Environment/Prefabs/Box_100x100x100_Prefab.prefab
   - _gameObject: {fileID: 919932963}
-    _prefab: Assets/Environment/Prefabs/Box_100x100x100_Prefab.prefab
+    _prefab: Assets/ThirdParty/Environment/Prefabs/Box_100x100x100_Prefab.prefab
   - _gameObject: {fileID: 175653401}
-    _prefab: Assets/Environment/Prefabs/Box_100x100x100_Prefab.prefab
+    _prefab: Assets/ThirdParty/Environment/Prefabs/Box_100x100x100_Prefab.prefab
   - _gameObject: {fileID: 263275423}
-    _prefab: Assets/Environment/Prefabs/Box_100x100x100_Prefab.prefab
+    _prefab: Assets/ThirdParty/Environment/Prefabs/Box_100x100x100_Prefab.prefab
   - _gameObject: {fileID: 1172690700}
-    _prefab: Assets/Environment/Prefabs/Box_100x100x100_Prefab.prefab
+    _prefab: Assets/ThirdParty/Environment/Prefabs/Box_100x100x100_Prefab.prefab
   - _gameObject: {fileID: 1517285177}
-    _prefab: Assets/Environment/Prefabs/Box_100x100x100_Prefab.prefab
+    _prefab: Assets/ThirdParty/Environment/Prefabs/Box_100x100x100_Prefab.prefab
   - _gameObject: {fileID: 1451650545}
-    _prefab: Assets/Environment/Prefabs/Box_100x100x100_Prefab.prefab
+    _prefab: Assets/ThirdParty/Environment/Prefabs/Box_100x100x100_Prefab.prefab
   - _gameObject: {fileID: 743277972}
-    _prefab: Assets/Environment/Prefabs/Box_100x100x100_Prefab.prefab
+    _prefab: Assets/ThirdParty/Environment/Prefabs/Box_100x100x100_Prefab.prefab
   - _gameObject: {fileID: 570469403}
-    _prefab: Assets/Environment/Prefabs/Box_100x100x100_Prefab.prefab
+    _prefab: Assets/ThirdParty/Environment/Prefabs/Box_100x100x100_Prefab.prefab
   - _gameObject: {fileID: 1930390262}
-    _prefab: Assets/Environment/Prefabs/Box_100x100x100_Prefab.prefab
+    _prefab: Assets/ThirdParty/Environment/Prefabs/Box_100x100x100_Prefab.prefab
   - _gameObject: {fileID: 1184295114}
-    _prefab: Assets/Environment/Prefabs/Box_100x100x100_Prefab.prefab
+    _prefab: Assets/ThirdParty/Environment/Prefabs/Box_100x100x100_Prefab.prefab
   - _gameObject: {fileID: 15174060}
-    _prefab: Assets/Environment/Prefabs/Box_100x100x100_Prefab.prefab
+    _prefab: Assets/ThirdParty/Environment/Prefabs/Box_100x100x100_Prefab.prefab
   - _gameObject: {fileID: 1014237747}
-    _prefab: Assets/Environment/Prefabs/Box_100x100x100_Prefab.prefab
+    _prefab: Assets/ThirdParty/Environment/Prefabs/Box_100x100x100_Prefab.prefab
   - _gameObject: {fileID: 579291461}
-    _prefab: Assets/Environment/Prefabs/Box_100x100x100_Prefab.prefab
+    _prefab: Assets/ThirdParty/Environment/Prefabs/Box_100x100x100_Prefab.prefab
   - _gameObject: {fileID: 1881807557}
-    _prefab: Assets/Environment/Prefabs/Box_100x100x100_Prefab.prefab
+    _prefab: Assets/ThirdParty/Environment/Prefabs/Box_100x100x100_Prefab.prefab
   - _gameObject: {fileID: 575209779}
-    _prefab: Assets/Environment/Prefabs/Box_100x100x100_Prefab.prefab
+    _prefab: Assets/ThirdParty/Environment/Prefabs/Box_100x100x100_Prefab.prefab
   - _gameObject: {fileID: 1612362058}
-    _prefab: Assets/Environment/Prefabs/Box_100x100x100_Prefab.prefab
+    _prefab: Assets/ThirdParty/Environment/Prefabs/Box_100x100x100_Prefab.prefab
   - _gameObject: {fileID: 1927441586}
-    _prefab: Assets/Environment/Prefabs/Box_100x100x100_Prefab.prefab
+    _prefab: Assets/ThirdParty/Environment/Prefabs/Box_100x100x100_Prefab.prefab
   - _gameObject: {fileID: 316174634}
-    _prefab: Assets/Environment/Prefabs/Ramp_Prefab.prefab
+    _prefab: Assets/ThirdParty/Environment/Prefabs/Ramp_Prefab.prefab
   - _gameObject: {fileID: 1198280375}
-    _prefab: Assets/Environment/Prefabs/Tunnel_Prefab.prefab
+    _prefab: Assets/ThirdParty/Environment/Prefabs/Tunnel_Prefab.prefab
   - _gameObject: {fileID: 1993308723}
-    _prefab: Assets/Environment/Prefabs/Box_350x250x200_Prefab.prefab
+    _prefab: Assets/ThirdParty/Environment/Prefabs/Box_350x250x200_Prefab.prefab
   - _gameObject: {fileID: 869239994}
-    _prefab: Assets/Environment/Prefabs/Box_350x250x200_Prefab.prefab
+    _prefab: Assets/ThirdParty/Environment/Prefabs/Box_350x250x200_Prefab.prefab
   - _gameObject: {fileID: 1810691441}
-    _prefab: Assets/Environment/Prefabs/Box_350x250x300_Prefab.prefab
+    _prefab: Assets/ThirdParty/Environment/Prefabs/Box_350x250x300_Prefab.prefab
   - _gameObject: {fileID: 1313236051}
-    _prefab: Assets/Environment/Prefabs/Stairs_200x100x200_Prefab.prefab
+    _prefab: Assets/ThirdParty/Environment/Prefabs/Stairs_200x100x200_Prefab.prefab
   - _gameObject: {fileID: 1918337300}
-    _prefab: Assets/Environment/Prefabs/Stairs_200x100x200_Prefab.prefab
+    _prefab: Assets/ThirdParty/Environment/Prefabs/Stairs_200x100x200_Prefab.prefab
   - _gameObject: {fileID: 2146768000}
-    _prefab: Assets/Training_dummy/Prefab/training_dummy.prefab
+    _prefab: Assets/ThirdParty/Training_dummy/Prefab/training_dummy.prefab
   - _gameObject: {fileID: 1812660128}
     _prefab: Assets/Prefabs/Canvas.prefab
   - _gameObject: {fileID: 604607504}
@@ -1919,12 +1893,6 @@ MonoBehaviour:
   - _gameObject: {fileID: 546854843}
     _prefab: Assets/Prefabs/BarItem.prefab
   - _gameObject: {fileID: 672404624}
-    _prefab: Assets/Prefabs/BarItem.prefab
-  - _gameObject: {fileID: 1767334146}
-    _prefab: Assets/Prefabs/BarItem.prefab
-  - _gameObject: {fileID: 14857460}
-    _prefab: Assets/Prefabs/BarItem.prefab
-  - _gameObject: {fileID: 909165707}
     _prefab: Assets/Prefabs/BarItem.prefab
   - _gameObject: {fileID: 1103087447}
     _prefab: Assets/Prefabs/Player.prefab

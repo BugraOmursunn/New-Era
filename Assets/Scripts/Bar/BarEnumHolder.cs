@@ -11,3 +11,8 @@ public enum WeaponType
       Sword_1h,
       Sword_2h,
 }
+public enum SkillName
+{
+      Windfury,
+      SuperSlash,
+}

@@ -3,7 +3,7 @@ using System;
 
 public static class InputEventManager
 {
-	public static void InteractionHandler(BarItemData barItem, int skillIndex = 0)
+	public static void InteractionHandler(BarItemData barItem)
 	{
 		switch (barItem.barActionType)
 		{
@@ -11,11 +11,11 @@ public static class InputEventManager
 				InputEventManager.DrawWeapon.Invoke(barItem.weaponType);
 				break;
 			case BarActionTypes.Skill:
-				InputEventManager.CastSkill.Invoke(skillIndex);
+				InputEventManager.CastSkill.Invoke(barItem.skillData);
 				break;
 		}
 	}
 
 	public static Action<WeaponType> DrawWeapon;
-	public static Action<int> CastSkill;
+	public static Action<SkillData> CastSkill;
 }

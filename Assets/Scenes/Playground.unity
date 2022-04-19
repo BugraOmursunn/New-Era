@@ -416,6 +416,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInput: {fileID: 1191347185}
   barControllerData: {fileID: 11400000, guid: 70e76fe3850ae2640b05f5ba80c0eb12, type: 2}
+  barItemData: {fileID: 0}
   buttons:
   - {fileID: 604607505}
   - {fileID: 1896551649}
@@ -1532,6 +1533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - {fileID: 1294101409476956, guid: 231e3be01ac50c047bb16d07fd8d2ba5, type: 3}
+  - {fileID: 1645009922904612, guid: 5e3170c6ef0f014409bd7423e3bb805a, type: 3}
 --- !u!1 &1764214107
 GameObject:
   m_ObjectHideFlags: 0

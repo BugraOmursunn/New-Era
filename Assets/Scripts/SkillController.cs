@@ -15,11 +15,13 @@ public class SkillController : MonoBehaviour
 	{
 		InputEventManager.CastSkill -= CastSkill;
 	}
-	private void CastSkill(int index)
+	private void CastSkill(SkillData skillType)
 	{
-		var skill = Instantiate(prefabs[0]);
+		var skill = Instantiate(prefabs[skillType.skillIndex]);
+
 		skill.transform.position = new Vector3(this.transform.position.x, skill.transform.position.y, this.transform.position.z);
-		skill.transform.parent = this.transform;
+		//skill.transform.parent = this.transform;
+		skill.transform.rotation = Quaternion.Euler(0, this.transform.eulerAngles.y - 90, 0);
 		Destroy(skill, 3f);
 	}
 }

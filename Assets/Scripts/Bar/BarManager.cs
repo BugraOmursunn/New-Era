@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using UnityEditor.Build.Player;
 using UnityEngine;
@@ -10,7 +11,10 @@ public class BarManager : MonoBehaviour
 {
 	[SerializeField] private PlayerInput playerInput;
 	[SerializeField] private BarControllerData barControllerData;
-	[SerializeField] private BarItemData barItemData;
+	[SerializeField]
+	[CanBeNull]
+	private BarItemData barItemData;
+
 	[SerializeField] private Transform[] buttons;
 
 	private InputAction m_Press1;
@@ -94,20 +98,24 @@ public class BarManager : MonoBehaviour
 			m_PressedButtonIndex = 5;
 
 		barItemData = barControllerData.slots.barItems[m_PressedButtonIndex];
-		
-		switch (barItemData.barActionType)
+		if (barItemData != null)
 		{
-			case BarActionTypes.Weapon:
-				InputEventManager.InteractionHandler(barItemData, m_PressedButtonIndex);
-				break;
-			case BarActionTypes.Skill:
-				InputEventManager.InteractionHandler(barItemData, m_PressedButtonIndex);
-				break;
-			case BarActionTypes.Empty:
-				break;
-			case BarActionTypes.Item:
-				break;
+			InputEventManager.InteractionHandler(barItemData);
 		}
+
+		// switch (barItemData.barActionType)
+		// {
+		// 	case BarActionTypes.Weapon:
+		// 		InputEventManager.InteractionHandler(barItemData, m_PressedButtonIndex);
+		// 		break;
+		// 	case BarActionTypes.Skill:
+		// 		InputEventManager.InteractionHandler(barItemData, m_PressedButtonIndex);
+		// 		break;
+		// 	case BarActionTypes.Empty:
+		// 		break;
+		// 	case BarActionTypes.Item:
+		// 		break;
+		// }
 	}
 	// private void OnPress2(InputAction.CallbackContext context)
 	// {

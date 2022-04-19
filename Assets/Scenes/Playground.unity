@@ -414,7 +414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3f4939746460ff48b2628e9138ea2af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInput: {fileID: 0}
+  playerInput: {fileID: 1191347185}
   barControllerData: {fileID: 11400000, guid: 70e76fe3850ae2640b05f5ba80c0eb12, type: 2}
   buttons:
   - {fileID: 604607505}

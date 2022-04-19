@@ -98,6 +98,42 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Press3"",
+                    ""type"": ""Button"",
+                    ""id"": ""7ff9e8aa-4fda-42bc-a828-3c99677002ce"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Press4"",
+                    ""type"": ""Button"",
+                    ""id"": ""c3f5b3df-eb0e-448e-9149-a6be107d13ea"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Press5"",
+                    ""type"": ""Button"",
+                    ""id"": ""6e2402bd-9f6b-4919-a843-1e22b0c101cf"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Press6"",
+                    ""type"": ""Button"",
+                    ""id"": ""2cb5eb1a-c963-4e02-9150-0937cc0bc557"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -320,6 +356,50 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""action"": ""Press2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c75086f3-d89f-4a48-b3fd-7bd6008afa3b"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Press3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3c8e64a2-f982-4930-bc5b-eae851f68d2d"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Press4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d620217b-4834-4794-95c3-499a95e02018"",
+                    ""path"": ""<Keyboard>/5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Press5"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b468c8a0-873b-4cb1-970c-28f9662ee8f3"",
+                    ""path"": ""<Keyboard>/6"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Press6"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -384,6 +464,10 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_Press1 = m_Player.FindAction("Press1", throwIfNotFound: true);
         m_Player_Press2 = m_Player.FindAction("Press2", throwIfNotFound: true);
+        m_Player_Press3 = m_Player.FindAction("Press3", throwIfNotFound: true);
+        m_Player_Press4 = m_Player.FindAction("Press4", throwIfNotFound: true);
+        m_Player_Press5 = m_Player.FindAction("Press5", throwIfNotFound: true);
+        m_Player_Press6 = m_Player.FindAction("Press6", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -451,6 +535,10 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_Press1;
     private readonly InputAction m_Player_Press2;
+    private readonly InputAction m_Player_Press3;
+    private readonly InputAction m_Player_Press4;
+    private readonly InputAction m_Player_Press5;
+    private readonly InputAction m_Player_Press6;
     public struct PlayerActions
     {
         private @PlayerInputs m_Wrapper;
@@ -463,6 +551,10 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @Press1 => m_Wrapper.m_Player_Press1;
         public InputAction @Press2 => m_Wrapper.m_Player_Press2;
+        public InputAction @Press3 => m_Wrapper.m_Player_Press3;
+        public InputAction @Press4 => m_Wrapper.m_Player_Press4;
+        public InputAction @Press5 => m_Wrapper.m_Player_Press5;
+        public InputAction @Press6 => m_Wrapper.m_Player_Press6;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -496,6 +588,18 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 @Press2.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPress2;
                 @Press2.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPress2;
                 @Press2.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPress2;
+                @Press3.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPress3;
+                @Press3.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPress3;
+                @Press3.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPress3;
+                @Press4.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPress4;
+                @Press4.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPress4;
+                @Press4.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPress4;
+                @Press5.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPress5;
+                @Press5.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPress5;
+                @Press5.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPress5;
+                @Press6.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPress6;
+                @Press6.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPress6;
+                @Press6.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPress6;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -524,6 +628,18 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 @Press2.started += instance.OnPress2;
                 @Press2.performed += instance.OnPress2;
                 @Press2.canceled += instance.OnPress2;
+                @Press3.started += instance.OnPress3;
+                @Press3.performed += instance.OnPress3;
+                @Press3.canceled += instance.OnPress3;
+                @Press4.started += instance.OnPress4;
+                @Press4.performed += instance.OnPress4;
+                @Press4.canceled += instance.OnPress4;
+                @Press5.started += instance.OnPress5;
+                @Press5.performed += instance.OnPress5;
+                @Press5.canceled += instance.OnPress5;
+                @Press6.started += instance.OnPress6;
+                @Press6.performed += instance.OnPress6;
+                @Press6.canceled += instance.OnPress6;
             }
         }
     }
@@ -574,5 +690,9 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnPress1(InputAction.CallbackContext context);
         void OnPress2(InputAction.CallbackContext context);
+        void OnPress3(InputAction.CallbackContext context);
+        void OnPress4(InputAction.CallbackContext context);
+        void OnPress5(InputAction.CallbackContext context);
+        void OnPress6(InputAction.CallbackContext context);
     }
 }

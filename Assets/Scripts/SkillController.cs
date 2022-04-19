@@ -9,13 +9,13 @@ public class SkillController : MonoBehaviour
 
 	private void OnEnable()
 	{
-		InputEventManager.CastSkill1 += CastSkill;
+		InputEventManager.CastSkill += CastSkill;
 	}
 	private void OnDisable()
 	{
-		InputEventManager.CastSkill1 -= CastSkill;
+		InputEventManager.CastSkill -= CastSkill;
 	}
-	private void CastSkill()
+	private void CastSkill(int index)
 	{
 		var skill = Instantiate(prefabs[0]);
 		skill.transform.position = new Vector3(this.transform.position.x, skill.transform.position.y, this.transform.position.z);

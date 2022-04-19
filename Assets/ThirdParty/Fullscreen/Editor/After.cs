@@ -25,7 +25,7 @@ namespace FullscreenEditor {
 
                 if (condition()) {
                     EditorApplication.update -= update;
-                    callback();
+                    //callback();
                 }
             };
 

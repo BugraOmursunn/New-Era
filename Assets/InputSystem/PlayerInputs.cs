@@ -89,6 +89,15 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Press2"",
+                    ""type"": ""Button"",
+                    ""id"": ""8d1bcf1d-eb71-4fca-a12f-a1ad77d0974f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -300,6 +309,17 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""action"": ""Press1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""95bec630-de6e-4ee2-818f-b88e87f459cf"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Press2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -363,6 +383,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         m_Player_DrawWeapon = m_Player.FindAction("DrawWeapon", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_Press1 = m_Player.FindAction("Press1", throwIfNotFound: true);
+        m_Player_Press2 = m_Player.FindAction("Press2", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -429,6 +450,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_DrawWeapon;
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_Press1;
+    private readonly InputAction m_Player_Press2;
     public struct PlayerActions
     {
         private @PlayerInputs m_Wrapper;
@@ -440,6 +462,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         public InputAction @DrawWeapon => m_Wrapper.m_Player_DrawWeapon;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @Press1 => m_Wrapper.m_Player_Press1;
+        public InputAction @Press2 => m_Wrapper.m_Player_Press2;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -470,6 +493,9 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 @Press1.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPress1;
                 @Press1.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPress1;
                 @Press1.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPress1;
+                @Press2.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPress2;
+                @Press2.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPress2;
+                @Press2.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPress2;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -495,6 +521,9 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 @Press1.started += instance.OnPress1;
                 @Press1.performed += instance.OnPress1;
                 @Press1.canceled += instance.OnPress1;
+                @Press2.started += instance.OnPress2;
+                @Press2.performed += instance.OnPress2;
+                @Press2.canceled += instance.OnPress2;
             }
         }
     }
@@ -544,5 +573,6 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         void OnDrawWeapon(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnPress1(InputAction.CallbackContext context);
+        void OnPress2(InputAction.CallbackContext context);
     }
 }

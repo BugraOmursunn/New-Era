@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barItems:
   - {fileID: 11400000, guid: c2bb5f424785fa2409ff77b5854d09ad, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: bafd4abceb31d324aaf56961246d7ef2, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

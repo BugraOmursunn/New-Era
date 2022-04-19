@@ -11,6 +11,7 @@ public class BarManager : MonoBehaviour
 	[SerializeField] private Transform[] buttons;
 
 	private InputAction m_Press1;
+	private InputAction m_Press2;
 	//private InputAction m_DrawWeapon;
 
 	[SerializeField] private PlayerInputs playerInputs;
@@ -31,6 +32,10 @@ public class BarManager : MonoBehaviour
 		m_Press1.performed += OnPress1;
 		m_Press1.Enable();
 		
+		m_Press2 = playerInputs.Player.Press2;
+		m_Press2.performed += OnPress2;
+		m_Press2.Enable();
+		
 		
 		//m_Press1 = playerInput.actions["Press1"];
 		//m_Press1.performed += OnPress1;
@@ -50,6 +55,13 @@ public class BarManager : MonoBehaviour
 	private void OnPress1(InputAction.CallbackContext context)
 	{
 		InputEventManager.InteractionHandler(barControllerData.slots.barItems[0].barInteractionType);
+	}
+	private void OnPress2(InputAction.CallbackContext context)
+	{
+		Debug.Log(context.valueType);
+		Debug.Log(context.interaction);
+		Debug.Log(context.ToString());
+		InputEventManager.InteractionHandler(barControllerData.slots.barItems[1].barInteractionType);
 	}
 	
 	[Button]

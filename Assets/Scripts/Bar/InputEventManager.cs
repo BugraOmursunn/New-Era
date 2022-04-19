@@ -3,19 +3,19 @@ using System;
 
 public static class InputEventManager
 {
-	public static void InteractionHandler(BarItemData barItem, int skillIndex)
+	public static void InteractionHandler(BarItemData barItem, int skillIndex = 0)
 	{
-		switch (barItem.itemType)
+		switch (barItem.barActionType)
 		{
-			case BarItemTypes.Weapon:
-				InputEventManager.Draw2HWeapon.Invoke();
+			case BarActionTypes.Weapon:
+				InputEventManager.DrawWeapon.Invoke(barItem.weaponType);
 				break;
-			case BarItemTypes.Skill:
+			case BarActionTypes.Skill:
 				InputEventManager.CastSkill.Invoke(skillIndex);
 				break;
 		}
 	}
 
-	public static Action Draw2HWeapon;
+	public static Action<WeaponType> DrawWeapon;
 	public static Action<int> CastSkill;
 }

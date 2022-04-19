@@ -24,12 +24,12 @@ public class WeaponController : MonoBehaviour
 	private void OnEnable()
 	{
 		playerInputs.Enable();
-		InputEventManager.Draw2HWeapon += Draw2HWeapon;
+		InputEventManager.DrawWeapon += DrawWeapon;
 	}
 	private void OnDisable()
 	{
 		playerInputs.Disable();
-		InputEventManager.Draw2HWeapon -= Draw2HWeapon;
+		InputEventManager.DrawWeapon -= DrawWeapon;
 	}
 	private void Awake()
 	{
@@ -39,7 +39,7 @@ public class WeaponController : MonoBehaviour
 		m_attack.performed += _ => OnAttack();
 		m_attack.Enable();
 	}
-	private void Draw2HWeapon()
+	private void DrawWeapon(WeaponType weaponType)
 	{
 		isDraw = !isDraw;
 		if (isDraw)

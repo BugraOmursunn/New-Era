@@ -10,6 +10,7 @@ public class BarManager : MonoBehaviour
 {
 	[SerializeField] private PlayerInput playerInput;
 	[SerializeField] private BarControllerData barControllerData;
+	[SerializeField] private BarItemData barItemData;
 	[SerializeField] private Transform[] buttons;
 
 	private InputAction m_Press1;
@@ -45,19 +46,19 @@ public class BarManager : MonoBehaviour
 		m_Press3 = playerInputs.Player.Press3;
 		m_Press3.performed += BarSkillPressed;
 		m_Press3.Enable();
-		
+
 		m_Press4 = playerInputs.Player.Press4;
 		m_Press4.performed += BarSkillPressed;
 		m_Press4.Enable();
-		
+
 		m_Press5 = playerInputs.Player.Press5;
 		m_Press5.performed += BarSkillPressed;
 		m_Press5.Enable();
-		
+
 		m_Press6 = playerInputs.Player.Press6;
 		m_Press6.performed += BarSkillPressed;
 		m_Press6.Enable();
-		
+
 		//m_Press1 = playerInput.actions["Press1"];
 		//m_Press1.performed += OnPress1;
 		//m_DrawWeapon = playerInputs.Player.DrawWeapon;
@@ -71,25 +72,42 @@ public class BarManager : MonoBehaviour
 		}
 	}
 
+	private int m_PressedButtonIndex;
 	private void BarSkillPressed(InputAction.CallbackContext context)
 	{
 		if (context.action == m_Press1)
-			InputEventManager.InteractionHandler(barControllerData.slots.barItems[0], 0);
+			m_PressedButtonIndex = 0;
 
 		if (context.action == m_Press2)
-			InputEventManager.InteractionHandler(barControllerData.slots.barItems[1], 1);
-		
+			m_PressedButtonIndex = 1;
+
 		if (context.action == m_Press3)
-			InputEventManager.InteractionHandler(barControllerData.slots.barItems[2], 2);
-		
+			m_PressedButtonIndex = 2;
+
 		if (context.action == m_Press4)
-			InputEventManager.InteractionHandler(barControllerData.slots.barItems[3], 3);
-		
+			m_PressedButtonIndex = 3;
+
 		if (context.action == m_Press5)
-			InputEventManager.InteractionHandler(barControllerData.slots.barItems[4], 4);
-		
+			m_PressedButtonIndex = 4;
+
 		if (context.action == m_Press6)
-			InputEventManager.InteractionHandler(barControllerData.slots.barItems[5], 5);
+			m_PressedButtonIndex = 5;
+
+		barItemData = barControllerData.slots.barItems[m_PressedButtonIndex];
+		
+		switch (barItemData.barActionType)
+		{
+			case BarActionTypes.Weapon:
+				InputEventManager.InteractionHandler(barItemData, m_PressedButtonIndex);
+				break;
+			case BarActionTypes.Skill:
+				InputEventManager.InteractionHandler(barItemData, m_PressedButtonIndex);
+				break;
+			case BarActionTypes.Empty:
+				break;
+			case BarActionTypes.Item:
+				break;
+		}
 	}
 	// private void OnPress2(InputAction.CallbackContext context)
 	// {

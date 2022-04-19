@@ -19,6 +19,7 @@ public class SkillController : MonoBehaviour
 	{
 		var skill = Instantiate(prefabs[0]);
 		skill.transform.position = new Vector3(this.transform.position.x, skill.transform.position.y, this.transform.position.z);
+		skill.transform.parent = this.transform;
 		Destroy(skill, 3f);
 	}
 }

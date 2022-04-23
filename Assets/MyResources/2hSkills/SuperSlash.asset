@@ -16,6 +16,12 @@ MonoBehaviour:
   barActionType: 2
   skillData:
     skillName: 0
-    skillIndex: 1
+    skillPrefab: {fileID: 1645009922904612, guid: 5e3170c6ef0f014409bd7423e3bb805a, type: 3}
     activationTime: 0.3
-  weaponType: 0
+  weaponData:
+    weaponType: 0
+    weaponPrefab: {fileID: 0}
+    handAttachPos: {x: 0, y: 0, z: 0}
+    handAttachRot: {x: 0, y: 0, z: 0}
+    sheathAttachPos: {x: 0, y: 0, z: 0}
+    sheathAttachRot: {x: 0, y: 0, z: 0}

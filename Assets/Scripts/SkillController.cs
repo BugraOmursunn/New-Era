@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class SkillController : MonoBehaviour
 {
-	public GameObject[] prefabs;
-
+	private Animator animator;
 	private void OnEnable()
 	{
 		InputEventManager.CastSkill += CastSkill;
@@ -15,13 +14,29 @@ public class SkillController : MonoBehaviour
 	{
 		InputEventManager.CastSkill -= CastSkill;
 	}
-	private void CastSkill(SkillData skillType)
+	private void Awake()
 	{
-		var skill = Instantiate(prefabs[skillType.skillIndex]);
+		animator = this.GetComponent<Animator>();
+	}
+	private void CastSkill(SkillData skillData)
+	{
+		animator.SetTrigger("SwordSpin");
+		
+		StartCoroutine(Cast(skillData));
+	}
+	private IEnumerator Cast(SkillData skillData)
+	{
+		yield return new WaitForSeconds(skillData.activationTime);
+
+		var skill = Instantiate(skillData.skillPrefab);
 
 		skill.transform.position = new Vector3(this.transform.position.x, skill.transform.position.y, this.transform.position.z);
-		//skill.transform.parent = this.transform;
+
+		if (skillData.isChild == true)
+			skill.transform.parent = this.transform;
+
 		skill.transform.rotation = Quaternion.Euler(0, this.transform.eulerAngles.y - 90, 0);
+
 		Destroy(skill, 3f);
 	}
 }

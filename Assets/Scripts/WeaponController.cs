@@ -13,10 +13,11 @@ public class WeaponController : MonoBehaviour
 	private InputAction m_attack;
 
 	[SerializeField] private Transform hand;
-	[SerializeField] private Transform sword2hSpawnPos;
 
 	[SerializeField] private bool isHaveSword2h;
+	[SerializeField] private Transform sword2hSpawnPos;
 	[SerializeField] private GameObject sword2hPrefab;
+	
 	private Transform sword2hParent;
 	private Transform sword2hObject;
 	private void OnEnable()

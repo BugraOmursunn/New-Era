@@ -7,8 +7,10 @@ using System;
 public class SkillData
 {
 	public SkillName skillName;
-	public int skillIndex;
+	public GameObject skillPrefab;
+	public bool isChild;
 	public float activationTime;
+	
 }
 [Serializable]
 public class WeaponData

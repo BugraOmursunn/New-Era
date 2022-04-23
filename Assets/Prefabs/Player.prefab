@@ -1198,8 +1198,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hand: {fileID: 8626512282341172403}
-  sword2hSpawnPos: {fileID: 2719569588957798408}
   isHaveSword2h: 1
+  sword2hSpawnPos: {fileID: 2719569588957798408}
   sword2hPrefab: {fileID: 5012360810001529887, guid: 7ea70c8404821cc41a1c73b432440a1b, type: 3}
 --- !u!114 &1762682262
 MonoBehaviour:
@@ -1213,9 +1213,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d191181325ca30449b0937ecafabd59f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabs:
-  - {fileID: 1294101409476956, guid: 231e3be01ac50c047bb16d07fd8d2ba5, type: 3}
-  - {fileID: 1645009922904612, guid: 5e3170c6ef0f014409bd7423e3bb805a, type: 3}
 --- !u!1 &4523139366846529165
 GameObject:
   m_ObjectHideFlags: 0

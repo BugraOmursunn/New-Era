@@ -6,6 +6,7 @@
 // Based on code made by Forest Johnson (Yoggy) and xyber
 //
 
+using System;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ using System.Collections.Generic;
 public class MeleeWeaponTrail : MonoBehaviour
 {
 	[SerializeField]
-	bool _emit = true;
+	bool _emit = false;
 	public bool Emit { set{_emit = value;} }
 
 	bool _use = true;
@@ -66,7 +67,26 @@ public class MeleeWeaponTrail : MonoBehaviour
 	GameObject _trailObject;
 	Mesh _trailMesh;
 	Vector3 _lastPosition;
-
+	private void OnEnable()
+	{
+		InputEventManager.EnableWeaponTrail += EnableTrail;
+	}
+	void OnDisable()
+	{
+		InputEventManager.EnableWeaponTrail -= EnableTrail;
+		Destroy(_trailObject);
+	}
+	private void EnableTrail(float value)
+	{
+		_emit = true;
+		StartCoroutine(DisableTrail(value));
+	}
+	private IEnumerator DisableTrail(float value)
+	{
+		yield return new WaitForSeconds(value);
+		_emit = false;
+	}
+	
 	[System.Serializable]
 	public class Point
 	{
@@ -95,10 +115,7 @@ public class MeleeWeaponTrail : MonoBehaviour
 		_maxVertexDistanceSqr = _maxVertexDistance * _maxVertexDistance;
 	}
 
-	void OnDisable()
-	{
-		Destroy(_trailObject);
-	}
+
 
 	void Update()
 	{

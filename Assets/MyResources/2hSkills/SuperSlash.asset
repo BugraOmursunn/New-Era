@@ -15,8 +15,9 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 27919e65bf1574c468b0d2343b2b542e, type: 3}
   barActionType: 2
   skillData:
-    skillName: 0
+    skillName: 1
     skillPrefab: {fileID: 1645009922904612, guid: 5e3170c6ef0f014409bd7423e3bb805a, type: 3}
+    isChild: 0
     activationTime: 0.3
   weaponData:
     weaponType: 0

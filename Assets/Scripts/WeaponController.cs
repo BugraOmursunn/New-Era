@@ -2,15 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class WeaponController : MonoBehaviour
 {
-	private PlayerInputs playerInputs;
+	
 	private WeaponData weaponData;
 
 	private bool isDraw;
-	private InputAction m_attack;
+	
 
 	[SerializeField] private Transform hand;
 
@@ -20,24 +19,21 @@ public class WeaponController : MonoBehaviour
 	
 	private Transform sword2hParent;
 	private Transform sword2hObject;
+	
 	private void OnEnable()
 	{
-		playerInputs.Enable();
 		InputEventManager.DrawWeapon += DrawWeapon;
+		InputEventManager.Attack += OnAttack;
+		InputEventManager.IsDrawSword2h += IsDrawSword2h;
 	}
 	private void OnDisable()
 	{
-		playerInputs.Disable();
 		InputEventManager.DrawWeapon -= DrawWeapon;
+		InputEventManager.Attack -= OnAttack;
+		InputEventManager.IsDrawSword2h -= IsDrawSword2h;
 	}
 	private void Awake()
 	{
-		playerInputs = new PlayerInputs();
-
-		m_attack = playerInputs.Player.Attack;
-		m_attack.performed += _ => OnAttack();
-		m_attack.Enable();
-
 		if (isHaveSword2h)
 		{
 			GameObject sword2h = Instantiate(sword2hPrefab, sword2hSpawnPos);
@@ -71,6 +67,7 @@ public class WeaponController : MonoBehaviour
 		if (isDraw == true)
 		{
 			this.GetComponent<Animator>().SetTrigger("Attack");
+			InputEventManager.EnableWeaponTrail.Invoke(3);
 		}
 	}
 
@@ -86,5 +83,9 @@ public class WeaponController : MonoBehaviour
 		sword2hObject.parent = sword2hParent.transform;
 		sword2hObject.transform.localPosition = weaponData.sheathAttachPos;
 		sword2hObject.localRotation = Quaternion.Euler(weaponData.sheathAttachRot);
+	}
+	private bool IsDrawSword2h()
+	{
+		return isDraw;
 	}
 }

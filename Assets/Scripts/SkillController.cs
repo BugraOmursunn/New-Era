@@ -20,9 +20,20 @@ public class SkillController : MonoBehaviour
 	}
 	private void CastSkill(SkillData skillData)
 	{
-		animator.SetTrigger("SwordSpin");
-		
-		StartCoroutine(Cast(skillData));
+		switch (skillData.skillName)
+		{
+			case SkillName.Windfury:
+				if (InputEventManager.IsDrawSword2h() == false) return;
+
+				animator.SetTrigger("SwordSpin");
+				InputEventManager.EnableWeaponTrail.Invoke(3);
+				StartCoroutine(Cast(skillData));
+				break;
+			case SkillName.SuperSlash:
+				break;
+			default:
+				throw new ArgumentOutOfRangeException();
+		}
 	}
 	private IEnumerator Cast(SkillData skillData)
 	{

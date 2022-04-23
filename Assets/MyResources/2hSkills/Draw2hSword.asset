@@ -10,8 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f73eed4b98367d4a8a5e3caff0fa38d, type: 3}
-  m_Name: Draw
+  m_Name: Draw2hSword
   m_EditorClassIdentifier: 
-  barActionType: 1
-  weaponType: 2
   icon: {fileID: 21300000, guid: 7316db08996502d4595db505fe173a1e, type: 3}
+  barActionType: 1
+  skillData:
+    skillName: 0
+    skillIndex: 0
+    activationTime: 0
+  weaponData:
+    weaponType: 2
+    weaponPrefab: {fileID: 5012360810001529887, guid: 7ea70c8404821cc41a1c73b432440a1b, type: 3}
+    handAttachPos: {x: 0.0232, y: -0.0594, z: 0.0196}
+    handAttachRot: {x: 151.437, y: 18.817, z: 49.351}
+    sheathAttachPos: {x: 0, y: 0, z: 0}
+    sheathAttachRot: {x: 0, y: 0, z: 0}

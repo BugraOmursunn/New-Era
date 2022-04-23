@@ -11,9 +11,9 @@ public class BarManager : MonoBehaviour
 {
 	[SerializeField] private PlayerInput playerInput;
 	[SerializeField] private BarControllerData barControllerData;
-	[SerializeField]
+	
 	[CanBeNull]
-	private BarItemData barItemData;
+	private BarItemData m_BarItemData;
 
 	[SerializeField] private Transform[] buttons;
 
@@ -97,10 +97,10 @@ public class BarManager : MonoBehaviour
 		if (context.action == m_Press6)
 			m_PressedButtonIndex = 5;
 
-		barItemData = barControllerData.slots.barItems[m_PressedButtonIndex];
-		if (barItemData != null)
+		m_BarItemData = barControllerData.slots.barItems[m_PressedButtonIndex];
+		if (m_BarItemData != null)
 		{
-			InputEventManager.InteractionHandler(barItemData);
+			InputEventManager.InteractionHandler(m_BarItemData);
 		}
 
 		// switch (barItemData.barActionType)

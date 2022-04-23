@@ -416,7 +416,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInput: {fileID: 1191347185}
   barControllerData: {fileID: 11400000, guid: 70e76fe3850ae2640b05f5ba80c0eb12, type: 2}
-  barItemData: {fileID: 0}
   buttons:
   - {fileID: 604607505}
   - {fileID: 1896551649}
@@ -424,9 +423,6 @@ MonoBehaviour:
   - {fileID: 1371798283}
   - {fileID: 546854844}
   - {fileID: 672404625}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!4 &561768346
 Transform:
   m_ObjectHideFlags: 0
@@ -440,7 +436,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &561768347
 MonoBehaviour:
@@ -1433,40 +1429,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 130792120, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
-      propertyPath: handAttachPos.x
-      value: 0.0232
-      objectReference: {fileID: 0}
-    - target: {fileID: 130792120, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
-      propertyPath: handAttachPos.y
-      value: -0.0594
-      objectReference: {fileID: 0}
-    - target: {fileID: 130792120, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
-      propertyPath: handAttachPos.z
-      value: 0.0196
-      objectReference: {fileID: 0}
-    - target: {fileID: 130792120, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
-      propertyPath: handAttachRot.x
-      value: 151.437
-      objectReference: {fileID: 0}
-    - target: {fileID: 130792120, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
-      propertyPath: handAttachRot.y
-      value: 18.817
-      objectReference: {fileID: 0}
-    - target: {fileID: 130792120, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
-      propertyPath: handAttachRot.z
-      value: 49.351
-      objectReference: {fileID: 0}
-    - target: {fileID: 604531246, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.0354
-      objectReference: {fileID: 0}
-    - target: {fileID: 604531246, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.0354
-      objectReference: {fileID: 0}
-    - target: {fileID: 604531246, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.0354
+      propertyPath: isHaveSword2h
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3893294197879345259, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: m_RootOrder
@@ -1743,7 +1707,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6446199585473386887, guid: 82d142b5f172bee45b90de011104f1c0, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6446199585473386887, guid: 82d142b5f172bee45b90de011104f1c0, type: 3}
       propertyPath: m_AnchorMax.x

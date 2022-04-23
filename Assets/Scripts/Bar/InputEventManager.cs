@@ -8,7 +8,7 @@ public static class InputEventManager
 		switch (barItem.barActionType)
 		{
 			case BarActionTypes.Weapon:
-				InputEventManager.DrawWeapon.Invoke(barItem.weaponType);
+				InputEventManager.DrawWeapon.Invoke(barItem.weaponData);
 				break;
 			case BarActionTypes.Skill:
 				InputEventManager.CastSkill.Invoke(barItem.skillData);
@@ -16,6 +16,6 @@ public static class InputEventManager
 		}
 	}
 
-	public static Action<WeaponType> DrawWeapon;
+	public static Action<WeaponData> DrawWeapon;
 	public static Action<SkillData> CastSkill;
 }

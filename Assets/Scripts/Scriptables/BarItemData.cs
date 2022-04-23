@@ -16,5 +16,5 @@ public class BarItemData : ScriptableObject
 	public SkillData skillData;
 
 	[ShowIf("barActionType", BarActionTypes.Weapon)]
-	public WeaponType weaponType;
+	public WeaponData weaponData;
 }

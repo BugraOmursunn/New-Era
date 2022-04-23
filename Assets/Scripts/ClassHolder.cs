@@ -10,3 +10,16 @@ public class SkillData
 	public int skillIndex;
 	public float activationTime;
 }
+[Serializable]
+public class WeaponData
+{
+	public WeaponType weaponType;
+	
+	[Space(10)]
+	public GameObject weaponPrefab;
+	public Vector3 handAttachPos;
+	public Vector3 handAttachRot;
+	public Vector3 sheathAttachPos;
+	public Vector3 sheathAttachRot;
+	
+}

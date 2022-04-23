@@ -8,7 +8,7 @@ public enum BarActionTypes
 public enum WeaponType
 {
       Empty,
-      Sword_1h,
+      Sword_1h_shield,
       Sword_2h,
 }
 public enum SkillName

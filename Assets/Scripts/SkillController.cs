@@ -25,8 +25,8 @@ public class SkillController : MonoBehaviour
 			case SkillName.Windfury:
 				if (InputEventManager.IsDrawSword2h() == false) return;
 
-				animator.SetTrigger("SwordSpin");
-				InputEventManager.EnableWeaponTrail.Invoke(3);
+				animator.SetTrigger(skillData.skillAnimationTriggerName);
+				InputEventManager.EnableWeaponTrail.Invoke();
 				StartCoroutine(Cast(skillData));
 				break;
 			case SkillName.SuperSlash:
@@ -37,7 +37,7 @@ public class SkillController : MonoBehaviour
 	}
 	private IEnumerator Cast(SkillData skillData)
 	{
-		yield return new WaitForSeconds(skillData.activationTime);
+		yield return new WaitForSeconds(skillData.vfxActivationTime);
 
 		var skill = Instantiate(skillData.skillPrefab);
 

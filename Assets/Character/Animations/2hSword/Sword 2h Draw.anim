@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SheatSword
+  m_Name: Sword 2h Draw
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -34198,7 +34198,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: AttackWeaponToSheath
+    functionName: AttachWeaponToHand
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

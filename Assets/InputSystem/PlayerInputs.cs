@@ -134,6 +134,15 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MouseWheel"",
+                    ""type"": ""Value"",
+                    ""id"": ""cb3d5af8-ca79-4bf0-bc25-920f258e462f"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -400,6 +409,17 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""action"": ""Press6"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5aa63e72-93f8-4d1e-8a79-585560824c85"",
+                    ""path"": ""<Mouse>/scroll/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""MouseWheel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -468,6 +488,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         m_Player_Press4 = m_Player.FindAction("Press4", throwIfNotFound: true);
         m_Player_Press5 = m_Player.FindAction("Press5", throwIfNotFound: true);
         m_Player_Press6 = m_Player.FindAction("Press6", throwIfNotFound: true);
+        m_Player_MouseWheel = m_Player.FindAction("MouseWheel", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -539,6 +560,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Press4;
     private readonly InputAction m_Player_Press5;
     private readonly InputAction m_Player_Press6;
+    private readonly InputAction m_Player_MouseWheel;
     public struct PlayerActions
     {
         private @PlayerInputs m_Wrapper;
@@ -555,6 +577,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         public InputAction @Press4 => m_Wrapper.m_Player_Press4;
         public InputAction @Press5 => m_Wrapper.m_Player_Press5;
         public InputAction @Press6 => m_Wrapper.m_Player_Press6;
+        public InputAction @MouseWheel => m_Wrapper.m_Player_MouseWheel;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -600,6 +623,9 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 @Press6.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPress6;
                 @Press6.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPress6;
                 @Press6.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPress6;
+                @MouseWheel.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseWheel;
+                @MouseWheel.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseWheel;
+                @MouseWheel.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseWheel;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -640,6 +666,9 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 @Press6.started += instance.OnPress6;
                 @Press6.performed += instance.OnPress6;
                 @Press6.canceled += instance.OnPress6;
+                @MouseWheel.started += instance.OnMouseWheel;
+                @MouseWheel.performed += instance.OnMouseWheel;
+                @MouseWheel.canceled += instance.OnMouseWheel;
             }
         }
     }
@@ -694,5 +723,6 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         void OnPress4(InputAction.CallbackContext context);
         void OnPress5(InputAction.CallbackContext context);
         void OnPress6(InputAction.CallbackContext context);
+        void OnMouseWheel(InputAction.CallbackContext context);
     }
 }

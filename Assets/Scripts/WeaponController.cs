@@ -62,12 +62,16 @@ public class WeaponController : MonoBehaviour
 		}
 	}
 
+	private bool IsDrawSword2h()
+	{
+		return isDraw;
+	}
 	private void OnAttack()
 	{
 		if (isDraw == true)
 		{
 			this.GetComponent<Animator>().SetTrigger("Attack");
-			InputEventManager.EnableWeaponTrail.Invoke(3);
+			
 		}
 	}
 
@@ -84,8 +88,12 @@ public class WeaponController : MonoBehaviour
 		sword2hObject.transform.localPosition = weaponData.sheathAttachPos;
 		sword2hObject.localRotation = Quaternion.Euler(weaponData.sheathAttachRot);
 	}
-	private bool IsDrawSword2h()
+	public void EnableWeaponTrail()
 	{
-		return isDraw;
+		InputEventManager.EnableWeaponTrail.Invoke();
+	}
+	public void DisableWeaponTrail()
+	{
+		InputEventManager.DisableWeaponTrail.Invoke();
 	}
 }

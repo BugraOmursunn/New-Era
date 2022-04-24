@@ -16,10 +16,10 @@ public class MeleeWeaponTrail : MonoBehaviour
 {
 	[SerializeField]
 	bool _emit = false;
-	public bool Emit { set{_emit = value;} }
+	public bool Emit { set { _emit = value; } }
 
 	bool _use = true;
-	public bool Use { set{_use = value;} }
+	public bool Use { set { _use = value; } }
 
 	[SerializeField]
 	float _emitTime = 0.0f;
@@ -50,10 +50,10 @@ public class MeleeWeaponTrail : MonoBehaviour
 	[SerializeField]
 	bool _autoDestruct = false;
 
-#if USE_INTERPOLATION
+	#if USE_INTERPOLATION
 	[SerializeField]
 	int subdivisions = 4;
-#endif
+	#endif
 
 	[SerializeField]
 	Transform _base;
@@ -61,32 +61,33 @@ public class MeleeWeaponTrail : MonoBehaviour
 	Transform _tip;
 
 	List<Point> _points = new List<Point>();
-#if USE_INTERPOLATION
+	#if USE_INTERPOLATION
 	List<Point> _smoothedPoints = new List<Point>();
-#endif
+	#endif
 	GameObject _trailObject;
 	Mesh _trailMesh;
 	Vector3 _lastPosition;
 	private void OnEnable()
 	{
-		InputEventManager.EnableWeaponTrail += EnableTrail;
+		InputEventManager.EnableWeaponTrail += EnableWeaponTrail;
+		InputEventManager.DisableWeaponTrail += DisableWeaponTrail;
 	}
 	void OnDisable()
 	{
-		InputEventManager.EnableWeaponTrail -= EnableTrail;
+		InputEventManager.EnableWeaponTrail -= EnableWeaponTrail;
+		InputEventManager.DisableWeaponTrail -= DisableWeaponTrail;
 		Destroy(_trailObject);
 	}
-	private void EnableTrail(float value)
+	public void EnableWeaponTrail()
 	{
 		_emit = true;
-		StartCoroutine(DisableTrail(value));
+		//Invoke("DisableWeaponTrail", 3f);
 	}
-	private IEnumerator DisableTrail(float value)
+	public void DisableWeaponTrail()
 	{
-		yield return new WaitForSeconds(value);
 		_emit = false;
 	}
-	
+
 	[System.Serializable]
 	public class Point
 	{
@@ -170,7 +171,7 @@ public class MeleeWeaponTrail : MonoBehaviour
 					_lastPosition = transform.position;
 
 
-#if USE_INTERPOLATION
+					#if USE_INTERPOLATION
 					if (_points.Count == 1)
 					{
 						_smoothedPoints.Add(p);
@@ -178,7 +179,7 @@ public class MeleeWeaponTrail : MonoBehaviour
 					else if (_points.Count > 1)
 					{
 						// add 1+subdivisions for every possible pair in the _points
-						for (int n = 0; n < 1+subdivisions; ++n)
+						for (int n = 0; n < 1 + subdivisions; ++n)
 							_smoothedPoints.Add(p);
 					}
 
@@ -213,8 +214,7 @@ public class MeleeWeaponTrail : MonoBehaviour
 
 						for (int n = 0; n < smoothTipList.Count; ++n)
 						{
-
-							int idx = _smoothedPoints.Count - (smoothTipList.Count-n);
+							int idx = _smoothedPoints.Count - (smoothTipList.Count - n);
 							// there are moments when the _smoothedPoints are lesser
 							// than what is required, when elements from it are removed
 							if (idx > -1 && idx < _smoothedPoints.Count)
@@ -222,7 +222,7 @@ public class MeleeWeaponTrail : MonoBehaviour
 								Point sp = new Point();
 								sp.basePosition = smoothBaseList[n];
 								sp.tipPosition = smoothTipList[n];
-								sp.timeCreated = Mathf.Lerp(firstTime, secondTime, (float)n/smoothTipList.Count);
+								sp.timeCreated = Mathf.Lerp(firstTime, secondTime, (float)n / smoothTipList.Count);
 								_smoothedPoints[idx] = sp;
 							}
 							//else
@@ -231,7 +231,7 @@ public class MeleeWeaponTrail : MonoBehaviour
 							//}
 						}
 					}
-#endif
+					#endif
 				}
 				else
 				{
@@ -239,10 +239,10 @@ public class MeleeWeaponTrail : MonoBehaviour
 					_points[_points.Count - 1].tipPosition = _tip.position;
 					//_points[_points.Count - 1].timeCreated = Time.time;
 
-#if USE_INTERPOLATION
+					#if USE_INTERPOLATION
 					_smoothedPoints[_smoothedPoints.Count - 1].basePosition = _base.position;
 					_smoothedPoints[_smoothedPoints.Count - 1].tipPosition = _tip.position;
-#endif
+					#endif
 				}
 			}
 			else
@@ -254,13 +254,13 @@ public class MeleeWeaponTrail : MonoBehaviour
 					//_points[_points.Count - 1].timeCreated = Time.time;
 				}
 
-#if USE_INTERPOLATION
+				#if USE_INTERPOLATION
 				if (_smoothedPoints.Count > 0)
 				{
 					_smoothedPoints[_smoothedPoints.Count - 1].basePosition = _base.position;
 					_smoothedPoints[_smoothedPoints.Count - 1].tipPosition = _tip.position;
 				}
-#endif
+				#endif
 			}
 		}
 
@@ -272,20 +272,20 @@ public class MeleeWeaponTrail : MonoBehaviour
 			_trailMesh.Clear();
 		}
 
-#if USE_INTERPOLATION
+		#if USE_INTERPOLATION
 		RemoveOldPoints(_smoothedPoints);
 		if (_smoothedPoints.Count == 0)
 		{
 			_trailMesh.Clear();
 		}
-#endif
+		#endif
 
 
-#if USE_INTERPOLATION
+		#if USE_INTERPOLATION
 		List<Point> pointsToUse = _smoothedPoints;
-#else
+		#else
 		List<Point> pointsToUse = _points;
-#endif
+		#endif
 
 		if (pointsToUse.Count > 1)
 		{
@@ -306,8 +306,10 @@ public class MeleeWeaponTrail : MonoBehaviour
 					float min = Mathf.Floor(colorTime);
 					float max = Mathf.Clamp(Mathf.Ceil(colorTime), 1, _colors.Length - 1);
 					float lerp = Mathf.InverseLerp(min, max, colorTime);
-					if (min >= _colors.Length) min = _colors.Length - 1; if (min < 0) min = 0;
-					if (max >= _colors.Length) max = _colors.Length - 1; if (max < 0) max = 0;
+					if (min >= _colors.Length) min = _colors.Length - 1;
+					if (min < 0) min = 0;
+					if (max >= _colors.Length) max = _colors.Length - 1;
+					if (max < 0) max = 0;
 					color = Color.Lerp(_colors[(int)min], _colors[(int)max], lerp);
 				}
 
@@ -318,8 +320,10 @@ public class MeleeWeaponTrail : MonoBehaviour
 					float min = Mathf.Floor(sizeTime);
 					float max = Mathf.Clamp(Mathf.Ceil(sizeTime), 1, _sizes.Length - 1);
 					float lerp = Mathf.InverseLerp(min, max, sizeTime);
-					if (min >= _sizes.Length) min = _sizes.Length - 1; if (min < 0) min = 0;
-					if (max >= _sizes.Length) max = _sizes.Length - 1; if (max < 0) max = 0;
+					if (min >= _sizes.Length) min = _sizes.Length - 1;
+					if (min < 0) min = 0;
+					if (max >= _sizes.Length) max = _sizes.Length - 1;
+					if (max < 0) max = 0;
 					size = Mathf.Lerp(_sizes[(int)min], _sizes[(int)max], lerp);
 				}
 
@@ -330,7 +334,7 @@ public class MeleeWeaponTrail : MonoBehaviour
 
 				newColors[n * 2] = newColors[(n * 2) + 1] = color;
 
-				float uvRatio = (float)n/pointsToUse.Count;
+				float uvRatio = (float)n / pointsToUse.Count;
 				newUV[n * 2] = new Vector2(uvRatio, 0);
 				newUV[(n * 2) + 1] = new Vector2(uvRatio, 1);
 

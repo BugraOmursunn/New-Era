@@ -10,7 +10,13 @@ public static class InputEventManager
 	#region Weapon Region
 	public static Action Attack;
 	public static Func<bool> IsDrawSword2h;
-	public static Action<float> EnableWeaponTrail;
+	public static Action EnableWeaponTrail;
+	public static Action DisableWeaponTrail;
+	#endregion
+
+	#region Camera Region
+	public static Action<float> ChangeCameraZoomValue;
+
 	#endregion
 	
 	#region Bottom Bar Interaction Region

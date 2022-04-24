@@ -7,9 +7,11 @@ using System;
 public class SkillData
 {
 	public SkillName skillName;
-	public GameObject skillPrefab;
 	public bool isChild;
-	public float activationTime;
+	public GameObject skillPrefab;
+	public AnimationClip skillAnimation;
+	public string skillAnimationTriggerName;
+	public float vfxActivationTime;
 	
 }
 [Serializable]

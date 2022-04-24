@@ -16,9 +16,11 @@ MonoBehaviour:
   barActionType: 2
   skillData:
     skillName: 0
-    skillPrefab: {fileID: 1294101409476956, guid: 231e3be01ac50c047bb16d07fd8d2ba5, type: 3}
     isChild: 1
-    activationTime: 1.1
+    skillPrefab: {fileID: 1294101409476956, guid: 231e3be01ac50c047bb16d07fd8d2ba5, type: 3}
+    skillAnimation: {fileID: 7400000, guid: 3b7471c4f8b1071468e9bb3f23f6e53b, type: 2}
+    skillAnimationTriggerName: SwordSpin
+    vfxActivationTime: 1.1
   weaponData:
     weaponType: 0
     weaponPrefab: {fileID: 0}

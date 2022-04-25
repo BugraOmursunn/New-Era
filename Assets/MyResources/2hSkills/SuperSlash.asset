@@ -16,9 +16,12 @@ MonoBehaviour:
   barActionType: 2
   skillData:
     skillName: 1
-    skillPrefab: {fileID: 1645009922904612, guid: 5e3170c6ef0f014409bd7423e3bb805a, type: 3}
     isChild: 0
-    activationTime: 0.3
+    skillPrefab: {fileID: 1645009922904612, guid: 5e3170c6ef0f014409bd7423e3bb805a, type: 3}
+    skillAnimation: {fileID: 7400000, guid: b1f076624d163034390c36f4491f3181, type: 2}
+    skillAnimationTriggerName: SwordSlash
+    vfxActivationTime: 1
+    offSet: {x: 0, y: 0, z: 1}
   weaponData:
     weaponType: 0
     weaponPrefab: {fileID: 0}

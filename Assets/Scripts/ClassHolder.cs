@@ -12,7 +12,7 @@ public class SkillData
 	public AnimationClip skillAnimation;
 	public string skillAnimationTriggerName;
 	public float vfxActivationTime;
-	
+	public Vector3 offSet;
 }
 [Serializable]
 public class WeaponData

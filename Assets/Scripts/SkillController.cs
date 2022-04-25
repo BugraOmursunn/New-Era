@@ -20,34 +20,25 @@ public class SkillController : MonoBehaviour
 	}
 	private void CastSkill(SkillData skillData)
 	{
-		switch (skillData.skillName)
-		{
-			case SkillName.Windfury:
-				if (InputEventManager.IsDrawSword2h() == false) return;
+		if (InputEventManager.IsDrawSword2h() == false) return;
 
-				animator.SetTrigger(skillData.skillAnimationTriggerName);
-				InputEventManager.EnableWeaponTrail.Invoke();
-				StartCoroutine(Cast(skillData));
-				break;
-			case SkillName.SuperSlash:
-				break;
-			default:
-				throw new ArgumentOutOfRangeException();
-		}
+		animator.SetTrigger(skillData.skillAnimationTriggerName);
+		InputEventManager.EnableWeaponTrail.Invoke();
+		StartCoroutine(Cast(skillData));
 	}
 	private IEnumerator Cast(SkillData skillData)
 	{
 		yield return new WaitForSeconds(skillData.vfxActivationTime);
 
 		var skill = Instantiate(skillData.skillPrefab);
+		skill.transform.parent = this.transform;
 
-		skill.transform.position = new Vector3(this.transform.position.x, skill.transform.position.y, this.transform.position.z);
-
-		if (skillData.isChild == true)
-			skill.transform.parent = this.transform;
+		skill.transform.localPosition = new Vector3(0, skill.transform.position.y, 0) + skillData.offSet;
 
 		skill.transform.rotation = Quaternion.Euler(0, this.transform.eulerAngles.y - 90, 0);
 
+		if (skillData.isChild == false)
+			skill.transform.parent = null;
 		Destroy(skill, 3f);
 	}
 }

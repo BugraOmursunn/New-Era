@@ -1,0 +1,16 @@
+{
+    "name": "ProceduralWorlds.Flora.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "GUID:ada6ffdf92885be4f87253b75159889e"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bf996bd940696a4b814912e16c3d5ac, type: 3}
+  m_Name: Coniferous Forest
+  m_EditorClassIdentifier: 
+  m_orderNumber: 30
+  m_spawnerPresetList:
+  - m_autoAssignPrototypes: 1
+    m_spawnerSettings: {fileID: 11400000, guid: 92014ebc238c9b042b8ebd03ede0ae6c,
+      type: 2}
+    m_isActiveInStamper: 1
+    m_isActiveInBiome: 1
+  - m_autoAssignPrototypes: 0
+    m_spawnerSettings: {fileID: 11400000, guid: 42783e224555be04a8da9de392846bec,
+      type: 2}
+    m_isActiveInStamper: 0
+    m_isActiveInBiome: 1
+  - m_autoAssignPrototypes: 0
+    m_spawnerSettings: {fileID: 11400000, guid: be45de93ac1acaa4bbba541897d92a84,
+      type: 2}
+    m_isActiveInStamper: 0
+    m_isActiveInBiome: 1
+  - m_autoAssignPrototypes: 0
+    m_spawnerSettings: {fileID: 11400000, guid: c0afb538dc1aaed4aa4f1c5f21a5b381,
+      type: 2}
+    m_isActiveInStamper: 0
+    m_isActiveInBiome: 1
+  - m_autoAssignPrototypes: 0
+    m_spawnerSettings: {fileID: 11400000, guid: 842981c28b406bf4facaca0bfe512783,
+      type: 2}
+    m_isActiveInStamper: 0
+    m_isActiveInBiome: 1
+  - m_autoAssignPrototypes: 0
+    m_spawnerSettings: {fileID: 11400000, guid: e574ae7c26e4cf94fa4fb71b50a53719,
+      type: 2}
+    m_isActiveInStamper: 0
+    m_isActiveInBiome: 1
+  - m_autoAssignPrototypes: 0
+    m_spawnerSettings: {fileID: 11400000, guid: 7bd1fa2d61711a740a0cf61873b7f0f6,
+      type: 2}
+    m_isActiveInStamper: 0
+    m_isActiveInBiome: 1
+  - m_autoAssignPrototypes: 0
+    m_spawnerSettings: {fileID: 11400000, guid: 77ba2ce7e0fb98840ac592e5c3e1799e,
+      type: 2}
+    m_isActiveInStamper: 0
+    m_isActiveInBiome: 1
+  - m_autoAssignPrototypes: 0
+    m_spawnerSettings: {fileID: 11400000, guid: 8d6a62ca23c667044a79007493745b2a,
+      type: 2}
+    m_isActiveInStamper: 0
+    m_isActiveInBiome: 1
+  - m_autoAssignPrototypes: 0
+    m_spawnerSettings: {fileID: 11400000, guid: 3923c73850f65da48904a3ca1d71323b,
+      type: 2}
+    m_isActiveInStamper: 0
+    m_isActiveInBiome: 1
+  - m_autoAssignPrototypes: 0
+    m_spawnerSettings: {fileID: 11400000, guid: ff63b1be1527e604798843e16cab5efd,
+      type: 2}
+    m_isActiveInStamper: 0
+    m_isActiveInBiome: 1
+  - m_autoAssignPrototypes: 0
+    m_spawnerSettings: {fileID: 11400000, guid: 00c3de748a615d44cbf5b1dbb805f31a,
+      type: 2}
+    m_isActiveInStamper: 0
+    m_isActiveInBiome: 1
+  m_postProcessingProfileGUID: 
+  m_gaiaSceneCullingProfile: {fileID: 11400000, guid: c5a436a8cd9db7343a67bee073f8e180,
+    type: 2}

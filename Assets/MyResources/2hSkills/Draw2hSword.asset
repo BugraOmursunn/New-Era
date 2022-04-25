@@ -16,8 +16,11 @@ MonoBehaviour:
   barActionType: 1
   skillData:
     skillName: 0
-    skillIndex: 0
-    activationTime: 0
+    isChild: 0
+    skillPrefab: {fileID: 0}
+    skillAnimation: {fileID: 0}
+    skillAnimationTriggerName: 
+    vfxActivationTime: 0
   weaponData:
     weaponType: 2
     weaponPrefab: {fileID: 5012360810001529887, guid: 7ea70c8404821cc41a1c73b432440a1b, type: 3}

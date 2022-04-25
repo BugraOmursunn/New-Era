@@ -6,6 +6,12 @@ TagManager:
   tags:
   - CinemachineTarget
   - MinimapIcon
+  - PW - Nature
+  - PW - Prop
+  - PW - Building
+  - Synty Tree
+  - Synty Medium Farm
+  - Synty Small Farm
   layers:
   - Default
   - TransparentFX
@@ -16,10 +22,10 @@ TagManager:
   - Minimap
   - Environment
   - IgnoreMinimap
-  - 
-  - 
-  - 
-  - 
+  - PW_VFX
+  - PW_Object_Small
+  - PW_Object_Medium
+  - PW_Object_Large
   - 
   - 
   - 

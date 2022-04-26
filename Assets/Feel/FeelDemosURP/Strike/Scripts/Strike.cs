@@ -3,6 +3,7 @@ using MoreMountains.Feedbacks;
 using System.Collections;
 using System.Collections.Generic;
 using MoreMountains.Tools;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -176,25 +177,26 @@ namespace MoreMountains.Feel
         /// <summary>
         /// On Update we look for input
         /// </summary>
-        protected virtual void Update()
-        {
-            HandleInput();
-        }
+        // protected virtual void Update()
+        // {
+        //     HandleInput();
+        // }
 
         /// <summary>
         /// Detects input
         /// </summary>
-        protected virtual void HandleInput()
-        {
-            if (Input.GetKeyDown(ActionKey) || Input.GetKeyDown(ActionKeyAlt))
-            {
-                StartBall();
-            }
-        }
+        // protected virtual void HandleInput()
+        // {
+        //     if (Input.GetKeyDown(ActionKey) || Input.GetKeyDown(ActionKeyAlt))
+        //     {
+        //         StartBall();
+        //     }
+        // }
 
         /// <summary>
         /// Performs a jump if possible, otherwise plays a denied feedback
         /// </summary>
+        [Button]
         protected virtual void StartBall()
         {
             if (!_ballThrown)

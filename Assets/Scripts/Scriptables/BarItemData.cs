@@ -8,6 +8,7 @@ using UnityEngine.Rendering;
 [CreateAssetMenu(fileName = "BarItemData", menuName = "BarItems/BarItemData", order = 1)]
 public class BarItemData : ScriptableObject
 {
+
 	public Sprite icon;
 
 	public BarActionTypes barActionType;

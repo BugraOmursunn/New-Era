@@ -21,6 +21,8 @@ MonoBehaviour:
     skillAnimation: {fileID: 7400000, guid: 3b7471c4f8b1071468e9bb3f23f6e53b, type: 2}
     skillAnimationTriggerName: SwordSpin
     vfxActivationTime: 1.1
+    offSet: {x: 0, y: 0, z: 0}
+    cooldown: 4
   weaponData:
     weaponType: 0
     weaponPrefab: {fileID: 0}
@@ -28,3 +30,4 @@ MonoBehaviour:
     handAttachRot: {x: 0, y: 0, z: 0}
     sheathAttachPos: {x: 0, y: 0, z: 0}
     sheathAttachRot: {x: 0, y: 0, z: 0}
+    cooldown: 0

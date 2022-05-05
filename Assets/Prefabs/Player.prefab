@@ -1037,8 +1037,7 @@ GameObject:
   - component: {fileID: 5885216827943657505}
   - component: {fileID: 135756642000475821}
   - component: {fileID: 4166964280473151425}
-  - component: {fileID: 130792120}
-  - component: {fileID: 1762682262}
+  - component: {fileID: 1762682269}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -1185,7 +1184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minimapData: {fileID: 11400000, guid: ac882226e56121d4aae57a5a6f90ed78, type: 2}
   iconType: 0
---- !u!114 &130792120
+--- !u!114 &1762682269
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1197,22 +1196,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8df44e3bfeb2b44bac1e98190e777be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAnimator: {fileID: 6982812146204527121}
   hand: {fileID: 8626512282341172403}
   isHaveSword2h: 1
   sword2hSpawnPos: {fileID: 2719569588957798408}
   sword2hPrefab: {fileID: 5012360810001529887, guid: 7ea70c8404821cc41a1c73b432440a1b, type: 3}
---- !u!114 &1762682262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4416926081852918481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d191181325ca30449b0937ecafabd59f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4523139366846529165
 GameObject:
   m_ObjectHideFlags: 0

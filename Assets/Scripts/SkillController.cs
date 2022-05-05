@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class SkillController : MonoBehaviour
 {
-	private Animator animator;
+	[SerializeField] private Animator playerAnimator;
+	private Transform playerTransform;
 	private void OnEnable()
 	{
 		InputEventManager.CastSkill += CastSkill;
@@ -16,13 +17,13 @@ public class SkillController : MonoBehaviour
 	}
 	private void Awake()
 	{
-		animator = this.GetComponent<Animator>();
+		playerTransform = playerAnimator.transform;
 	}
 	private void CastSkill(SkillData skillData)
 	{
 		if (InputEventManager.IsDrawSword2h() == false) return;
 
-		animator.SetTrigger(skillData.skillAnimationTriggerName);
+		playerAnimator.SetTrigger(skillData.skillAnimationTriggerName);
 		InputEventManager.EnableWeaponTrail.Invoke();
 		StartCoroutine(Cast(skillData));
 	}
@@ -31,11 +32,11 @@ public class SkillController : MonoBehaviour
 		yield return new WaitForSeconds(skillData.vfxActivationTime);
 
 		var skill = Instantiate(skillData.skillPrefab);
-		skill.transform.parent = this.transform;
+		skill.transform.parent = playerTransform;
 
 		skill.transform.localPosition = new Vector3(0, skill.transform.position.y, 0) + skillData.offSet;
 
-		skill.transform.rotation = Quaternion.Euler(0, this.transform.eulerAngles.y - 90, 0);
+		skill.transform.rotation = Quaternion.Euler(0, playerTransform.eulerAngles.y - 90, 0);
 
 		if (skillData.isChild == false)
 			skill.transform.parent = null;

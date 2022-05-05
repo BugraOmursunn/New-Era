@@ -5,21 +5,21 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
-	
+	[SerializeField] private Animator playerAnimator;
+
 	private WeaponData weaponData;
 
 	private bool isDraw;
-	
 
 	[SerializeField] private Transform hand;
 
 	[SerializeField] private bool isHaveSword2h;
 	[SerializeField] private Transform sword2hSpawnPos;
 	[SerializeField] private GameObject sword2hPrefab;
-	
+
 	private Transform sword2hParent;
 	private Transform sword2hObject;
-	
+
 	private void OnEnable()
 	{
 		InputEventManager.DrawWeapon += DrawWeapon;
@@ -53,9 +53,9 @@ public class WeaponController : MonoBehaviour
 			case WeaponType.Sword_1h_shield:
 				break;
 			case WeaponType.Sword_2h:
-				this.GetComponent<Animator>().SetTrigger(isDraw ? "Draw2hSword" : "Sheath2hSword");
-				this.GetComponent<Animator>().SetBool("isEmptyHand", !isDraw);
-				this.GetComponent<Animator>().SetBool("is2hDraw", isDraw);
+				playerAnimator.SetTrigger(isDraw ? "Draw2hSword" : "Sheath2hSword");
+				playerAnimator.SetBool("isEmptyHand", !isDraw);
+				playerAnimator.SetBool("is2hDraw", isDraw);
 				break;
 			default:
 				throw new ArgumentOutOfRangeException();
@@ -70,8 +70,7 @@ public class WeaponController : MonoBehaviour
 	{
 		if (isDraw == true)
 		{
-			this.GetComponent<Animator>().SetTrigger("Attack");
-			
+			playerAnimator.SetTrigger("Attack");
 		}
 	}
 

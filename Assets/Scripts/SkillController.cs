@@ -40,6 +40,7 @@ public class SkillController : MonoBehaviour
 
 		if (skillData.isChild == false)
 			skill.transform.parent = null;
+		
 		Destroy(skill, 3f);
 	}
 }

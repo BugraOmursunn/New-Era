@@ -1038,6 +1038,7 @@ GameObject:
   - component: {fileID: 135756642000475821}
   - component: {fileID: 4166964280473151425}
   - component: {fileID: 1762682269}
+  - component: {fileID: 7776216945171169455}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -1201,6 +1202,465 @@ MonoBehaviour:
   isHaveSword2h: 1
   sword2hSpawnPos: {fileID: 2719569588957798408}
   sword2hPrefab: {fileID: 5012360810001529887, guid: 7ea70c8404821cc41a1c73b432440a1b, type: 3}
+--- !u!114 &7776216945171169455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4416926081852918481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a70e525c82ce9413fa4d940ad7fcf1db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fixTransforms: 0
+  references:
+    root: {fileID: 3893294197879345259}
+    pelvis: {fileID: 7898439671699593946}
+    leftThigh: {fileID: 6983258932120580808}
+    leftCalf: {fileID: 4329760479032487968}
+    leftFoot: {fileID: 3283115190892659225}
+    rightThigh: {fileID: 2105937543855322119}
+    rightCalf: {fileID: 557817384646886437}
+    rightFoot: {fileID: 3726617517853789496}
+    leftUpperArm: {fileID: 8519642851085155206}
+    leftForearm: {fileID: 2857373400946456485}
+    leftHand: {fileID: 9186500496127808867}
+    rightUpperArm: {fileID: 669041985738091607}
+    rightForearm: {fileID: 8322255484584408707}
+    rightHand: {fileID: 8626512282341172403}
+    head: {fileID: 6044159111065775861}
+    spine:
+    - {fileID: 7095431021522030924}
+    - {fileID: 2719569588957798408}
+    eyes: []
+  solver:
+    executedInEditor: 0
+    IKPosition: {x: 0, y: 0, z: 0}
+    IKPositionWeight: 1
+    root: {fileID: 3893294197879345259}
+    iterations: 4
+    chain:
+    - pin: 0
+      pull: 1
+      push: 0
+      pushParent: 0
+      reach: 0.05
+      reachSmoothing: 0
+      pushSmoothing: 1
+      nodes:
+      - transform: {fileID: 2719569588957798408}
+        weight: 1
+        solverPosition: {x: -3.8320358, y: 1.0674706, z: 7.4343743}
+        solverRotation: {x: 0, y: 0, z: 0, w: 1}
+        defaultLocalPosition: {x: 0, y: 0, z: 0}
+        defaultLocalRotation: {x: 0, y: 0, z: 0, w: 0}
+        length: 0
+        effectorPositionWeight: 0
+        effectorRotationWeight: 0
+        offset: {x: 0, y: 0, z: 0}
+      children: 01000000020000000300000004000000
+      childConstraints:
+      - pushElasticity: 0.5
+        pullElasticity: 1
+        bone1: {fileID: 8519642851085155206}
+        bone2: {fileID: 2105937543855322119}
+      - pushElasticity: 0.5
+        pullElasticity: 1
+        bone1: {fileID: 669041985738091607}
+        bone2: {fileID: 6983258932120580808}
+      - pushElasticity: 0
+        pullElasticity: 0
+        bone1: {fileID: 8519642851085155206}
+        bone2: {fileID: 669041985738091607}
+      - pushElasticity: 0
+        pullElasticity: 0
+        bone1: {fileID: 6983258932120580808}
+        bone2: {fileID: 2105937543855322119}
+      bendConstraint:
+        bone1: {fileID: 0}
+        bone2: {fileID: 0}
+        bone3: {fileID: 0}
+        bendGoal: {fileID: 0}
+        direction: {x: 1, y: 0, z: 0}
+        rotationOffset: {x: 0, y: 0, z: 0, w: 0}
+        weight: 0
+        defaultLocalDirection: {x: 0, y: 0, z: 0}
+        defaultChildDirection: {x: 0, y: 0, z: 0}
+    - pin: 0
+      pull: 1
+      push: 0
+      pushParent: 0
+      reach: 0.05
+      reachSmoothing: 0
+      pushSmoothing: 1
+      nodes:
+      - transform: {fileID: 8519642851085155206}
+        weight: 1
+        solverPosition: {x: -3.5978322, y: 1.3362602, z: 7.332982}
+        solverRotation: {x: 0.071689345, y: -0.004159145, z: 0.93370986, w: 0.3507554}
+        defaultLocalPosition: {x: 0, y: 0, z: 0}
+        defaultLocalRotation: {x: 0, y: 0, z: 0, w: 0}
+        length: 0.28508064
+        effectorPositionWeight: 0
+        effectorRotationWeight: 0
+        offset: {x: 0, y: 0, z: 0}
+      - transform: {fileID: 2857373400946456485}
+        weight: 1
+        solverPosition: {x: -3.6758292, y: 1.0623586, z: 7.3458405}
+        solverRotation: {x: 0, y: 0, z: 0, w: 1}
+        defaultLocalPosition: {x: 0, y: 0, z: 0}
+        defaultLocalRotation: {x: 0, y: 0, z: 0, w: 0}
+        length: 0.24036205
+        effectorPositionWeight: 0
+        effectorRotationWeight: 0
+        offset: {x: 0, y: 0, z: 0}
+      - transform: {fileID: 9186500496127808867}
+        weight: 1
+        solverPosition: {x: -3.664886, y: 0.88649374, z: 7.1823606}
+        solverRotation: {x: 0.86906576, y: 0.11215197, z: 0.26127374, w: -0.4048247}
+        defaultLocalPosition: {x: 0, y: 0, z: 0}
+        defaultLocalRotation: {x: 0, y: 0, z: 0, w: 0}
+        length: 0
+        effectorPositionWeight: 1
+        effectorRotationWeight: 0.19
+        offset: {x: 0, y: 0, z: 0}
+      children: 
+      childConstraints: []
+      bendConstraint:
+        bone1: {fileID: 8519642851085155206}
+        bone2: {fileID: 2857373400946456485}
+        bone3: {fileID: 9186500496127808867}
+        bendGoal: {fileID: 0}
+        direction: {x: -0.13095586, y: 0.05805716, z: -0.9896868}
+        rotationOffset: {x: 0, y: 0, z: 0, w: 1}
+        weight: 0
+        defaultLocalDirection: {x: -0.00000076052004, y: 0.00000005033384, z: -1}
+        defaultChildDirection: {x: -0.83103627, y: 0.0031522703, z: 0.43855006}
+    - pin: 0
+      pull: 1
+      push: 0
+      pushParent: 0
+      reach: 0.05
+      reachSmoothing: 0
+      pushSmoothing: 1
+      nodes:
+      - transform: {fileID: 669041985738091607}
+        weight: 1
+        solverPosition: {x: -3.851503, y: 1.3458506, z: 7.1576886}
+        solverRotation: {x: 0.3507554, y: -0.93370986, z: -0.0041591693, w: -0.07168936}
+        defaultLocalPosition: {x: 0, y: 0, z: 0}
+        defaultLocalRotation: {x: 0, y: 0, z: 0, w: 0}
+        length: 0.28508505
+        effectorPositionWeight: 0
+        effectorRotationWeight: 0
+        offset: {x: 0, y: 0, z: 0}
+      - transform: {fileID: 8322255484584408707}
+        weight: 1
+        solverPosition: {x: -3.857207, y: 1.060986, z: 7.1480374}
+        solverRotation: {x: 0, y: 0, z: 0, w: 1}
+        defaultLocalPosition: {x: 0, y: 0, z: 0}
+        defaultLocalRotation: {x: 0, y: 0, z: 0, w: 0}
+        length: 0.24036375
+        effectorPositionWeight: 0
+        effectorRotationWeight: 0
+        offset: {x: 0, y: 0, z: 0}
+      - transform: {fileID: 8626512282341172403}
+        weight: 1
+        solverPosition: {x: -3.6742373, y: 0.935421, z: 7.0556784}
+        solverRotation: {x: 0.36997944, y: -0.8139334, z: 0.21955058, w: -0.3904169}
+        defaultLocalPosition: {x: 0, y: 0, z: 0}
+        defaultLocalRotation: {x: 0, y: 0, z: 0, w: 0}
+        length: 0
+        effectorPositionWeight: 0
+        effectorRotationWeight: 0
+        offset: {x: 0, y: 0, z: 0}
+      children: 
+      childConstraints: []
+      bendConstraint:
+        bone1: {fileID: 669041985738091607}
+        bone2: {fileID: 8322255484584408707}
+        bone3: {fileID: 8626512282341172403}
+        bendGoal: {fileID: 0}
+        direction: {x: 0.1309538, y: 0.058053814, z: -0.98968726}
+        rotationOffset: {x: 0, y: 0, z: 0, w: 1}
+        weight: 0
+        defaultLocalDirection: {x: 0.0000045759207, y: -0.0000012538903, z: 1.0000002}
+        defaultChildDirection: {x: -0.83103323, y: 0.0031450132, z: 0.43855995}
+    - pin: 0
+      pull: 1
+      push: 0.5
+      pushParent: 0.5
+      reach: 0.05
+      reachSmoothing: 0
+      pushSmoothing: 1
+      nodes:
+      - transform: {fileID: 6983258932120580808}
+        weight: 1
+        solverPosition: {x: -3.782997, y: 0.86277384, z: 7.5283628}
+        solverRotation: {x: 0.999839, y: -0.01775374, z: 0.000046300094, w: -0.0026074864}
+        defaultLocalPosition: {x: 0, y: 0, z: 0}
+        defaultLocalRotation: {x: 0, y: 0, z: 0, w: 0}
+        length: 0.4133456
+        effectorPositionWeight: 0
+        effectorRotationWeight: 0
+        offset: {x: 0, y: 0, z: 0}
+      - transform: {fileID: 4329760479032487968}
+        weight: 1
+        solverPosition: {x: -3.6500719, y: 0.50241435, z: 7.3756323}
+        solverRotation: {x: 0, y: 0, z: 0, w: 1}
+        defaultLocalPosition: {x: 0, y: 0, z: 0}
+        defaultLocalRotation: {x: 0, y: 0, z: 0, w: 0}
+        length: 0.41403982
+        effectorPositionWeight: 0
+        effectorRotationWeight: 0
+        offset: {x: 0, y: 0, z: 0}
+      - transform: {fileID: 3283115190892659225}
+        weight: 1
+        solverPosition: {x: -3.6138465, y: 0.09322244, z: 7.4273877}
+        solverRotation: {x: 0.99871653, y: 0.0000000037252903, z: 0.050649434, w: 0.000000016065314}
+        defaultLocalPosition: {x: 0, y: 0, z: 0}
+        defaultLocalRotation: {x: 0, y: 0, z: 0, w: 0}
+        length: 0
+        effectorPositionWeight: 0
+        effectorRotationWeight: 0
+        offset: {x: 0, y: 0, z: 0}
+      children: 
+      childConstraints: []
+      bendConstraint:
+        bone1: {fileID: 6983258932120580808}
+        bone2: {fileID: 4329760479032487968}
+        bone3: {fileID: 3283115190892659225}
+        bendGoal: {fileID: 0}
+        direction: {x: -0.00018564389, y: -0.0052124686, z: 0.9999864}
+        rotationOffset: {x: 0, y: 0, z: 0, w: 1}
+        weight: 0
+        defaultLocalDirection: {x: -0.0000004737587, y: -0.000000003859541, z: -1}
+        defaultChildDirection: {x: -0.99366486, y: -0.035481412, z: -0.1010459}
+    - pin: 0
+      pull: 1
+      push: 0.5
+      pushParent: 0.5
+      reach: 0.05
+      reachSmoothing: 0
+      pushSmoothing: 1
+      nodes:
+      - transform: {fileID: 2105937543855322119}
+        weight: 1
+        solverPosition: {x: -3.9422455, y: 0.8674514, z: 7.4629936}
+        solverRotation: {x: 0.0026075041, y: 0.000046300407, z: 0.01775374, w: 0.999839}
+        defaultLocalPosition: {x: 0, y: 0, z: 0}
+        defaultLocalRotation: {x: 0, y: 0, z: 0, w: 0}
+        length: 0.41334426
+        effectorPositionWeight: 0
+        effectorRotationWeight: 0
+        offset: {x: 0, y: 0, z: 0}
+      - transform: {fileID: 557817384646886437}
+        weight: 1
+        solverPosition: {x: -3.994028, y: 0.46979475, z: 7.3627877}
+        solverRotation: {x: 0, y: 0, z: 0, w: 1}
+        defaultLocalPosition: {x: 0, y: 0, z: 0}
+        defaultLocalRotation: {x: 0, y: 0, z: 0, w: 0}
+        length: 0.41403976
+        effectorPositionWeight: 0
+        effectorRotationWeight: 0
+        offset: {x: 0, y: 0, z: 0}
+      - transform: {fileID: 3726617517853789496}
+        weight: 1
+        solverPosition: {x: -4.0641794, y: 0.09143007, z: 7.515588}
+        solverRotation: {x: 0.0000000016298145, y: 0.050649438, z: -0.0000000025174813, w: 0.9987166}
+        defaultLocalPosition: {x: 0, y: 0, z: 0}
+        defaultLocalRotation: {x: 0, y: 0, z: 0, w: 0}
+        length: 0
+        effectorPositionWeight: 0
+        effectorRotationWeight: 0
+        offset: {x: 0, y: 0, z: 0}
+      children: 
+      childConstraints: []
+      bendConstraint:
+        bone1: {fileID: 2105937543855322119}
+        bone2: {fileID: 557817384646886437}
+        bone3: {fileID: 3726617517853789496}
+        bendGoal: {fileID: 0}
+        direction: {x: 0.0002275752, y: -0.0052109594, z: 0.9999864}
+        rotationOffset: {x: 0, y: 0, z: 0, w: 1}
+        weight: 0
+        defaultLocalDirection: {x: 0.00004243222, y: 0.000000058998516, z: 1}
+        defaultChildDirection: {x: -0.99366903, y: -0.03548271, z: -0.1010042}
+    effectors:
+    - bone: {fileID: 2719569588957798408}
+      target: {fileID: 0}
+      positionWeight: 0
+      rotationWeight: 0
+      position: {x: 0, y: 1.1427323, z: -0.014681594}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      positionOffset: {x: 0, y: 0, z: 0}
+      effectChildNodes: 1
+      maintainRelativePositionWeight: 0
+      childBones:
+      - {fileID: 6983258932120580808}
+      - {fileID: 2105937543855322119}
+      planeBone1: {fileID: 0}
+      planeBone2: {fileID: 0}
+      planeBone3: {fileID: 0}
+      planeRotationOffset: {x: 0, y: 0, z: 0, w: 1}
+    - bone: {fileID: 8519642851085155206}
+      target: {fileID: 0}
+      positionWeight: 0
+      rotationWeight: 0
+      position: {x: -0.16344948, y: 1.4230566, z: -0.061070677}
+      rotation: {x: 0.071689345, y: -0.004159145, z: 0.93370986, w: 0.3507554}
+      positionOffset: {x: 0, y: 0, z: 0}
+      effectChildNodes: 1
+      maintainRelativePositionWeight: 0
+      childBones: []
+      planeBone1: {fileID: 0}
+      planeBone2: {fileID: 0}
+      planeBone3: {fileID: 0}
+      planeRotationOffset: {x: 0, y: 0, z: 0, w: 1}
+    - bone: {fileID: 669041985738091607}
+      target: {fileID: 0}
+      positionWeight: 0
+      rotationWeight: 0
+      position: {x: 0.16344896, y: 1.4230604, z: -0.061070688}
+      rotation: {x: 0.3507554, y: -0.93370986, z: -0.0041591693, w: -0.07168936}
+      positionOffset: {x: 0, y: 0, z: 0}
+      effectChildNodes: 1
+      maintainRelativePositionWeight: 0
+      childBones: []
+      planeBone1: {fileID: 0}
+      planeBone2: {fileID: 0}
+      planeBone3: {fileID: 0}
+      planeRotationOffset: {x: 0, y: 0, z: 0, w: 1}
+    - bone: {fileID: 6983258932120580808}
+      target: {fileID: 0}
+      positionWeight: 0
+      rotationWeight: 0
+      position: {x: -0.08610317, y: 0.92764056, z: -0.027375191}
+      rotation: {x: 0.999839, y: -0.01775374, z: 0.000046300094, w: -0.0026074864}
+      positionOffset: {x: 0, y: 0, z: 0}
+      effectChildNodes: 1
+      maintainRelativePositionWeight: 0
+      childBones: []
+      planeBone1: {fileID: 0}
+      planeBone2: {fileID: 0}
+      planeBone3: {fileID: 0}
+      planeRotationOffset: {x: 0, y: 0, z: 0, w: 1}
+    - bone: {fileID: 2105937543855322119}
+      target: {fileID: 0}
+      positionWeight: 0
+      rotationWeight: 0
+      position: {x: 0.086103186, y: 0.92764044, z: -0.027375197}
+      rotation: {x: 0.0026075041, y: 0.000046300407, z: 0.01775374, w: 0.999839}
+      positionOffset: {x: 0, y: 0, z: 0}
+      effectChildNodes: 1
+      maintainRelativePositionWeight: 0
+      childBones: []
+      planeBone1: {fileID: 0}
+      planeBone2: {fileID: 0}
+      planeBone3: {fileID: 0}
+      planeRotationOffset: {x: 0, y: 0, z: 0, w: 1}
+    - bone: {fileID: 9186500496127808867}
+      target: {fileID: 0}
+      positionWeight: 1
+      rotationWeight: 0.19
+      position: {x: -3.664886, y: 0.88649374, z: 7.1823606}
+      rotation: {x: 0.86906576, y: 0.11215197, z: 0.26127374, w: -0.4048247}
+      positionOffset: {x: 0, y: 0, z: 0}
+      effectChildNodes: 1
+      maintainRelativePositionWeight: 0.12
+      childBones: []
+      planeBone1: {fileID: 8519642851085155206}
+      planeBone2: {fileID: 669041985738091607}
+      planeBone3: {fileID: 2719569588957798408}
+      planeRotationOffset: {x: 0, y: 0, z: 0, w: 1}
+    - bone: {fileID: 8626512282341172403}
+      target: {fileID: 0}
+      positionWeight: 0
+      rotationWeight: 0
+      position: {x: 0.4419659, y: 1.0679705, z: 0.123494}
+      rotation: {x: 0.36997944, y: -0.8139334, z: 0.21955058, w: -0.3904169}
+      positionOffset: {x: 0, y: 0, z: 0}
+      effectChildNodes: 1
+      maintainRelativePositionWeight: 0
+      childBones: []
+      planeBone1: {fileID: 669041985738091607}
+      planeBone2: {fileID: 8519642851085155206}
+      planeBone3: {fileID: 2719569588957798408}
+      planeRotationOffset: {x: 0, y: 0, z: 0, w: 1}
+    - bone: {fileID: 3283115190892659225}
+      target: {fileID: 0}
+      positionWeight: 0
+      rotationWeight: 0
+      position: {x: -0.11543726, y: 0.10189557, z: -0.059861735}
+      rotation: {x: 0.99871653, y: 0.0000000037252903, z: 0.050649434, w: 0.000000016065314}
+      positionOffset: {x: 0, y: 0, z: 0}
+      effectChildNodes: 1
+      maintainRelativePositionWeight: 0
+      childBones: []
+      planeBone1: {fileID: 6983258932120580808}
+      planeBone2: {fileID: 2105937543855322119}
+      planeBone3: {fileID: 2719569588957798408}
+      planeRotationOffset: {x: 0, y: 0, z: 0, w: 1}
+    - bone: {fileID: 3726617517853789496}
+      target: {fileID: 0}
+      positionWeight: 0
+      rotationWeight: 0
+      position: {x: 0.115436986, y: 0.10189551, z: -0.05986179}
+      rotation: {x: 0.0000000016298145, y: 0.050649438, z: -0.0000000025174813, w: 0.9987166}
+      positionOffset: {x: 0, y: 0, z: 0}
+      effectChildNodes: 1
+      maintainRelativePositionWeight: 0
+      childBones: []
+      planeBone1: {fileID: 2105937543855322119}
+      planeBone2: {fileID: 6983258932120580808}
+      planeBone3: {fileID: 2719569588957798408}
+      planeRotationOffset: {x: 0, y: 0, z: 0, w: 1}
+    spineMapping:
+      spineBones:
+      - {fileID: 7898439671699593946}
+      - {fileID: 7095431021522030924}
+      - {fileID: 2719569588957798408}
+      leftUpperArmBone: {fileID: 8519642851085155206}
+      rightUpperArmBone: {fileID: 669041985738091607}
+      leftThighBone: {fileID: 6983258932120580808}
+      rightThighBone: {fileID: 2105937543855322119}
+      iterations: 3
+      twistWeight: 1
+    boneMappings:
+    - bone: {fileID: 6044159111065775861}
+      maintainRotationWeight: 0
+    limbMappings:
+    - parentBone: {fileID: 7590676344785519724}
+      bone1: {fileID: 8519642851085155206}
+      bone2: {fileID: 2857373400946456485}
+      bone3: {fileID: 9186500496127808867}
+      maintainRotationWeight: 0
+      weight: 1
+    - parentBone: {fileID: 9036379305195573192}
+      bone1: {fileID: 669041985738091607}
+      bone2: {fileID: 8322255484584408707}
+      bone3: {fileID: 8626512282341172403}
+      maintainRotationWeight: 0
+      weight: 1
+    - parentBone: {fileID: 0}
+      bone1: {fileID: 6983258932120580808}
+      bone2: {fileID: 4329760479032487968}
+      bone3: {fileID: 3283115190892659225}
+      maintainRotationWeight: 1
+      weight: 1
+    - parentBone: {fileID: 0}
+      bone1: {fileID: 2105937543855322119}
+      bone2: {fileID: 557817384646886437}
+      bone3: {fileID: 3726617517853789496}
+      maintainRotationWeight: 1
+      weight: 1
+    FABRIKPass: 1
+    rootNode: {fileID: 2719569588957798408}
+    spineStiffness: 0.5
+    pullBodyVertical: 0.5
+    pullBodyHorizontal: 0
 --- !u!1 &4523139366846529165
 GameObject:
   m_ObjectHideFlags: 0

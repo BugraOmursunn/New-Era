@@ -20,10 +20,6 @@ public class WeaponData
 {
 	public WeaponType weaponType;
 	public GameObject weaponPrefab;
-	public Vector3 handAttachPos;
-	public Vector3 handAttachRot;
-	public Vector3 sheathAttachPos;
-	public Vector3 sheathAttachRot;
 	public float cooldown;
 }
 
@@ -33,4 +29,18 @@ public class BarCooldownData
 	public string barName;
 	public float barDefaultCooldown;
 	public float barCurrentCooldown;
+}
+
+
+[Serializable]
+public class HandData
+{
+	[Serializable]
+	public class FingerData
+	{
+		public Transform finger;
+	}
+
+	public Transform hand;
+	public List<FingerData> fingers;
 }

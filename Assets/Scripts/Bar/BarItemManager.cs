@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class BarItemManager : MonoBehaviour
 {
 	public Image iconImg;
+	public Image cooldownImg;
 	public TextMeshProUGUI slotIndexText;
 
 	private void Start()

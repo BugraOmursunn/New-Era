@@ -14,6 +14,7 @@ public class SkillData
 	public float vfxActivationTime;
 	public Vector3 offSet;
 	public float cooldown;
+	public float castTime;
 }
 [Serializable]
 public class WeaponData
@@ -21,6 +22,7 @@ public class WeaponData
 	public WeaponType weaponType;
 	public GameObject weaponPrefab;
 	public float cooldown;
+	public float castTime;
 }
 
 [Serializable]
@@ -30,6 +32,7 @@ public class BarCooldownData
 	public string barName;
 	public float barDefaultCooldown;
 	public float barCurrentCooldown;
+	public float castTime;
 }
 
 

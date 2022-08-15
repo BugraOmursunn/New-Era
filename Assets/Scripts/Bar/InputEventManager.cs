@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using JetBrains.Annotations;
 
 public static class InputEventManager
 {
@@ -48,6 +49,12 @@ public static class InputEventManager
 
 	public static Action<WeaponData> DrawWeapon;
 	public static Func<SkillData, bool> CastSkill;
+
+	#endregion
+
+	#region Bar Manager
+
+	public static Func<bool> IsCastingContinue;
 
 	#endregion
 }

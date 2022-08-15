@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using UnityEditor.Build.Content;
@@ -13,16 +15,19 @@ public class BarManager : MonoBehaviour
 	[CanBeNull]
 	private BarItemData m_BarItemData;
 
+	[SerializeField] private bool isCasting;
 	[SerializeField] private Transform[] buttons;
-
 	[SerializeField] private List<BarCooldownData> barCooldownData;
+
 	private void OnEnable()
 	{
 		InputEventManager.BarIndexPressed += BarSkillPressed;
+		InputEventManager.IsCastingContinue += IsCastingContinue;
 	}
 	private void OnDisable()
 	{
 		InputEventManager.BarIndexPressed -= BarSkillPressed;
+		InputEventManager.IsCastingContinue -= IsCastingContinue;
 	}
 	private void Awake()
 	{
@@ -39,10 +44,12 @@ public class BarManager : MonoBehaviour
 					case BarActionTypes.Weapon:
 						newData.barName = slotsData.barItems[i].weaponData.weaponType.ToString();
 						newData.barDefaultCooldown = slotsData.barItems[i].weaponData.cooldown;
+						newData.castTime = slotsData.barItems[i].weaponData.castTime;
 						break;
 					case BarActionTypes.Skill:
 						newData.barName = slotsData.barItems[i].skillData.skillName.ToString();
 						newData.barDefaultCooldown = slotsData.barItems[i].skillData.cooldown;
+						newData.castTime = slotsData.barItems[i].skillData.castTime;
 						break;
 					case BarActionTypes.Item:
 						break;
@@ -66,15 +73,19 @@ public class BarManager : MonoBehaviour
 	private void BarSkillPressed(int index)
 	{
 		m_BarItemData = slotsData.barItems[index];
-		
+
 		if (m_BarItemData != null)
 		{
-			if (barCooldownData[index].barCurrentCooldown == 0)
+			if (barCooldownData[index].barCurrentCooldown == 0 && isCasting == false)
 			{
 				bool isCastSuccessful = InputEventManager.InteractionHandler(m_BarItemData);
 
 				if (isCastSuccessful == true)
+				{
 					barCooldownData[index].barCurrentCooldown = barCooldownData[index].barDefaultCooldown;
+					isCasting = true;
+					StartCoroutine(CastingFinished(barCooldownData[index].castTime));
+				}
 			}
 		}
 	}
@@ -94,6 +105,29 @@ public class BarManager : MonoBehaviour
 				barCooldownData[i].isReady = false;
 			}
 		}
+		for (int i = 0; i < slotsData.barItems.Length; i++) //set cooldown image
+		{
+			if (slotsData.barItems[i] != null)
+			{
+				float fillAmount = barCooldownData[i].barCurrentCooldown / barCooldownData[i].barDefaultCooldown;
+				buttons[i].GetComponent<BarItemManager>().cooldownImg.DOFillAmount(fillAmount, 0.01f);
+			}
+			else
+			{
+				buttons[i].GetComponent<BarItemManager>().cooldownImg.DOFillAmount(0, 0.01f);
+			}
+		}
+	}
+
+	private IEnumerator CastingFinished(float value)
+	{
+		yield return new WaitForSeconds(value);
+		isCasting = false;
+	}
+
+	private bool IsCastingContinue()
+	{
+		return isCasting;
 	}
 	[Button]
 	private void OnValidate()

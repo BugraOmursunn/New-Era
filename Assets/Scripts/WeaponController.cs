@@ -79,7 +79,7 @@ public class WeaponController : MonoBehaviour
 	}
 	private void OnAttack()
 	{
-		if (isDraw == true)
+		if (isDraw == true && InputEventManager.IsCastingContinue() == false)
 		{
 			playerAnimator.SetTrigger("Attack");
 		}

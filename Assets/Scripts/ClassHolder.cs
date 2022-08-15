@@ -26,6 +26,7 @@ public class WeaponData
 [Serializable]
 public class BarCooldownData
 {
+	public bool isReady;
 	public string barName;
 	public float barDefaultCooldown;
 	public float barCurrentCooldown;

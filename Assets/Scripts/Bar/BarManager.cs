@@ -31,7 +31,7 @@ public class BarManager : MonoBehaviour
 			if (slotsData.barItems[i] != null)
 			{
 				BarCooldownData newData = new BarCooldownData();
-				
+
 				switch (slotsData.barItems[i].barActionType)
 				{
 					case BarActionTypes.Empty:
@@ -49,14 +49,10 @@ public class BarManager : MonoBehaviour
 					default:
 						throw new ArgumentOutOfRangeException();
 				}
-				
+
 				barCooldownData.Add(newData);
 			}
 		}
-		
-		//m_Press1 = playerInput.actions["Press1"];
-		//m_Press1.performed += OnPress1;
-		//m_DrawWeapon = playerInputs.Player.DrawWeapon;
 	}
 	private void Start()
 	{
@@ -70,12 +66,35 @@ public class BarManager : MonoBehaviour
 	private void BarSkillPressed(int index)
 	{
 		m_BarItemData = slotsData.barItems[index];
+		
 		if (m_BarItemData != null)
 		{
-			InputEventManager.InteractionHandler(m_BarItemData);
+			if (barCooldownData[index].barCurrentCooldown == 0)
+			{
+				bool isCastSuccessful = InputEventManager.InteractionHandler(m_BarItemData);
+
+				if (isCastSuccessful == true)
+					barCooldownData[index].barCurrentCooldown = barCooldownData[index].barDefaultCooldown;
+			}
 		}
 	}
 
+	private void Update()
+	{
+		for (int i = 0; i < barCooldownData.Count; i++)
+		{
+			if (barCooldownData[i].barCurrentCooldown <= 0)
+			{
+				barCooldownData[i].barCurrentCooldown = 0;
+				barCooldownData[i].isReady = true;
+			}
+			else
+			{
+				barCooldownData[i].barCurrentCooldown -= Time.deltaTime;
+				barCooldownData[i].isReady = false;
+			}
+		}
+	}
 	[Button]
 	private void OnValidate()
 	{

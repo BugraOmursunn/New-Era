@@ -19,13 +19,15 @@ public class SkillController : MonoBehaviour
 	{
 		playerTransform = playerAnimator.transform;
 	}
-	private void CastSkill(SkillData skillData)
+	private bool CastSkill(SkillData skillData)
 	{
-		if (InputEventManager.IsDrawSword2h() == false) return;
+		if (InputEventManager.IsDrawSword2h() == false)
+			return false;
 
 		playerAnimator.SetTrigger(skillData.skillAnimationTriggerName);
 		InputEventManager.EnableWeaponTrail.Invoke();
 		StartCoroutine(Cast(skillData));
+		return true;
 	}
 	private IEnumerator Cast(SkillData skillData)
 	{
@@ -40,7 +42,7 @@ public class SkillController : MonoBehaviour
 
 		if (skillData.isChild == false)
 			skill.transform.parent = null;
-		
+
 		Destroy(skill, 3f);
 	}
 }

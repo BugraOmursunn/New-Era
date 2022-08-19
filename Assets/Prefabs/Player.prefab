@@ -1322,6 +1322,9 @@ MonoBehaviour:
   playerAnimator: {fileID: 6982812146204527121}
   handData:
   - hand: {fileID: 9186500496127808867}
+    positionWeight: 0
+    rotationWeight: 0
+    maintainRelativePositionWeight: 0
     fingers:
     - finger: {fileID: 7193948126882834794}
     - finger: {fileID: 4303679674140607531}
@@ -1329,6 +1332,9 @@ MonoBehaviour:
     - finger: {fileID: 6841740426104573242}
     - finger: {fileID: 4771114395735085007}
   - hand: {fileID: 8626512282341172403}
+    positionWeight: 0
+    rotationWeight: 0
+    maintainRelativePositionWeight: 0
     fingers:
     - finger: {fileID: 117881535543302510}
     - finger: {fileID: 6737443129744485833}

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SkillController : MonoBehaviour
 {
-	[SerializeField] private Animator playerAnimator;
+	public Animator playerAnimator;
 	private Transform playerTransform;
 	private void OnEnable()
 	{

@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using DG.Tweening;
 using JetBrains.Annotations;
 using Sirenix.OdinInspector;
-using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.Rendering;
 

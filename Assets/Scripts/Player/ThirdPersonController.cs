@@ -92,6 +92,7 @@ public class ThirdPersonController : MonoBehaviour
 		{
 			_mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 		}
+		_playerInput = GameObject.Find("InputManager").GetComponent<PlayerInput>();
 	}
 
 	private void Start()
@@ -229,7 +230,7 @@ public class ThirdPersonController : MonoBehaviour
 		{
 			_animator.SetFloat(_animIDSpeed, _animationBlend);
 			_animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
-			
+
 			_animator.SetFloat("DirectionX", _input.move.x);
 			_animator.SetFloat("DirectionY", _input.move.y);
 		}

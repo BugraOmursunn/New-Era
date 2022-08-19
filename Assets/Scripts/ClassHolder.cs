@@ -46,5 +46,9 @@ public class HandData
 	}
 
 	public Transform hand;
+	public float positionWeight;
+	public float rotationWeight;
+	public float maintainRelativePositionWeight;
+	
 	public List<FingerData> fingers;
 }

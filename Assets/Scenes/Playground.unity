@@ -418,6 +418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotsData: {fileID: 11400000, guid: dedee316a1b49ef4f8ed43919fe4c5af, type: 2}
+  isCasting: 0
   buttons:
   - {fileID: 604607505}
   - {fileID: 1896551649}

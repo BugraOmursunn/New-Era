@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using RootMotion.FinalIK;
 using UnityEngine;
 
@@ -27,7 +28,6 @@ public class WeaponController : MonoBehaviour
 
 	private WeaponAttachmentData weaponAttachmentData;
 	private FullBodyBipedIK bidepIK;
-
 
 	private void OnEnable()
 	{
@@ -113,16 +113,57 @@ public class WeaponController : MonoBehaviour
 	}
 	public void AttachLeftHandToWeapon()
 	{
-		bidepIK.solver.leftHandEffector.positionWeight = 1;
-		bidepIK.solver.leftHandEffector.rotationWeight = 0.19f;
-		bidepIK.solver.leftHandEffector.maintainRelativePositionWeight = 0.12f;
-		bidepIK.solver.leftHandEffector.target = weaponAttachmentData.handData[0].hand;
+		SwitchHandAttackStatus(true);
 	}
 	public void DetachLeftHandFromWeapon()
 	{
-		bidepIK.solver.leftHandEffector.positionWeight = 0;
-		bidepIK.solver.leftHandEffector.rotationWeight = 0f;
-		bidepIK.solver.leftHandEffector.maintainRelativePositionWeight = 0f;
-		bidepIK.solver.leftHandEffector.target = null;
+		SwitchHandAttackStatus(false);
+	}
+	private Sequence seq;
+
+	private void SwitchHandAttackStatus(bool targetStatus)
+	{
+		if (targetStatus == true && bidepIK.solver.leftHandEffector.positionWeight == 0)
+		{
+			if (isDraw == false)
+				return;
+
+			var positionWeightTarget = bidepIK.solver.leftHandEffector.positionWeight;
+			var rotationWeightTarget = bidepIK.solver.leftHandEffector.rotationWeight;
+			var maintainRelativePositionWeight = bidepIK.solver.leftHandEffector.maintainRelativePositionWeight;
+
+			bidepIK.solver.leftHandEffector.target = weaponAttachmentData.handData[0].hand;
+
+			seq.Kill();
+			if (bidepIK.solver.leftHandEffector.target == null)
+				SwitchHandAttackStatus(false);
+
+			seq.Append(DOTween.To(() => positionWeightTarget, x => positionWeightTarget = x, weaponAttachmentData.handData[0].positionWeight, 0.3f)
+				.OnUpdate(() => {
+					bidepIK.solver.leftHandEffector.positionWeight = positionWeightTarget;
+				}).SetEase(Ease.Linear));
+			seq.Join(DOTween.To(() => rotationWeightTarget, x => rotationWeightTarget = x, weaponAttachmentData.handData[0].rotationWeight, 0.3f)
+				.OnUpdate(() => {
+					bidepIK.solver.leftHandEffector.rotationWeight = rotationWeightTarget;
+				}).SetEase(Ease.Linear));
+			seq.Join(DOTween.To(() => maintainRelativePositionWeight, x => maintainRelativePositionWeight = x, weaponAttachmentData.handData[0].maintainRelativePositionWeight, 0.3f)
+				.OnUpdate(() => {
+					bidepIK.solver.leftHandEffector.maintainRelativePositionWeight = maintainRelativePositionWeight;
+				}).SetEase(Ease.Linear));
+		}
+		else if (targetStatus == false && Math.Abs(bidepIK.solver.leftHandEffector.positionWeight - 1) < 0.2f)
+		{
+			bidepIK.solver.leftHandEffector.target = null;
+		}
+	}
+	private void LateUpdate()
+	{
+		if (bidepIK.solver.leftHandEffector.target == null)
+		{
+			seq.Kill();
+			bidepIK.solver.leftHandEffector.positionWeight = 0;
+			bidepIK.solver.leftHandEffector.rotationWeight = 0;
+			bidepIK.solver.leftHandEffector.maintainRelativePositionWeight = 0;
+		}
 	}
 }

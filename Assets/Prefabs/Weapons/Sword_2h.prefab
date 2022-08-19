@@ -617,8 +617,14 @@ MonoBehaviour:
   sheathAttachRot: {x: 0, y: 0, z: 0}
   handData:
   - hand: {fileID: 1053184427840031056}
+    positionWeight: 1
+    rotationWeight: 0.19
+    maintainRelativePositionWeight: 0.12
     fingers: []
   - hand: {fileID: 1745983835626989250}
+    positionWeight: 0
+    rotationWeight: 0
+    maintainRelativePositionWeight: 0
     fingers: []
 --- !u!1 &6869630798584044397
 GameObject:

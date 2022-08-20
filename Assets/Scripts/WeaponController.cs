@@ -32,12 +32,18 @@ public class WeaponController : MonoBehaviour
 
 	private void OnEnable()
 	{
+		if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
+			return;
+		
 		InputEventManager.DrawWeapon += DrawWeapon;
 		InputEventManager.Attack += OnAttack;
 		InputEventManager.IsDrawSword2h += IsDrawSword2h;
 	}
 	private void OnDisable()
 	{
+		if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
+			return;
+		
 		InputEventManager.DrawWeapon -= DrawWeapon;
 		InputEventManager.Attack -= OnAttack;
 		InputEventManager.IsDrawSword2h -= IsDrawSword2h;
@@ -79,6 +85,7 @@ public class WeaponController : MonoBehaviour
 
 	private bool IsDrawSword2h()
 	{
+		Debug.Log(isDraw);
 		return isDraw;
 	}
 	private void OnAttack()

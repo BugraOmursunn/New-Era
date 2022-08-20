@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using JetBrains.Annotations;
+using Photon.Pun;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -71,6 +72,9 @@ public class BarManager : MonoBehaviour
 
 	private void BarSkillPressed(int index)
 	{
+		if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
+			return;
+		
 		m_BarItemData = slotsData.barItems[index];
 
 		if (m_BarItemData != null)

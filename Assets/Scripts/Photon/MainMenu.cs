@@ -24,6 +24,6 @@ public class MainMenu : MonoBehaviourPunCallbacks
 	}
 	public override void OnJoinedRoom()
 	{
-		PhotonNetwork.LoadLevel("PhotonTest");
+		PhotonNetwork.LoadLevel("BattleAreaPhoton");
 	}
 }

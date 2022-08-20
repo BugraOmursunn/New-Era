@@ -5,23 +5,17 @@ using Cinemachine;
 using Photon.Pun;
 using Unity.Mathematics;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class SpawnPlayers : MonoBehaviour
 {
-	public GameObject playerPrefab;
-	public GameObject canvasPanel;
-	//public GameObject managers;
-	//public GameObject virtualCam;
+	public GameObject playerPackagePrefab;
+	public GameObject managers;
 	private void Start()
 	{
-		Vector2 randomPos = new Vector2(Random.Range(-40, 40), Random.Range(-40, 40));
-		GameObject player = PhotonNetwork.Instantiate(playerPrefab.name, randomPos, Quaternion.identity);
-		// player.transform.parent = canvasPanel.transform;
-		// managers.GetComponent<SkillController>().playerAnimator = player.GetComponent<Animator>();
-		// managers.GetComponent<MinimapManager>().target = player.transform;
-		// virtualCam.GetComponent<CinemachineVirtualCamera>().Follow = player.transform;
-		// virtualCam.SetActive(true);
-		// managers.SetActive(true);
+		//GameObject playerPackage = Instantiate(playerPackagePrefab, Vector3.zero, Quaternion.identity);
+		GameObject playerPackage = PhotonNetwork.Instantiate(playerPackagePrefab.name, Vector3.zero, Quaternion.identity);
+		managers.GetComponent<SkillController>().playerAnimator = playerPackage.transform.GetChild(2).GetComponent<Animator>();
+		managers.GetComponent<MinimapManager>().target = playerPackage.transform.GetChild(2);
+		managers.SetActive(true);
 	}
 }

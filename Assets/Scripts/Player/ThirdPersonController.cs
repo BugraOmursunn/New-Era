@@ -1,3 +1,4 @@
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -110,6 +111,9 @@ public class ThirdPersonController : MonoBehaviour
 
 	private void Update()
 	{
+		if (this.GetComponent<PhotonView>().IsMine==false)
+			return;
+		
 		_hasAnimator = TryGetComponent(out _animator);
 
 		JumpAndGravity();

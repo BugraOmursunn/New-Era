@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Photon.Pun;
 using RootMotion.FinalIK;
 using UnityEngine;
 
@@ -54,6 +55,9 @@ public class WeaponController : MonoBehaviour
 	}
 	private void DrawWeapon(WeaponData _weaponData)
 	{
+		if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
+			return;
+
 		weaponData = _weaponData;
 
 		isDraw = !isDraw;
@@ -79,6 +83,9 @@ public class WeaponController : MonoBehaviour
 	}
 	private void OnAttack()
 	{
+		if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
+			return;
+
 		if (isDraw == true && InputEventManager.IsCastingContinue() == false)
 		{
 			playerAnimator.SetTrigger("Attack");

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
 public class SkillController : MonoBehaviour
@@ -21,6 +22,9 @@ public class SkillController : MonoBehaviour
 	}
 	private bool CastSkill(SkillData skillData)
 	{
+		if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
+			return false;
+		
 		if (InputEventManager.IsDrawSword2h() == false)
 			return false;
 

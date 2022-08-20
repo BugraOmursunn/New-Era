@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 using DG.Tweening;
+using Photon.Pun;
+
+
 public class CameraController : MonoBehaviour
 {
 	[SerializeField] private CinemachineVirtualCamera virtualCamera;
@@ -16,6 +19,13 @@ public class CameraController : MonoBehaviour
 	private void OnDisable()
 	{
 		InputEventManager.ChangeCameraZoomValue -= ChangeCameraZoomValue;
+	}
+	private void Awake()
+	{
+		if (this.GetComponent<PhotonView>().IsMine == true)
+		{
+			virtualCamera.Priority = 999;
+		}
 	}
 	private void ChangeCameraZoomValue(float value)
 	{

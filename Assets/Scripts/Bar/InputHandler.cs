@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using Photon.Pun;
 public class InputHandler : MonoBehaviour
 {
 	private PlayerInputs playerInputs;
@@ -66,6 +66,9 @@ public class InputHandler : MonoBehaviour
 
 	private void BarSkillPressed(InputAction.CallbackContext context)
 	{
+		if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
+			return;
+
 		if (context.action == playerInputs.Player.Press1)
 			m_PressedButtonIndex = 0;
 
@@ -88,6 +91,9 @@ public class InputHandler : MonoBehaviour
 	}
 	private void MouseWheel(InputAction.CallbackContext context)
 	{
+		if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
+			return;
+
 		InputEventManager.ChangeCameraZoomValue.Invoke(context.ReadValue<float>());
 	}
 }

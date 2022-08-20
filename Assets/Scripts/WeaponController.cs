@@ -61,9 +61,6 @@ public class WeaponController : MonoBehaviour
 	}
 	private void DrawWeapon(WeaponData _weaponData)
 	{
-		if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
-			return;
-
 		weaponData = _weaponData;
 
 		isDraw = !isDraw;

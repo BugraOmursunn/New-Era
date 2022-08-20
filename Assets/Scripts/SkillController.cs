@@ -10,10 +10,16 @@ public class SkillController : MonoBehaviour
 	private Transform playerTransform;
 	private void OnEnable()
 	{
+		if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
+			return;
+
 		InputEventManager.CastSkill += CastSkill;
 	}
 	private void OnDisable()
 	{
+		if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
+			return;
+
 		InputEventManager.CastSkill -= CastSkill;
 	}
 	private void Awake()
@@ -22,9 +28,6 @@ public class SkillController : MonoBehaviour
 	}
 	private bool CastSkill(SkillData skillData)
 	{
-		if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
-			return false;
-		
 		if (InputEventManager.IsDrawSword2h() == false)
 			return false;
 

@@ -21,11 +21,17 @@ public class BarManager : MonoBehaviour
 
 	private void OnEnable()
 	{
+		if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
+			return;
+		
 		InputEventManager.BarIndexPressed += BarSkillPressed;
 		InputEventManager.IsCastingContinue += IsCastingContinue;
 	}
 	private void OnDisable()
 	{
+		if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
+			return;
+		
 		InputEventManager.BarIndexPressed -= BarSkillPressed;
 		InputEventManager.IsCastingContinue -= IsCastingContinue;
 	}
@@ -72,9 +78,6 @@ public class BarManager : MonoBehaviour
 
 	private void BarSkillPressed(int index)
 	{
-		if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
-			return;
-		
 		m_BarItemData = slotsData.barItems[index];
 
 		if (m_BarItemData != null)

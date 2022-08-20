@@ -29,6 +29,9 @@ public class InputHandler : MonoBehaviour
 
 	private void Awake()
 	{
+		if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
+			return;
+		
 		playerInputs = new PlayerInputs();
 
 		m_attack = playerInputs.Player.Attack;
@@ -66,8 +69,7 @@ public class InputHandler : MonoBehaviour
 
 	private void BarSkillPressed(InputAction.CallbackContext context)
 	{
-		if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
-			return;
+
 
 		if (context.action == playerInputs.Player.Press1)
 			m_PressedButtonIndex = 0;
@@ -91,9 +93,6 @@ public class InputHandler : MonoBehaviour
 	}
 	private void MouseWheel(InputAction.CallbackContext context)
 	{
-		if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
-			return;
-
 		InputEventManager.ChangeCameraZoomValue.Invoke(context.ReadValue<float>());
 	}
 }

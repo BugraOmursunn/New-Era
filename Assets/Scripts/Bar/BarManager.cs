@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using JetBrains.Annotations;
 using Photon.Pun;
@@ -23,7 +24,7 @@ public class BarManager : MonoBehaviour
 	{
 		if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
 			return;
-		
+
 		InputEventManager.BarIndexPressed += BarSkillPressed;
 		InputEventManager.IsCastingContinue += IsCastingContinue;
 	}
@@ -31,12 +32,14 @@ public class BarManager : MonoBehaviour
 	{
 		if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
 			return;
-		
+
 		InputEventManager.BarIndexPressed -= BarSkillPressed;
 		InputEventManager.IsCastingContinue -= IsCastingContinue;
 	}
 	private void Awake()
 	{
+		//buttons = GameObject.FindObjectsOfType<BarItemManager>().Select(x => x.GetComponent<Transform>()).OrderBy(m => m.transform.GetSiblingIndex()).ToArray();
+
 		for (int i = 0; i < slotsData.barItems.Length; i++)
 		{
 			if (slotsData.barItems[i] != null)
@@ -135,13 +138,17 @@ public class BarManager : MonoBehaviour
 	{
 		return isCasting;
 	}
-	[Button]
-	private void OnValidate()
-	{
-		for (int i = 0; i < slotsData.barItems.Length; i++)
-		{
-			if (slotsData.barItems[i] != null)
-				buttons[i].GetComponent<BarItemManager>().iconImg.sprite = slotsData.barItems[i].icon;
-		}
-	}
+	
+	// [Button]
+	// private void OnValidate()
+	// {
+	// 	if (buttons.Length == 0)
+	// 		return;
+	//
+	// 	for (int i = 0; i < slotsData.barItems.Length; i++)
+	// 	{
+	// 		if (slotsData.barItems[i] != null)
+	// 			buttons[i].GetComponent<BarItemManager>().iconImg.sprite = slotsData.barItems[i].icon;
+	// 	}
+	// }
 }

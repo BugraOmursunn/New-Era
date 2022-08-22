@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Photon.Pun;
 using UnityEngine;
+using Photon.Pun;
 
 public class SkillController : MonoBehaviour
 {
@@ -40,7 +40,9 @@ public class SkillController : MonoBehaviour
 	{
 		yield return new WaitForSeconds(skillData.vfxActivationTime);
 
-		var skill = Instantiate(skillData.skillPrefab);
+		var skill = PhotonNetwork.Instantiate(skillData.skillPrefab.name,
+			new Vector3(playerTransform.position.x, skillData.skillPrefab.transform.position.y, playerTransform.position.z),
+			Quaternion.Euler(0, playerTransform.eulerAngles.y - 90, 0));
 		skill.transform.parent = playerTransform;
 
 		skill.transform.localPosition = new Vector3(0, skill.transform.position.y, 0) + skillData.offSet;

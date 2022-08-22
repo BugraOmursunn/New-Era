@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MinimapManager : MonoBehaviour
 {
@@ -21,8 +22,15 @@ public class MinimapManager : MonoBehaviour
 	[SerializeField] private float iconSizeValue = 1f;
 	[SerializeField] private List<GameObject> miniMapIcons;
 
+	public Camera minimapCamera;
+	public RenderTexture rt;
 	private void Start()
 	{
+		rt = new RenderTexture(256, 256, 16, RenderTextureFormat.ARGB32);
+		rt.Create();
+
+		minimapCamera.targetTexture = rt;
+		miniMap.GetComponent<RawImage>().texture = rt;
 		SetValues();
 	}
 	private void OnValidate()
@@ -32,6 +40,9 @@ public class MinimapManager : MonoBehaviour
 
 	private void SetValues()
 	{
+		if (miniMapMask == null)
+			return;
+
 		miniMapIcons = GameObject.FindGameObjectsWithTag("MinimapIcon").ToList();
 		if (miniMapIcons != null)
 		{

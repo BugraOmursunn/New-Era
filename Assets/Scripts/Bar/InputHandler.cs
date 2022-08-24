@@ -65,6 +65,8 @@ public class InputHandler : MonoBehaviour
 		m_rotateMouseWheel = playerInputs.Player.MouseWheel;
 		m_rotateMouseWheel.performed += MouseWheel;
 		m_rotateMouseWheel.Enable();
+		
+		playerInputs.Enable();
 	}
 
 	private void BarSkillPressed(InputAction.CallbackContext context)

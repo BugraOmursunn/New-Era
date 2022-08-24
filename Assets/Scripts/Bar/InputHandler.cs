@@ -29,8 +29,8 @@ public class InputHandler : MonoBehaviour
 
 	private void Awake()
 	{
-		if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
-			return;
+		// if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
+		// 	return;
 		
 		playerInputs = new PlayerInputs();
 

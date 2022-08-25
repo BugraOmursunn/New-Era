@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f73eed4b98367d4a8a5e3caff0fa38d, type: 3}
-  m_Name: SuperSlash
+  m_Name: sSuperSlash
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 27919e65bf1574c468b0d2343b2b542e, type: 3}
   barActionType: 2
@@ -26,6 +26,9 @@ MonoBehaviour:
     castTime: 2
   weaponData:
     weaponType: 0
+    is2Hand: 0
     weaponPrefab: {fileID: 0}
     cooldown: 0
     castTime: 0
+    drawAnimName: 
+    sheetAnimName: 

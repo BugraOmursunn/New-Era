@@ -15,16 +15,14 @@ public class WeaponController : MonoBehaviour
 	private bool isDraw;
 
 	[Space(10)]
+	[SerializeField] private Transform skeletonChestPos;
 	[SerializeField] private List<HandData> handData;
 
 	[Space(10)]
-	[SerializeField] private bool isHaveSword2h;
-	[SerializeField] private Transform sword2hSpawnPos;
-	[SerializeField] private GameObject sword2hPrefab;
-	[SerializeField] private GameObject sword2h;
-
-	private Transform sword2hParent;
-	private Transform sword2hObject;
+	[SerializeField] private BarItemData spawnWeaponData;
+	private GameObject weaponGameObject;
+	private Transform weaponParent;
+	private Transform weaponTransform;
 
 	private WeaponAttachmentData weaponAttachmentData;
 	private FullBodyBipedIK bidepIK;
@@ -57,13 +55,11 @@ public class WeaponController : MonoBehaviour
 	}
 	private void Awake()
 	{
-		if (isHaveSword2h)
-		{
-			sword2h = Instantiate(sword2hPrefab, sword2hSpawnPos);
-			weaponAttachmentData = sword2h.GetComponent<WeaponAttachmentData>();
-			sword2hParent = sword2h.transform;
-			sword2hObject = sword2h.transform.GetChild(0);
-		}
+		weaponGameObject = Instantiate(spawnWeaponData.weaponData.weaponPrefab, skeletonChestPos);
+		weaponParent = weaponGameObject.transform;
+		weaponTransform = weaponGameObject.transform.GetChild(0);
+		weaponAttachmentData = weaponGameObject.GetComponent<WeaponAttachmentData>();
+
 		bidepIK = this.GetComponent<FullBodyBipedIK>();
 	}
 	private void DrawWeapon(WeaponData _weaponData)
@@ -71,47 +67,35 @@ public class WeaponController : MonoBehaviour
 		weaponData = _weaponData;
 
 		isDraw = !isDraw;
-		switch (weaponData.weaponType)
-		{
-			case WeaponType.Empty:
-				break;
-			case WeaponType.Sword_1h_shield:
-				break;
-			case WeaponType.Sword_2h:
-				playerAnimator.SetTrigger(isDraw ? "Draw2hSword" : "Sheath2hSword");
-				playerAnimator.SetBool("isEmptyHand", !isDraw);
-				playerAnimator.SetBool("is2hDraw", isDraw);
-				break;
-			default:
-				throw new ArgumentOutOfRangeException();
-		}
+
+		playerAnimator.SetTrigger(isDraw ? weaponData.drawAnimName : weaponData.sheetAnimName);
+		playerAnimator.SetBool("isEmptyHand", !isDraw);
+		if (weaponData.is2Hand == true)
+			playerAnimator.SetBool("is2hDraw", isDraw);
 	}
 
 	private bool IsDrawSword2h()
 	{
-		Debug.Log(isDraw);
 		return isDraw;
 	}
 	private void OnAttack()
 	{
 		if (isDraw == true && InputEventManager.IsCastingContinue() == false)
-		{
 			playerAnimator.SetTrigger("Attack");
-		}
 	}
 
 	public void AttachWeaponToHand()
 	{
-		sword2hObject.parent = handData[1].hand;
-		sword2hObject.localPosition = weaponAttachmentData.handAttachPos;
-		sword2hObject.localRotation = Quaternion.Euler(weaponAttachmentData.handAttachRot);
+		weaponTransform.parent = handData[1].hand;
+		weaponTransform.localPosition = weaponAttachmentData.handAttachPos;
+		weaponTransform.localRotation = Quaternion.Euler(weaponAttachmentData.handAttachRot);
 	}
 
 	public void AttackWeaponToSheath()
 	{
-		sword2hObject.parent = sword2hParent.transform;
-		sword2hObject.transform.localPosition = weaponAttachmentData.sheathAttachPos;
-		sword2hObject.localRotation = Quaternion.Euler(weaponAttachmentData.sheathAttachRot);
+		weaponTransform.parent = weaponParent.transform;
+		weaponTransform.transform.localPosition = weaponAttachmentData.sheathAttachPos;
+		weaponTransform.localRotation = Quaternion.Euler(weaponAttachmentData.sheathAttachRot);
 	}
 	public void EnableWeaponTrail()
 	{
@@ -128,15 +112,15 @@ public class WeaponController : MonoBehaviour
 	}
 	public void AttachLeftHandToWeapon()
 	{
-		SwitchHandAttackStatus(true);
+		SwitchHandIKStatus(true);
 	}
 	public void DetachLeftHandFromWeapon()
 	{
-		SwitchHandAttackStatus(false);
+		SwitchHandIKStatus(false);
 	}
 	private Sequence seq;
 
-	private void SwitchHandAttackStatus(bool targetStatus)
+	private void SwitchHandIKStatus(bool targetStatus)
 	{
 		if (targetStatus == true && bidepIK.solver.leftHandEffector.positionWeight == 0)
 		{
@@ -151,7 +135,7 @@ public class WeaponController : MonoBehaviour
 
 			seq.Kill();
 			if (bidepIK.solver.leftHandEffector.target == null)
-				SwitchHandAttackStatus(false);
+				SwitchHandIKStatus(false);
 
 			seq.Append(DOTween.To(() => positionWeightTarget, x => positionWeightTarget = x, weaponAttachmentData.handData[0].positionWeight, 0.3f)
 				.OnUpdate(() => {

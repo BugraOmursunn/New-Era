@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class WeaponAttachmentData : MonoBehaviour
 {
 	public Vector3 handAttachPos;
@@ -10,7 +12,4 @@ public class WeaponAttachmentData : MonoBehaviour
 	public Vector3 sheathAttachRot;
 
 	public List<HandData> handData;
-	
-	//public Transform leftHandAttachTransform;
-	//public Transform rightHandAttachTransform;
 }

@@ -1320,6 +1320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 6982812146204527121}
+  skeletonChestPos: {fileID: 2719569588957798408}
   handData:
   - hand: {fileID: 9186500496127808867}
     positionWeight: 0
@@ -1342,7 +1343,6 @@ MonoBehaviour:
     - finger: {fileID: 4372607808223944788}
     - finger: {fileID: 3964097221717966225}
   isHaveSword2h: 1
-  sword2hSpawnPos: {fileID: 2719569588957798408}
   sword2hPrefab: {fileID: 5012360810001529887, guid: 7ea70c8404821cc41a1c73b432440a1b, type: 3}
   sword2h: {fileID: 0}
 --- !u!114 &7776216945171169455

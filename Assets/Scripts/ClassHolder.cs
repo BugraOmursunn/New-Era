@@ -20,9 +20,12 @@ public class SkillData
 public class WeaponData
 {
 	public WeaponType weaponType;
+	public bool is2Hand;
 	public GameObject weaponPrefab;
 	public float cooldown;
 	public float castTime;
+	public string drawAnimName;
+	public string sheetAnimName;
 }
 
 [Serializable]
@@ -49,6 +52,6 @@ public class HandData
 	public float positionWeight;
 	public float rotationWeight;
 	public float maintainRelativePositionWeight;
-	
+
 	public List<FingerData> fingers;
 }

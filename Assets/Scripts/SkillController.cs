@@ -51,27 +51,24 @@ public class SkillController : MonoBehaviour
 		yield return new WaitForSeconds(skillData.vfxActivationTime);
 
 		GameObject skill;
+		Vector3 position = new Vector3(playerTransform.position.x, skillData.skillPrefab.transform.position.y, playerTransform.position.z);
+		Quaternion transformRotation = Quaternion.Euler(0, playerTransform.eulerAngles.y - 90, 0);
+
 		switch (gameType)
 		{
 			case GameTypes.SinglePlayer:
-				skill = Instantiate(skillData.skillPrefab,
-					new Vector3(playerTransform.position.x, skillData.skillPrefab.transform.position.y, playerTransform.position.z),
-					Quaternion.Euler(0, playerTransform.eulerAngles.y - 90, 0));
+				skill = Instantiate(skillData.skillPrefab, position, transformRotation);
 				break;
 			case GameTypes.MultiPlayer:
-				skill = PhotonNetwork.Instantiate(skillData.skillPrefab.name,
-					new Vector3(playerTransform.position.x, skillData.skillPrefab.transform.position.y, playerTransform.position.z),
-					Quaternion.Euler(0, playerTransform.eulerAngles.y - 90, 0));
+				skill = PhotonNetwork.Instantiate(skillData.skillPrefab.name, position, transformRotation);
 				break;
 			default:
 				throw new ArgumentOutOfRangeException();
 		}
 
 		skill.transform.parent = playerTransform;
-
 		skill.transform.localPosition = new Vector3(0, skill.transform.position.y, 0) + skillData.offSet;
-
-		skill.transform.rotation = Quaternion.Euler(0, playerTransform.eulerAngles.y - 90, 0);
+		skill.transform.rotation = transformRotation;
 
 		if (skillData.isChild == false)
 			skill.transform.parent = null;

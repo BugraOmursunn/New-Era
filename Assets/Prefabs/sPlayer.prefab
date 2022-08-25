@@ -61,11 +61,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5535523782448629199, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
       propertyPath: m_Name
-      value: PlayerPackage Variant
+      value: sPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 6412840963502819826, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
       propertyPath: sceneViewId
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -8524523270730323720, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
+    - {fileID: 45614675640529581, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
+    - {fileID: 6412840963502819826, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
+    - {fileID: 6909771368446543140, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
+    - {fileID: 9180465998360384380, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}

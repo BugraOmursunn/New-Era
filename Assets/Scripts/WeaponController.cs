@@ -23,27 +23,34 @@ public class WeaponController : MonoBehaviour
 	[SerializeField] private GameObject sword2hPrefab;
 	[SerializeField] private GameObject sword2h;
 
-
 	private Transform sword2hParent;
 	private Transform sword2hObject;
 
 	private WeaponAttachmentData weaponAttachmentData;
 	private FullBodyBipedIK bidepIK;
 
+	private GameTypes gameType;
 	private void OnEnable()
 	{
-		if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
-			return;
-		
+		gameType = EventManager.gameType.Invoke();
+		if (gameType == GameTypes.MultiPlayer)
+		{
+			if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
+				return;
+		}
+
 		InputEventManager.DrawWeapon += DrawWeapon;
 		InputEventManager.Attack += OnAttack;
 		InputEventManager.IsDrawSword2h += IsDrawSword2h;
 	}
 	private void OnDisable()
 	{
-		if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
-			return;
-		
+		if (gameType == GameTypes.MultiPlayer)
+		{
+			if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
+				return;
+		}
+
 		InputEventManager.DrawWeapon -= DrawWeapon;
 		InputEventManager.Attack -= OnAttack;
 		InputEventManager.IsDrawSword2h -= IsDrawSword2h;
@@ -87,9 +94,6 @@ public class WeaponController : MonoBehaviour
 	}
 	private void OnAttack()
 	{
-		if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
-			return;
-
 		if (isDraw == true && InputEventManager.IsCastingContinue() == false)
 		{
 			playerAnimator.SetTrigger("Attack");

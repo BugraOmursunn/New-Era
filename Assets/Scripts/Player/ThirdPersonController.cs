@@ -86,8 +86,10 @@ public class ThirdPersonController : MonoBehaviour
 
 	private bool IsCurrentDeviceMouse => _playerInput.currentControlScheme == "KeyboardMouse";
 
+	private GameTypes gameType;
 	private void Awake()
 	{
+		gameType = EventManager.gameType.Invoke();
 		// get a reference to our main camera
 		if (_mainCamera == null)
 		{
@@ -111,8 +113,11 @@ public class ThirdPersonController : MonoBehaviour
 
 	private void Update()
 	{
-		if (this.GetComponent<PhotonView>().IsMine==false)
-			return;
+		if (gameType == GameTypes.MultiPlayer)
+		{
+			if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
+				return;
+		}
 		
 		_hasAnimator = TryGetComponent(out _animator);
 

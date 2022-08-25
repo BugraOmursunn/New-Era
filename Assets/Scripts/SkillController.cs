@@ -8,17 +8,27 @@ public class SkillController : MonoBehaviour
 {
 	public Animator playerAnimator;
 	private Transform playerTransform;
+
+	private GameTypes gameType;
+
 	private void OnEnable()
 	{
-		if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
-			return;
+		gameType = EventManager.gameType.Invoke();
+		if (gameType == GameTypes.MultiPlayer)
+		{
+			if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
+				return;
+		}
 
 		InputEventManager.CastSkill += CastSkill;
 	}
 	private void OnDisable()
 	{
-		if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
-			return;
+		if (gameType == GameTypes.MultiPlayer)
+		{
+			if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
+				return;
+		}
 
 		InputEventManager.CastSkill -= CastSkill;
 	}
@@ -40,9 +50,23 @@ public class SkillController : MonoBehaviour
 	{
 		yield return new WaitForSeconds(skillData.vfxActivationTime);
 
-		var skill = PhotonNetwork.Instantiate(skillData.skillPrefab.name,
-			new Vector3(playerTransform.position.x, skillData.skillPrefab.transform.position.y, playerTransform.position.z),
-			Quaternion.Euler(0, playerTransform.eulerAngles.y - 90, 0));
+		GameObject skill;
+		switch (gameType)
+		{
+			case GameTypes.SinglePlayer:
+				skill = Instantiate(skillData.skillPrefab,
+					new Vector3(playerTransform.position.x, skillData.skillPrefab.transform.position.y, playerTransform.position.z),
+					Quaternion.Euler(0, playerTransform.eulerAngles.y - 90, 0));
+				break;
+			case GameTypes.MultiPlayer:
+				skill = PhotonNetwork.Instantiate(skillData.skillPrefab.name,
+					new Vector3(playerTransform.position.x, skillData.skillPrefab.transform.position.y, playerTransform.position.z),
+					Quaternion.Euler(0, playerTransform.eulerAngles.y - 90, 0));
+				break;
+			default:
+				throw new ArgumentOutOfRangeException();
+		}
+
 		skill.transform.parent = playerTransform;
 
 		skill.transform.localPosition = new Vector3(0, skill.transform.position.y, 0) + skillData.offSet;

@@ -12,6 +12,9 @@ public class CameraController : MonoBehaviour
 	[SerializeField] private CinemachineVirtualCamera virtualCamera;
 	private CinemachineComponentBase componentBase;
 	private float zoomValue;
+	
+	private GameTypes gameType;
+	
 	private void OnEnable()
 	{
 		InputEventManager.ChangeCameraZoomValue += ChangeCameraZoomValue;
@@ -22,10 +25,12 @@ public class CameraController : MonoBehaviour
 	}
 	private void Awake()
 	{
-		if (this.GetComponent<PhotonView>().IsMine == true)
+		if (gameType == GameTypes.MultiPlayer)
 		{
-			virtualCamera.Priority = 999;
+			if (this.transform.parent.GetComponent<PhotonView>().IsMine == true)
+				virtualCamera.Priority = 999;
 		}
+
 	}
 	private void ChangeCameraZoomValue(float value)
 	{

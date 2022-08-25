@@ -67,6 +67,10 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7961835766340572031, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
+      propertyPath: spawnWeaponData
+      value: 
+      objectReference: {fileID: 11400000, guid: c2bb5f424785fa2409ff77b5854d09ad, type: 2}
     m_RemovedComponents:
     - {fileID: -8524523270730323720, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
     - {fileID: 45614675640529581, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}

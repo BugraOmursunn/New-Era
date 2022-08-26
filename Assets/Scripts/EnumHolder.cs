@@ -16,8 +16,8 @@ public enum WeaponType
 	Sword_1h_shield,
 	Sword_2h,
 }
-public enum SkillName
+public enum SkillType
 {
-	Windfury,
-	SuperSlash,
+	Damage,
+	Heal,
 }

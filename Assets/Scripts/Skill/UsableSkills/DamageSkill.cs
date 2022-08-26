@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackSkill : Skill
+public class DamageSkill : Skill
 {
+	public override SkillType SkillType => SkillType.Damage;
+
 	public override void CastSkill(Vector3 center, float skillRadius, int damage)
 	{
 		CastAttack(center, skillRadius, damage);

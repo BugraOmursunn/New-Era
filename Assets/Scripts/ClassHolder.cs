@@ -6,7 +6,7 @@ using System;
 [Serializable]
 public class SkillData
 {
-	public SkillName skillName;
+	public SkillType skillType;
 	public bool isChild;
 	public GameObject skillPrefab;
 	public AnimationClip skillAnimation;

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HealSkill : Skill
 {
+	public override SkillType SkillType => SkillType.Heal;
 	public override void CastSkill(Vector3 center, float skillRadius, int damage)
 	{
 		CastHeal(center, skillRadius, damage);

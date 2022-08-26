@@ -70,10 +70,15 @@ public class SkillController : MonoBehaviour
 		skill.transform.localPosition = new Vector3(0, skill.transform.position.y, 0) + skillData.offSet;
 		skill.transform.rotation = transformRotation;
 
+		InstantiateSkill(skillData, skill.transform.position, 2, 2);
+
 		if (skillData.isChild == false)
 			skill.transform.parent = null;
 
-		
 		Destroy(skill, 3f);
+	}
+	private void InstantiateSkill(SkillData skillData, Vector3 center, float skillRadius, int damage)
+	{
+		SkillProcessor.CastSkill(skillData.skillType, center, skillRadius, damage);
 	}
 }

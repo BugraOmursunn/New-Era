@@ -79,6 +79,6 @@ public class SkillController : MonoBehaviour
 	}
 	private void InstantiateSkill(SkillData skillData, Vector3 center, float skillRadius, int damage)
 	{
-		SkillProcessor.CastSkill(skillData.skillType, center, skillRadius, damage);
+		SpellProcessor.CastSpell(skillData.spellType, center, skillRadius, damage);
 	}
 }

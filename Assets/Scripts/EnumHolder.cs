@@ -16,7 +16,7 @@ public enum WeaponType
 	Sword_1h_shield,
 	Sword_2h,
 }
-public enum SkillType
+public enum SpellType
 {
 	Damage,
 	Heal,

@@ -64,7 +64,7 @@ public class BarManager : MonoBehaviour
 						newData.castTime = slotsData.barItems[i].weaponData.castTime;
 						break;
 					case BarActionTypes.Skill:
-						newData.barName = slotsData.barItems[i].skillData.skillType.ToString();
+						newData.barName = slotsData.barItems[i].skillData.spellType.ToString();
 						newData.barDefaultCooldown = slotsData.barItems[i].skillData.cooldown;
 						newData.castTime = slotsData.barItems[i].skillData.castTime;
 						break;

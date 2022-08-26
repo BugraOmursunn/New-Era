@@ -24,9 +24,9 @@ public class CooldownManager : MonoBehaviour
                         newData.barName = slotsData.barItems[i].weaponData.weaponType.ToString();
                         newData.barDefaultCooldown = slotsData.barItems[i].weaponData.cooldown;
                         break;
-                    case BarActionTypes.Skill:
-                        newData.barName = slotsData.barItems[i].skillData.spellType.ToString();
-                        newData.barDefaultCooldown = slotsData.barItems[i].skillData.cooldown;
+                    case BarActionTypes.Spell:
+                        newData.barName = slotsData.barItems[i].spellData.spellType.ToString();
+                        newData.barDefaultCooldown = slotsData.barItems[i].spellData.cooldown;
                         break;
                     case BarActionTypes.Item:
                         break;

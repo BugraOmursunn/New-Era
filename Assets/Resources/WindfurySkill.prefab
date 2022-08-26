@@ -14667,9 +14667,8 @@ GameObject:
   - component: {fileID: 198412930389571108}
   - component: {fileID: 199199916559843444}
   - component: {fileID: 3179360116308452359}
-  - component: {fileID: 3263679928123472600}
   m_Layer: 0
-  m_Name: WindfurrySkill
+  m_Name: WindfurySkill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19576,18 +19575,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &3263679928123472600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1294101409476956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f7cec340cd266946939eb7b316a1e7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1434594377845796
 GameObject:
   m_ObjectHideFlags: 0

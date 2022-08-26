@@ -4,13 +4,13 @@ using UnityEngine;
 using System;
 
 [Serializable]
-public class SkillData
+public class SpellData
 {
 	public SpellType spellType;
 	public bool isChild;
-	public GameObject skillPrefab;
-	public AnimationClip skillAnimation;
-	public string skillAnimationTriggerName;
+	public GameObject spellPrefab;
+	public AnimationClip spellAnimation;
+	public string spellAnimationTriggerName;
 	public float vfxActivationTime;
 	public Vector3 offSet;
 	public float cooldown;

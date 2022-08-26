@@ -30,7 +30,7 @@ public class BarManager : MonoBehaviour
 				return;
 		}
 
-		InputEventManager.BarIndexPressed += BarSkillPressed;
+		InputEventManager.BarIndexPressed += BarSpellPressed;
 		InputEventManager.IsCastingContinue += IsCastingContinue;
 	}
 	private void OnDisable()
@@ -41,7 +41,7 @@ public class BarManager : MonoBehaviour
 				return;
 		}
 
-		InputEventManager.BarIndexPressed -= BarSkillPressed;
+		InputEventManager.BarIndexPressed -= BarSpellPressed;
 		InputEventManager.IsCastingContinue -= IsCastingContinue;
 	}
 	private void Awake()
@@ -63,10 +63,10 @@ public class BarManager : MonoBehaviour
 						newData.barDefaultCooldown = slotsData.barItems[i].weaponData.cooldown;
 						newData.castTime = slotsData.barItems[i].weaponData.castTime;
 						break;
-					case BarActionTypes.Skill:
-						newData.barName = slotsData.barItems[i].skillData.spellType.ToString();
-						newData.barDefaultCooldown = slotsData.barItems[i].skillData.cooldown;
-						newData.castTime = slotsData.barItems[i].skillData.castTime;
+					case BarActionTypes.Spell:
+						newData.barName = slotsData.barItems[i].spellData.spellType.ToString();
+						newData.barDefaultCooldown = slotsData.barItems[i].spellData.cooldown;
+						newData.castTime = slotsData.barItems[i].spellData.castTime;
 						break;
 					case BarActionTypes.Item:
 						break;
@@ -87,7 +87,7 @@ public class BarManager : MonoBehaviour
 		}
 	}
 
-	private void BarSkillPressed(int index)
+	private void BarSpellPressed(int index)
 	{
 		m_BarItemData = slotsData.barItems[index];
 

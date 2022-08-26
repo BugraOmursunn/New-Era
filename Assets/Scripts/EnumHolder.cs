@@ -7,7 +7,7 @@ public enum BarActionTypes
 {
 	Empty,
 	Weapon,
-	Skill,
+	Spell,
 	Item
 }
 public enum WeaponType

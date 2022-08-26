@@ -39,27 +39,27 @@ public class InputHandler : MonoBehaviour
 		m_attack.Enable();
 
 		m_Press1 = playerInputs.Player.Press1;
-		m_Press1.performed += BarSkillPressed;
+		m_Press1.performed += BarSpellPressed;
 		m_Press1.Enable();
 
 		m_Press2 = playerInputs.Player.Press2;
-		m_Press2.performed += BarSkillPressed;
+		m_Press2.performed += BarSpellPressed;
 		m_Press2.Enable();
 
 		m_Press3 = playerInputs.Player.Press3;
-		m_Press3.performed += BarSkillPressed;
+		m_Press3.performed += BarSpellPressed;
 		m_Press3.Enable();
 
 		m_Press4 = playerInputs.Player.Press4;
-		m_Press4.performed += BarSkillPressed;
+		m_Press4.performed += BarSpellPressed;
 		m_Press4.Enable();
 
 		m_Press5 = playerInputs.Player.Press5;
-		m_Press5.performed += BarSkillPressed;
+		m_Press5.performed += BarSpellPressed;
 		m_Press5.Enable();
 
 		m_Press6 = playerInputs.Player.Press6;
-		m_Press6.performed += BarSkillPressed;
+		m_Press6.performed += BarSpellPressed;
 		m_Press6.Enable();
 
 		m_rotateMouseWheel = playerInputs.Player.MouseWheel;
@@ -69,7 +69,7 @@ public class InputHandler : MonoBehaviour
 		playerInputs.Enable();
 	}
 
-	private void BarSkillPressed(InputAction.CallbackContext context)
+	private void BarSpellPressed(InputAction.CallbackContext context)
 	{
 
 

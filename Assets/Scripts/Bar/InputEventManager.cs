@@ -37,8 +37,8 @@ public static class InputEventManager
 				InputEventManager.DrawWeapon.Invoke(barItem.weaponData);
 				isCastSuccessful = true;
 				break;
-			case BarActionTypes.Skill:
-				isCastSuccessful = InputEventManager.CastSkill.Invoke(barItem.skillData);
+			case BarActionTypes.Spell:
+				isCastSuccessful = InputEventManager.CastSpell.Invoke(barItem.spellData);
 				break;
 			default:
 				isCastSuccessful = true;
@@ -48,7 +48,7 @@ public static class InputEventManager
 	}
 
 	public static Action<WeaponData> DrawWeapon;
-	public static Func<SkillData, bool> CastSkill;
+	public static Func<SpellData, bool> CastSpell;
 
 	#endregion
 

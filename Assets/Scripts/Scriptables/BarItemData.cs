@@ -8,13 +8,12 @@ using UnityEngine.Rendering;
 [CreateAssetMenu(fileName = "BarItemData", menuName = "BarItems/BarItemData", order = 1)]
 public class BarItemData : ScriptableObject
 {
-
 	public Sprite icon;
 
 	public BarActionTypes barActionType;
 
-	[ShowIf("barActionType", BarActionTypes.Skill)]
-	public SkillData skillData;
+	[ShowIf("barActionType", BarActionTypes.Spell)]
+	public SpellData spellData;
 
 	[ShowIf("barActionType", BarActionTypes.Weapon)]
 	public WeaponData weaponData;

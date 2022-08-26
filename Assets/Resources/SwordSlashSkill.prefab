@@ -53802,7 +53802,6 @@ GameObject:
   - component: {fileID: 198425313532396088}
   - component: {fileID: 199834052696206512}
   - component: {fileID: 5638988944367653625}
-  - component: {fileID: -231765631517271367}
   m_Layer: 0
   m_Name: SwordSlashSkill
   m_TagString: Untagged
@@ -58699,18 +58698,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &-231765631517271367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1645009922904612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f7cec340cd266946939eb7b316a1e7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1691768130382804
 GameObject:
   m_ObjectHideFlags: 0

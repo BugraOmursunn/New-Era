@@ -14,18 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: aa562f9447233654789b885e0646fd2c, type: 3}
   barActionType: 2
-  skillData:
-    skillName: 0
-    isChild: 1
-    skillPrefab: {fileID: 1294101409476956, guid: 231e3be01ac50c047bb16d07fd8d2ba5, type: 3}
-    skillAnimation: {fileID: 7400000, guid: 3b7471c4f8b1071468e9bb3f23f6e53b, type: 2}
-    skillAnimationTriggerName: SwordSpin
+  spellData:
+    spellType: 0
+    isChild: 0
+    spellPrefab: {fileID: 1294101409476956, guid: 231e3be01ac50c047bb16d07fd8d2ba5, type: 3}
+    spellAnimation: {fileID: 7400000, guid: 3b7471c4f8b1071468e9bb3f23f6e53b, type: 2}
+    spellAnimationTriggerName: SwordSpin
     vfxActivationTime: 1.1
     offSet: {x: 0, y: 0, z: 0}
     cooldown: 4
     castTime: 2
   weaponData:
     weaponType: 0
+    is2Hand: 0
     weaponPrefab: {fileID: 0}
     cooldown: 0
     castTime: 0
+    drawAnimName: 
+    sheetAnimName: 

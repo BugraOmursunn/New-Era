@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f73eed4b98367d4a8a5e3caff0fa38d, type: 3}
-  m_Name: sSuperSlash
+  m_Name: sSwordSlash
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 27919e65bf1574c468b0d2343b2b542e, type: 3}
   barActionType: 2
-  skillData:
-    skillName: 1
+  spellData:
+    spellType: 0
     isChild: 0
-    skillPrefab: {fileID: 1645009922904612, guid: 5e3170c6ef0f014409bd7423e3bb805a, type: 3}
-    skillAnimation: {fileID: 7400000, guid: b1f076624d163034390c36f4491f3181, type: 2}
-    skillAnimationTriggerName: SwordSlash
+    spellPrefab: {fileID: 1645009922904612, guid: 5e3170c6ef0f014409bd7423e3bb805a, type: 3}
+    spellAnimation: {fileID: 7400000, guid: b1f076624d163034390c36f4491f3181, type: 2}
+    spellAnimationTriggerName: SwordSlash
     vfxActivationTime: 1
     offSet: {x: 0, y: 0, z: 1}
     cooldown: 4

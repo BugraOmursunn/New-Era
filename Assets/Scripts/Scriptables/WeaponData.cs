@@ -2,11 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
-using Sirenix.OdinInspector.Demos.RPGEditor;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewWeaponData", menuName = "BarItems/NewWeaponData", order = 3)]
-public class NewWeaponData : ScriptableObject
+[CreateAssetMenu(fileName = "WeaponData", menuName = "BarItems/WeaponData", order = 3)]
+public class WeaponData : ScriptableObject
 {
 	protected const string LEFT_VERTICAL_GROUP = "Split/Left";
 	protected const string GENERAL_SETTINGS_VERTICAL_GROUP = "Split/Left/General Settings/Split/Right";
@@ -44,12 +43,12 @@ public class NewWeaponData : ScriptableObject
 		public string drawAnimName;
 		public string sheetAnimName;
 	}
-
 	[VerticalGroup("Split/Right")]
 	[BoxGroup("Split/Right/Animation Settings")]
 	[HideLabel]
 	public WeaponVFXSettings weaponVFXSettings;
 
+	
 	[Serializable]
 	public class WeaponModifierSettings
 	{
@@ -58,7 +57,6 @@ public class NewWeaponData : ScriptableObject
 		[SuffixLabel("seconds ", true)]
 		public float castTime;
 	}
-
 	[BoxGroup("Split/Right/Modifier Settings")]
 	[HideLabel]
 	public WeaponModifierSettings weaponModifierSettings;

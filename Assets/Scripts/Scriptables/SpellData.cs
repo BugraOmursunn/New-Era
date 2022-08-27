@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
-using Sirenix.OdinInspector.Demos.RPGEditor;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SpellData", menuName = "BarItems/SpellData", order = 2)]
@@ -46,11 +45,11 @@ public class SpellData : ScriptableObject
 		public float vfxActivationTime;
 		public Vector3 offSet;
 	}
-
 	[VerticalGroup("Split/Right")]
 	[BoxGroup("Split/Right/Animation Settings")]
 	[HideLabel]
 	public SpellVFXSettings spellVFXSettings;
+
 
 	[Serializable]
 	public class SpellModifierSettings
@@ -60,7 +59,6 @@ public class SpellData : ScriptableObject
 		[SuffixLabel("seconds ", true)]
 		public float castTime;
 	}
-
 	[BoxGroup("Split/Right/Modifier Settings")]
 	[HideLabel]
 	public SpellModifierSettings spellModifierSettings;

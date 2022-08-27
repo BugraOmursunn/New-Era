@@ -33,12 +33,12 @@ public static class InputEventManager
 
 		switch (barItem)
 		{
-			case NewWeaponData newWeaponData:
-				InputEventManager.DrawWeapon.Invoke(newWeaponData);
+			case WeaponData weaponData:
+				InputEventManager.DrawWeapon.Invoke(weaponData);
 				isCastSuccessful = true;
 				break;
-			case SpellData newSpellData:
-				isCastSuccessful = InputEventManager.CastSpell.Invoke(newSpellData);
+			case SpellData spellData:
+				isCastSuccessful = InputEventManager.CastSpell.Invoke(spellData);
 				break;
 			default:
 				isCastSuccessful = true;
@@ -47,7 +47,7 @@ public static class InputEventManager
 		return isCastSuccessful;
 	}
 
-	public static Action<NewWeaponData> DrawWeapon;
+	public static Action<WeaponData> DrawWeapon;
 	public static Func<SpellData, bool> CastSpell;
 
 	#endregion

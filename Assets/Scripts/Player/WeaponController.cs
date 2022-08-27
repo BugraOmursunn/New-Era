@@ -10,7 +10,7 @@ public class WeaponController : MonoBehaviour
 {
 	[SerializeField] private Animator playerAnimator;
 
-	private NewWeaponData weaponData;
+	private WeaponData weaponData;
 
 	private bool isDraw;
 
@@ -19,7 +19,7 @@ public class WeaponController : MonoBehaviour
 	[SerializeField] private List<HandData> handData;
 
 	[Space(10)]
-	[SerializeField] private NewWeaponData spawnWeaponData;
+	[SerializeField] private WeaponData spawnWeaponData;
 	private GameObject weaponGameObject;
 	private Transform weaponParent;
 	private Transform weaponTransform;
@@ -62,7 +62,7 @@ public class WeaponController : MonoBehaviour
 
 		bidepIK = this.GetComponent<FullBodyBipedIK>();
 	}
-	private void DrawWeapon(NewWeaponData _weaponData)
+	private void DrawWeapon(WeaponData _weaponData)
 	{
 		weaponData = _weaponData;
 

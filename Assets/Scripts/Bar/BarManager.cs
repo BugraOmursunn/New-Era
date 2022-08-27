@@ -7,7 +7,6 @@ using JetBrains.Annotations;
 using Photon.Pun;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class BarManager : MonoBehaviour
 {
@@ -47,59 +46,53 @@ public class BarManager : MonoBehaviour
 	private void Awake()
 	{
 		//buttons = GameObject.FindObjectsOfType<BarItemManager>().Select(x => x.GetComponent<Transform>()).OrderBy(m => m.transform.GetSiblingIndex()).ToArray();
+		//WeaponData weaponData = slotsData.barItems[i] as WeaponData;
 
-		for (int i = 0; i < slotsData.barItems.Count; i++)
+		foreach (var scriptable in slotsData.barItems)
 		{
-			if (slotsData.barItems[i] != null)
+			if (scriptable == null)
+				continue;
+
+			var newData = new BarCooldownData();
+
+			switch (scriptable)
 			{
-				BarCooldownData newData = new BarCooldownData();
-
-				switch (slotsData.barItems[i])
-				{
-					case SpellData:
-						SpellData spellData = slotsData.barItems[i] as SpellData;
-						newData.barName = spellData.Name;
-						newData.barDefaultCooldown = spellData.spellModifierSettings.cooldown;
-						newData.castTime = spellData.spellModifierSettings.castTime;
-						break;
-					case NewWeaponData:
-						NewWeaponData newWeaponData = slotsData.barItems[i] as NewWeaponData;
-						newData.barName = newWeaponData.Name;
-						newData.barDefaultCooldown = newWeaponData.weaponModifierSettings.cooldown;
-						newData.castTime = newWeaponData.weaponModifierSettings.castTime;
-						break;
-					default:
-						throw new ArgumentOutOfRangeException();
-				}
-
-				barCooldownData.Add(newData);
+				case SpellData spellData:
+					newData.barName = spellData.Name;
+					newData.barDefaultCooldown = spellData.spellModifierSettings.cooldown;
+					newData.castTime = spellData.spellModifierSettings.castTime;
+					break;
+				case WeaponData weaponData:
+					newData.barName = weaponData.Name;
+					newData.barDefaultCooldown = weaponData.weaponModifierSettings.cooldown;
+					newData.castTime = weaponData.weaponModifierSettings.castTime;
+					break;
 			}
+			barCooldownData.Add(newData);
 		}
 	}
 	private void Start()
 	{
 		for (int i = 0; i < slotsData.barItems.Count; i++)
 		{
-			if (slotsData.barItems[i] != null)
+			if (slotsData.barItems[i] == null)
+				continue;
+
+			var newData = new BarCooldownData();
+			Sprite icon = null;
+			switch (slotsData.barItems[i])
 			{
-				BarCooldownData newData = new BarCooldownData();
-
-				switch (slotsData.barItems[i])
-				{
-					case SpellData:
-						SpellData spellData = slotsData.barItems[i] as SpellData;
-						buttons[i].GetComponent<BarItemManager>().iconImg.sprite = spellData.Icon;
-						break;
-					case NewWeaponData:
-						NewWeaponData newWeaponData = slotsData.barItems[i] as NewWeaponData;
-						buttons[i].GetComponent<BarItemManager>().iconImg.sprite = newWeaponData.Icon;
-						break;
-					default:
-						throw new ArgumentOutOfRangeException();
-				}
-
-				barCooldownData.Add(newData);
+				case SpellData:
+					if (slotsData.barItems[i] is SpellData spellData)
+						icon = spellData.Icon;
+					break;
+				case WeaponData:
+					if (slotsData.barItems[i] is WeaponData weaponData)
+						icon = weaponData.Icon;
+					break;
 			}
+			buttons[i].GetComponent<BarItemManager>().iconImg.sprite = icon;
+			barCooldownData.Add(newData);
 		}
 	}
 

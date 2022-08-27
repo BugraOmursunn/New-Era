@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d91965549769fc54896374495ba98c87, type: 3}
   m_Name: SlotsData
   m_EditorClassIdentifier: 
-  barItems2:
+  barItems:
   - {fileID: 11400000, guid: a49e5a7b49316a84a908796d48434e02, type: 2}
   - {fileID: 11400000, guid: 88efb592a743f4a42a414a2bff56a8b1, type: 2}
   - {fileID: 11400000, guid: e29b5102166fcc446ac6df53e5c2f802, type: 2}

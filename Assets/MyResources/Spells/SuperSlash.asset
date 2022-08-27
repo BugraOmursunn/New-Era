@@ -14,18 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textureIon: {fileID: 2800000, guid: 27919e65bf1574c468b0d2343b2b542e, type: 3}
   Name: Sword Slash
+  Type: 0
   Icon: {fileID: 21300000, guid: 27919e65bf1574c468b0d2343b2b542e, type: 3}
   Description: 
   Notes: 
-  spellData:
-    Type: 0
+  spellVFXSettings:
     isChild: 0
     Prefab: {fileID: 1645009922904612, guid: 5e3170c6ef0f014409bd7423e3bb805a, type: 3}
     Animation: {fileID: 7400000, guid: b1f076624d163034390c36f4491f3181, type: 2}
     AnimTriggerName: SwordSlash
     vfxActivationTime: 1
     offSet: {x: 0, y: 0.1, z: 1}
+  spellModifierSettings:
     cooldown: 4
     castTime: 2
-  modifiers:
-    stats: []

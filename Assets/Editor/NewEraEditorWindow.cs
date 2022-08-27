@@ -39,7 +39,7 @@ public class NewEraEditorWindow : OdinMenuEditorWindow
 		// Adds all characters.
 
 		tree.AddAllAssetsAtPath("Spells", "Assets/MyResources/Spells", typeof(SpellData), true, true);
-		tree.AddAllAssetsAtPath("Weapons", "Assets/MyResources/Weapons", typeof(NewWeaponData), true, true);
+		tree.AddAllAssetsAtPath("Weapons", "Assets/MyResources/Weapons", typeof(WeaponData), true, true);
 
 		// Add all scriptable object items.
 		//tree.AddAllAssetsAtPath("", "Assets/Plugins/Sirenix/Demos/SAMPLE - RPG Editor/Items", typeof(Item), true)
@@ -50,7 +50,7 @@ public class NewEraEditorWindow : OdinMenuEditorWindow
 
 		// Add icons to characters and items.
 		tree.EnumerateTree().AddIcons<SpellData>(x => x.textureIon);
-		tree.EnumerateTree().AddIcons<NewWeaponData>(x => x.textureIon);
+		tree.EnumerateTree().AddIcons<WeaponData>(x => x.textureIon);
 		return tree;
 	}
 

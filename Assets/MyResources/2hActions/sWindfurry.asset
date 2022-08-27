@@ -16,7 +16,7 @@ MonoBehaviour:
   barActionType: 2
   spellData:
     spellType: 0
-    isChild: 0
+    isChild: 1
     spellPrefab: {fileID: 1294101409476956, guid: 231e3be01ac50c047bb16d07fd8d2ba5, type: 3}
     spellAnimation: {fileID: 7400000, guid: 3b7471c4f8b1071468e9bb3f23f6e53b, type: 2}
     spellAnimationTriggerName: SwordSpin

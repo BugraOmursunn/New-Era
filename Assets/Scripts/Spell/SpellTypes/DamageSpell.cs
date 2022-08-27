@@ -21,11 +21,11 @@ public class DamageSpell : Spell
 		// 	Debug.Log(effectedCollider[i].name);
 
 		//select effected characters from effected colliders except original caster
-		List<Character> effectedCharacters = new List<Character>();
+		List<IDamageAble> effectedCharacters = new List<IDamageAble>();
 		effectedCharacters = effectedCollider
-			.Select(r => r.GetComponent<Character>())
+			.Select(r => r.GetComponent<IDamageAble>())
 			.Where(g => g != null)
-			.Where(t => t.transform != caster.transform)
+			.Where(t => t != caster.GetComponent<IDamageAble>())
 			.ToList();
 
 		//Debug.Log(caster.name);
@@ -38,7 +38,7 @@ public class DamageSpell : Spell
 
 		for (int i = 0; i < effectedCharacters.Count; i++)
 		{
-			Debug.Log(effectedCharacters[i].name);
+			Debug.Log(effectedCharacters[i]);
 			effectedCharacters[i].GetDamage(5);
 		}
 	}

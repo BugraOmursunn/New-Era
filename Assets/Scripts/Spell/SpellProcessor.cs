@@ -26,12 +26,12 @@ public static class SpellProcessor
 		}
 	}
 
-	public static void CastSpell(SpellType spellType, Transform caster,Vector3 center, float radius, int damage)
+	public static void CastSpell(SpellData spellData, Transform caster, Vector3 center)
 	{
 		if (_initialized == false)
 			Initialize();
 
-		var spell = _spells[spellType];
-		spell.CastSpell(caster,center, radius, damage);
+		var spell = _spells[spellData.Type];
+		spell.CastSpell(spellData, caster, center);
 	}
 }

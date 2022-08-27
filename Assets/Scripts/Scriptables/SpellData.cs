@@ -54,6 +54,8 @@ public class SpellData : ScriptableObject
 	[Serializable]
 	public class SpellModifierSettings
 	{
+		public float spellDamage;
+		public float spellRadius;
 		[SuffixLabel("seconds ", true)]
 		public float cooldown;
 		[SuffixLabel("seconds ", true)]

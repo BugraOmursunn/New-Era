@@ -8,14 +8,14 @@ public class DamageSpell : Spell
 {
 	public override SpellType SpellType => SpellType.Damage;
 
-	public override void CastSpell(Transform caster, Vector3 center, float spellRadius, int damage)
+	public override void CastSpell(SpellData spellData, Transform caster, Vector3 center)
 	{
-		CastAttack(caster, center, spellRadius, damage);
+		CastAttack(spellData, caster, center);
 	}
 
-	private void CastAttack(Transform caster, Vector3 center, float spellRadius, int damage)
+	private void CastAttack(SpellData spellData, Transform caster, Vector3 center)
 	{
-		List<Collider> effectedCollider = Physics.OverlapSphere(center, spellRadius).ToList();
+		List<Collider> effectedCollider = Physics.OverlapSphere(center, spellData.spellModifierSettings.spellRadius).ToList();
 
 		// for (int i = 0; i < effectedCollider.Count; i++)
 		// 	Debug.Log(effectedCollider[i].name);
@@ -39,7 +39,7 @@ public class DamageSpell : Spell
 		for (int i = 0; i < effectedCharacters.Count; i++)
 		{
 			Debug.Log(effectedCharacters[i]);
-			effectedCharacters[i].GetDamage(5);
+			effectedCharacters[i].GetDamage(spellData.spellModifierSettings.spellDamage);
 		}
 	}
 }

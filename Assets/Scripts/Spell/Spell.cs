@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Spell : MonoBehaviour
 {
 	public abstract SpellType SpellType { get; }
-	public abstract void CastSpell(Transform caster,Vector3 center, float spellRadius, int damage);
+	public abstract void CastSpell(SpellData spellData, Transform caster, Vector3 center);
 }
 
 

@@ -26,5 +26,7 @@ MonoBehaviour:
     vfxActivationTime: 1
     offSet: {x: 0, y: 0.1, z: 1}
   spellModifierSettings:
+    spellDamage: 4
+    spellRadius: 1
     cooldown: 4
     castTime: 2

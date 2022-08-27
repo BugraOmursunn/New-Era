@@ -53,7 +53,7 @@ public class SpellController : MonoBehaviour
 		GameObject spell;
 		Vector3 position = new Vector3(playerTransform.position.x, spellData.spellVFXSettings.Prefab.transform.position.y, playerTransform.position.z);
 		Quaternion transformRotation = Quaternion.Euler(0, playerTransform.eulerAngles.y - 90, 0);
-		
+
 		switch (gameType)
 		{
 			case GameTypes.SinglePlayer:
@@ -71,7 +71,7 @@ public class SpellController : MonoBehaviour
 		spell.transform.rotation = transformRotation;
 
 		//where the real magic happens
-		SpellProcessor.CastSpell(spellData.Type, playerTransform, spell.transform.position, 2, 2);
+		SpellProcessor.CastSpell(spellData, playerTransform, spell.transform.position);
 
 		if (spellData.spellVFXSettings.isChild == false)
 			spell.transform.parent = null;

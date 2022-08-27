@@ -10,12 +10,12 @@ using UnityEditor;
 using UnityEngine;
 using System.Linq;
 
-public class BarItemDataEditor : OdinMenuEditorWindow
+public class NewEraEditorWindow : OdinMenuEditorWindow
 {
-	[MenuItem("New Era/Spell Editor")]
+	[MenuItem("New Era/Game Editor")]
 	private static void OpenWindow()
 	{
-		var window = GetWindow<BarItemDataEditor>();
+		var window = GetWindow<NewEraEditorWindow>();
 		window.position = GUIHelper.GetEditorWindowRect().AlignCenter(800, 500);
 	}
 
@@ -37,8 +37,8 @@ public class BarItemDataEditor : OdinMenuEditorWindow
 		//tree.Add("Spells", new CreateNewSpellData());
 
 		// Adds all characters.
-		tree.AddAllAssetsAtPath("Spells", "Assets/MyResources/2hActions", typeof(BarItemData), true, true);
-
+		tree.AddAllAssetsAtPath("Spells", "Assets/MyResources/Spells", typeof(BarItemData), true, true);
+		tree.AddAllAssetsAtPath("Weapons", "Assets/MyResources/Weapons", typeof(BarItemData), true, true);
 		// Add all scriptable object items.
 		//tree.AddAllAssetsAtPath("", "Assets/Plugins/Sirenix/Demos/SAMPLE - RPG Editor/Items", typeof(Item), true)
 		//.ForEach(this.AddDragHandles);
@@ -48,7 +48,6 @@ public class BarItemDataEditor : OdinMenuEditorWindow
 
 		// Add icons to characters and items.
 		tree.EnumerateTree().AddIcons<BarItemData>(x => x.textureIon);
-		//tree.EnumerateTree().AddIcons<Item>(x => x.Icon);
 
 		return tree;
 	}
@@ -75,16 +74,16 @@ public class BarItemDataEditor : OdinMenuEditorWindow
 	protected override void OnBeginDrawEditors()
 	{
 		var selected = this.MenuTree.Selection.FirstOrDefault();
-	
+
 		SirenixEditorGUI.BeginHorizontalToolbar();
 		{
 			if (selected != null)
 			{
 				GUILayout.Label(selected.Name);
 			}
-			
+
 			GUILayout.FlexibleSpace();
-	
+
 			// if (SirenixEditorGUI.ToolbarButton("Delete Current"))
 			// {
 			// 	BarItemData asset = selected.SelectedValue as BarItemData;

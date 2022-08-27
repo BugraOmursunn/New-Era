@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using Sirenix.OdinInspector.Demos.RPGEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -37,18 +38,23 @@ public class BarItemData : ScriptableObject
 	[HideLabel, TextArea(6, 14)]
 	public string Notes;
 	
-	[BoxGroup("Split/Right/Settings")]
+	[BoxGroup("Split/Right/Animation Settings")]
 	[ShowIf("Type", BarActionTypes.Spell)]
 	[HideLabel]
 	public SpellData spellData;
 
 	[VerticalGroup("Split/Right")]
-	[BoxGroup("Split/Right/Settings")]
+	[BoxGroup("Split/Right/Animation Settings")]
 	[ShowIf("Type", BarActionTypes.Weapon)]
 	[HideLabel]
 	public WeaponData weaponData;
 
-
+	[VerticalGroup("Split/Right")]
+	public StatList modifiers;
+	
+	// [TabGroup("Starting Inventory")]
+	// public string Notes2;
+	
 	// [BoxGroup(STATS_BOX_GROUP)]
 	// public int ItemStackSize = 1;
 	//

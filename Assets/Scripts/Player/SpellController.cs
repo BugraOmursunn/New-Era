@@ -41,7 +41,7 @@ public class SpellController : MonoBehaviour
 		if (InputEventManager.IsDrawSword2h() == false)
 			return false;
 
-		playerAnimator.SetTrigger(spellData.spellAnimationTriggerName);
+		playerAnimator.SetTrigger(spellData.AnimTriggerName);
 		InputEventManager.EnableWeaponTrail.Invoke();
 		StartCoroutine(Cast(spellData));
 		return true;
@@ -51,16 +51,16 @@ public class SpellController : MonoBehaviour
 		yield return new WaitForSeconds(spellData.vfxActivationTime);
 
 		GameObject spell;
-		Vector3 position = new Vector3(playerTransform.position.x, spellData.spellPrefab.transform.position.y, playerTransform.position.z);
+		Vector3 position = new Vector3(playerTransform.position.x, spellData.Prefab.transform.position.y, playerTransform.position.z);
 		Quaternion transformRotation = Quaternion.Euler(0, playerTransform.eulerAngles.y - 90, 0);
 
 		switch (gameType)
 		{
 			case GameTypes.SinglePlayer:
-				spell = Instantiate(spellData.spellPrefab, position, transformRotation);
+				spell = Instantiate(spellData.Prefab, position, transformRotation);
 				break;
 			case GameTypes.MultiPlayer:
-				spell = PhotonNetwork.Instantiate(spellData.spellPrefab.name, position, transformRotation);
+				spell = PhotonNetwork.Instantiate(spellData.Prefab.name, position, transformRotation);
 				break;
 			default:
 				throw new ArgumentOutOfRangeException();
@@ -71,7 +71,7 @@ public class SpellController : MonoBehaviour
 		spell.transform.rotation = transformRotation;
 
 		//where the real magic happens
-		SpellProcessor.CastSpell(spellData.spellType, playerTransform, spell.transform.position, 2, 2);
+		SpellProcessor.CastSpell(spellData.Type, playerTransform, spell.transform.position, 2, 2);
 
 		if (spellData.isChild == false)
 			spell.transform.parent = null;

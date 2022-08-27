@@ -59,12 +59,12 @@ public class BarManager : MonoBehaviour
 					case BarActionTypes.Empty:
 						break;
 					case BarActionTypes.Weapon:
-						newData.barName = slotsData.barItems[i].weaponData.weaponType.ToString();
+						newData.barName = slotsData.barItems[i].weaponData.Type.ToString();
 						newData.barDefaultCooldown = slotsData.barItems[i].weaponData.cooldown;
 						newData.castTime = slotsData.barItems[i].weaponData.castTime;
 						break;
 					case BarActionTypes.Spell:
-						newData.barName = slotsData.barItems[i].spellData.spellType.ToString();
+						newData.barName = slotsData.barItems[i].spellData.Type.ToString();
 						newData.barDefaultCooldown = slotsData.barItems[i].spellData.cooldown;
 						newData.castTime = slotsData.barItems[i].spellData.castTime;
 						break;

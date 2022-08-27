@@ -55,7 +55,7 @@ public class WeaponController : MonoBehaviour
 	}
 	private void Awake()
 	{
-		weaponGameObject = Instantiate(spawnWeaponData.weaponData.weaponPrefab, skeletonChestPos);
+		weaponGameObject = Instantiate(spawnWeaponData.weaponData.Prefab, skeletonChestPos);
 		weaponParent = weaponGameObject.transform;
 		weaponTransform = weaponGameObject.transform.GetChild(0);
 		weaponAttachmentData = weaponGameObject.GetComponent<WeaponAttachmentData>();

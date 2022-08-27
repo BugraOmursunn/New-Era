@@ -65,8 +65,8 @@ public class BarManager : MonoBehaviour
 					case NewWeaponData:
 						NewWeaponData newWeaponData = slotsData.barItems[i] as NewWeaponData;
 						newData.barName = newWeaponData.Name;
-						newData.barDefaultCooldown = newWeaponData.weaponData.cooldown;
-						newData.castTime = newWeaponData.weaponData.castTime;
+						newData.barDefaultCooldown = newWeaponData.weaponModifierSettings.cooldown;
+						newData.castTime = newWeaponData.weaponModifierSettings.castTime;
 						break;
 					default:
 						throw new ArgumentOutOfRangeException();

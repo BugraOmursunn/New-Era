@@ -10,7 +10,7 @@ public class WeaponController : MonoBehaviour
 {
 	[SerializeField] private Animator playerAnimator;
 
-	private WeaponData weaponData;
+	private NewWeaponData weaponData;
 
 	private bool isDraw;
 
@@ -55,22 +55,22 @@ public class WeaponController : MonoBehaviour
 	}
 	private void Awake()
 	{
-		weaponGameObject = Instantiate(spawnWeaponData.weaponData.Prefab, skeletonChestPos);
+		weaponGameObject = Instantiate(spawnWeaponData.weaponVFXSettings.Prefab, skeletonChestPos);
 		weaponParent = weaponGameObject.transform;
 		weaponTransform = weaponGameObject.transform.GetChild(0);
 		weaponAttachmentData = weaponGameObject.GetComponent<WeaponAttachmentData>();
 
 		bidepIK = this.GetComponent<FullBodyBipedIK>();
 	}
-	private void DrawWeapon(WeaponData _weaponData)
+	private void DrawWeapon(NewWeaponData _weaponData)
 	{
 		weaponData = _weaponData;
 
 		isDraw = !isDraw;
 
-		playerAnimator.SetTrigger(isDraw ? weaponData.drawAnimName : weaponData.sheetAnimName);
+		playerAnimator.SetTrigger(isDraw ? weaponData.weaponVFXSettings.drawAnimName : weaponData.weaponVFXSettings.sheetAnimName);
 		playerAnimator.SetBool("isEmptyHand", !isDraw);
-		if (weaponData.is2Hand == true)
+		if (weaponData.weaponVFXSettings.is2Hand == true)
 			playerAnimator.SetBool("is2hDraw", isDraw);
 	}
 

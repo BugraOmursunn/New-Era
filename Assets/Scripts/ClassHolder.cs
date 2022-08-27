@@ -4,18 +4,6 @@ using UnityEngine;
 using System;
 
 [Serializable]
-public class WeaponData
-{
-	public WeaponType Type;
-	public bool is2Hand;
-	public GameObject Prefab;
-	public float cooldown;
-	public float castTime;
-	public string drawAnimName;
-	public string sheetAnimName;
-}
-
-[Serializable]
 public class BarCooldownData
 {
 	public bool isReady;

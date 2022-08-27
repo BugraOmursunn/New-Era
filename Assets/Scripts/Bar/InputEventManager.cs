@@ -31,7 +31,7 @@ public static class InputEventManager
 	{
 		bool isCastSuccessful;
 
-		switch (barItem.barActionType)
+		switch (barItem.Type)
 		{
 			case BarActionTypes.Weapon:
 				InputEventManager.DrawWeapon.Invoke(barItem.weaponData);

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Character : MonoBehaviour, IStats
 {
-	public float Health { get; set; }
-	public float Mana { get; set; }
-	public float Stamina { get; set; }
+	[field: SerializeField] public float Health { get; set; }
+	[field: SerializeField] public float Mana { get; set; }
+	[field: SerializeField] public float Stamina { get; set; }
 
 	public void GetDamage(float damage)
 	{
-		throw new System.NotImplementedException();
+		Health -= damage;
 	}
 }

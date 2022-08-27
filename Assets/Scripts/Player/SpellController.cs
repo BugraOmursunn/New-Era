@@ -71,7 +71,7 @@ public class SpellController : MonoBehaviour
 		spell.transform.rotation = transformRotation;
 
 		//where the real magic happens
-		SpellProcessor.CastSpell(spellData.spellType, spell.transform.position, 2, 2);
+		SpellProcessor.CastSpell(spellData.spellType, playerTransform, spell.transform.position, 2, 2);
 
 		if (spellData.isChild == false)
 			spell.transform.parent = null;

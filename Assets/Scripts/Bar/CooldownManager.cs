@@ -16,7 +16,7 @@ public class CooldownManager : MonoBehaviour
             {
                 BarCooldownData newData = new BarCooldownData();
 
-                switch (slotsData.barItems[i].barActionType)
+                switch (slotsData.barItems[i].Type)
                 {
                     case BarActionTypes.Empty:
                         break;

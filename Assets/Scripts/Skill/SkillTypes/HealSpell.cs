@@ -5,11 +5,11 @@ using UnityEngine;
 public class HealSpell : Spell
 {
 	public override SpellType SpellType => SpellType.Heal;
-	public override void CastSpell(Vector3 center, float spellRadius, int damage)
+	public override void CastSpell(Transform caster, Vector3 center, float spellRadius, int damage)
 	{
-		CastHeal(center, spellRadius, damage);
+		CastHeal(caster, center, spellRadius, damage);
 	}
-	private void CastHeal(Vector3 center, float spellRadius, int damage)
+	private void CastHeal(Transform caster, Vector3 center, float spellRadius, int damage)
 	{
 	}
 }

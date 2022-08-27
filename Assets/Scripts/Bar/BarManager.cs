@@ -54,7 +54,7 @@ public class BarManager : MonoBehaviour
 			{
 				BarCooldownData newData = new BarCooldownData();
 
-				switch (slotsData.barItems[i].barActionType)
+				switch (slotsData.barItems[i].Type)
 				{
 					case BarActionTypes.Empty:
 						break;
@@ -83,7 +83,7 @@ public class BarManager : MonoBehaviour
 		for (int i = 0; i < slotsData.barItems.Length; i++)
 		{
 			if (slotsData.barItems[i] != null)
-				buttons[i].GetComponent<BarItemManager>().iconImg.sprite = slotsData.barItems[i].icon;
+				buttons[i].GetComponent<BarItemManager>().iconImg.sprite = slotsData.barItems[i].Icon;
 		}
 	}
 

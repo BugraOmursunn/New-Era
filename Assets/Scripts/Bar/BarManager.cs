@@ -14,7 +14,7 @@ public class BarManager : MonoBehaviour
 	[SerializeField] private SlotsData slotsData;
 
 	[CanBeNull]
-	private BarItemData m_BarItemData;
+	private ScriptableObject m_BarItemData;
 
 	[SerializeField] private bool isCasting;
 	[SerializeField] private Transform[] buttons;
@@ -48,27 +48,25 @@ public class BarManager : MonoBehaviour
 	{
 		//buttons = GameObject.FindObjectsOfType<BarItemManager>().Select(x => x.GetComponent<Transform>()).OrderBy(m => m.transform.GetSiblingIndex()).ToArray();
 
-		for (int i = 0; i < slotsData.barItems.Length; i++)
+		for (int i = 0; i < slotsData.barItems.Count; i++)
 		{
 			if (slotsData.barItems[i] != null)
 			{
 				BarCooldownData newData = new BarCooldownData();
 
-				switch (slotsData.barItems[i].Type)
+				switch (slotsData.barItems[i])
 				{
-					case BarActionTypes.Empty:
+					case SpellData:
+						SpellData spellData = slotsData.barItems[i] as SpellData;
+						newData.barName = spellData.Name;
+						newData.barDefaultCooldown = spellData.spellModifierSettings.cooldown;
+						newData.castTime = spellData.spellModifierSettings.castTime;
 						break;
-					case BarActionTypes.Weapon:
-						newData.barName = slotsData.barItems[i].weaponData.Type.ToString();
-						newData.barDefaultCooldown = slotsData.barItems[i].weaponData.cooldown;
-						newData.castTime = slotsData.barItems[i].weaponData.castTime;
-						break;
-					case BarActionTypes.Spell:
-						newData.barName = slotsData.barItems[i].spellData.Type.ToString();
-						newData.barDefaultCooldown = slotsData.barItems[i].spellData.cooldown;
-						newData.castTime = slotsData.barItems[i].spellData.castTime;
-						break;
-					case BarActionTypes.Item:
+					case NewWeaponData:
+						NewWeaponData newWeaponData = slotsData.barItems[i] as NewWeaponData;
+						newData.barName = newWeaponData.Name;
+						newData.barDefaultCooldown = newWeaponData.weaponData.cooldown;
+						newData.castTime = newWeaponData.weaponData.castTime;
 						break;
 					default:
 						throw new ArgumentOutOfRangeException();
@@ -80,10 +78,28 @@ public class BarManager : MonoBehaviour
 	}
 	private void Start()
 	{
-		for (int i = 0; i < slotsData.barItems.Length; i++)
+		for (int i = 0; i < slotsData.barItems.Count; i++)
 		{
 			if (slotsData.barItems[i] != null)
-				buttons[i].GetComponent<BarItemManager>().iconImg.sprite = slotsData.barItems[i].Icon;
+			{
+				BarCooldownData newData = new BarCooldownData();
+
+				switch (slotsData.barItems[i])
+				{
+					case SpellData:
+						SpellData spellData = slotsData.barItems[i] as SpellData;
+						buttons[i].GetComponent<BarItemManager>().iconImg.sprite = spellData.Icon;
+						break;
+					case NewWeaponData:
+						NewWeaponData newWeaponData = slotsData.barItems[i] as NewWeaponData;
+						buttons[i].GetComponent<BarItemManager>().iconImg.sprite = newWeaponData.Icon;
+						break;
+					default:
+						throw new ArgumentOutOfRangeException();
+				}
+
+				barCooldownData.Add(newData);
+			}
 		}
 	}
 
@@ -122,7 +138,7 @@ public class BarManager : MonoBehaviour
 				barCooldownData[i].isReady = false;
 			}
 		}
-		for (int i = 0; i < slotsData.barItems.Length; i++) //set cooldown image
+		for (int i = 0; i < slotsData.barItems.Count; i++) //set cooldown image
 		{
 			if (slotsData.barItems[i] != null)
 			{
@@ -146,7 +162,7 @@ public class BarManager : MonoBehaviour
 	{
 		return isCasting;
 	}
-	
+
 	// [Button]
 	// private void OnValidate()
 	// {

@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SlotData", menuName = "BarItems/SlotData", order = 2)]
 public class SlotsData : ScriptableObject
 {
-	public BarItemData[] barItems;
+	public List<ScriptableObject> barItems;
 }

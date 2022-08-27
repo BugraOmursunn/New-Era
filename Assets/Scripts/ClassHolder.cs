@@ -2,23 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using Sirenix.OdinInspector;
-[Serializable]
-public class SpellData
-{
-	public SpellType Type;
-	public bool isChild;
-	public GameObject Prefab;
-	public AnimationClip Animation;
-	public string AnimTriggerName;
-	public float vfxActivationTime;
-	public Vector3 offSet;
-	
-	[SuffixLabel("seconds ", true)]
-	public float cooldown;
-	[SuffixLabel("seconds ", true)]
-	public float castTime;
-}
+
 [Serializable]
 public class WeaponData
 {

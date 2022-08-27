@@ -9,12 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f73eed4b98367d4a8a5e3caff0fa38d, type: 3}
+  m_Script: {fileID: 11500000, guid: af7ea82fc6030dd4aa26634074baa475, type: 3}
   m_Name: Windfury
   m_EditorClassIdentifier: 
   textureIon: {fileID: 2800000, guid: aa562f9447233654789b885e0646fd2c, type: 3}
   Name: Windfury
-  Type: 2
   Icon: {fileID: 21300000, guid: aa562f9447233654789b885e0646fd2c, type: 3}
   Description: 
   Notes: 
@@ -28,23 +27,5 @@ MonoBehaviour:
     offSet: {x: 0, y: 0, z: 0}
     cooldown: 4
     castTime: 2
-  weaponData:
-    Type: 0
-    is2Hand: 0
-    Prefab: {fileID: 0}
-    cooldown: 0
-    castTime: 0
-    drawAnimName: 
-    sheetAnimName: 
   modifiers:
-    stats:
-    - Type: 0
-      Value: 0
-    - Type: 3
-      Value: 0
-    - Type: 2
-      Value: 0
-    - Type: 1
-      Value: 0
-    - Type: 5
-      Value: 0
+    stats: []

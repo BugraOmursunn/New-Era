@@ -249,7 +249,7 @@ GameObject:
   - component: {fileID: 2632574300003854261}
   - component: {fileID: -8524523270730323720}
   m_Layer: 0
-  m_Name: mPlayer
+  m_Name: PlayerPack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -656,6 +656,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2632574300003854261}
     m_Modifications:
+    - target: {fileID: 1762682269, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: spawnWeaponData
+      value: 
+      objectReference: {fileID: 11400000, guid: a49e5a7b49316a84a908796d48434e02, type: 2}
     - target: {fileID: 3893294197879345259, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: m_RootOrder
       value: 3

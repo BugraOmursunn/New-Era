@@ -27,18 +27,18 @@ public static class InputEventManager
 
 	#region Bottom Bar Interaction Region
 
-	public static bool InteractionHandler(BarItemData barItem)
+	public static bool InteractionHandler(ScriptableObject barItem)
 	{
 		bool isCastSuccessful;
 
-		switch (barItem.Type)
+		switch (barItem)
 		{
-			case BarActionTypes.Weapon:
-				InputEventManager.DrawWeapon.Invoke(barItem.weaponData);
+			case NewWeaponData newWeaponData:
+				InputEventManager.DrawWeapon.Invoke(newWeaponData.weaponData);
 				isCastSuccessful = true;
 				break;
-			case BarActionTypes.Spell:
-				isCastSuccessful = InputEventManager.CastSpell.Invoke(barItem.spellData);
+			case SpellData newSpellData:
+				isCastSuccessful = InputEventManager.CastSpell.Invoke(newSpellData);
 				break;
 			default:
 				isCastSuccessful = true;

@@ -19,7 +19,7 @@ public class WeaponController : MonoBehaviour
 	[SerializeField] private List<HandData> handData;
 
 	[Space(10)]
-	[SerializeField] private BarItemData spawnWeaponData;
+	[SerializeField] private NewWeaponData spawnWeaponData;
 	private GameObject weaponGameObject;
 	private Transform weaponParent;
 	private Transform weaponTransform;

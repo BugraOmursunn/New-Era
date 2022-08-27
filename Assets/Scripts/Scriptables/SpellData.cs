@@ -4,13 +4,11 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Demos.RPGEditor;
 using UnityEngine;
-using UnityEngine.Rendering;
 
-[CreateAssetMenu(fileName = "BarItemData", menuName = "BarItems/BarItemData", order = 1)]
-public class BarItemData : ScriptableObject
+[CreateAssetMenu(fileName = "SpellData", menuName = "BarItems/SpellData", order = 2)]
+public class SpellData : ScriptableObject
 {
 	protected const string LEFT_VERTICAL_GROUP = "Split/Left";
-	protected const string STATS_BOX_GROUP = "Split/Left/Stats";
 	protected const string GENERAL_SETTINGS_VERTICAL_GROUP = "Split/Left/General Settings/Split/Right";
 
 	[HorizontalGroup("Split", 0.5f, MarginRight = 10, LabelWidth = 130)]
@@ -24,7 +22,7 @@ public class BarItemData : ScriptableObject
 	public string Name;
 
 	[VerticalGroup(GENERAL_SETTINGS_VERTICAL_GROUP)]
-	public BarActionTypes Type;
+	public SpellType Type;
 
 	[AssetsOnly]
 	[VerticalGroup(GENERAL_SETTINGS_VERTICAL_GROUP)]
@@ -37,24 +35,41 @@ public class BarItemData : ScriptableObject
 	[BoxGroup("Split/Left/Notes")]
 	[HideLabel, TextArea(6, 14)]
 	public string Notes;
-	
-	[BoxGroup("Split/Right/Animation Settings")]
-	[ShowIf("Type", BarActionTypes.Spell)]
-	[HideLabel]
-	public SpellData spellData;
+
+	[Serializable]
+	public class SpellVFXSettings
+	{
+		public bool isChild;
+		public GameObject Prefab;
+		public AnimationClip Animation;
+		public string AnimTriggerName;
+		public float vfxActivationTime;
+		public Vector3 offSet;
+	}
 
 	[VerticalGroup("Split/Right")]
 	[BoxGroup("Split/Right/Animation Settings")]
-	[ShowIf("Type", BarActionTypes.Weapon)]
 	[HideLabel]
-	public WeaponData weaponData;
+	public SpellVFXSettings spellVFXSettings;
 
-	[VerticalGroup("Split/Right")]
-	public StatList modifiers;
-	
+	[Serializable]
+	public class SpellModifierSettings
+	{
+		[SuffixLabel("seconds ", true)]
+		public float cooldown;
+		[SuffixLabel("seconds ", true)]
+		public float castTime;
+	}
+
+	[BoxGroup("Split/Right/Modifier Settings")]
+	[HideLabel]
+	public SpellModifierSettings spellModifierSettings;
+
+	//public StatList modifiers;
+
 	// [TabGroup("Starting Inventory")]
 	// public string Notes2;
-	
+
 	// [BoxGroup(STATS_BOX_GROUP)]
 	// public int ItemStackSize = 1;
 	//

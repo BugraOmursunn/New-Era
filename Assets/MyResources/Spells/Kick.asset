@@ -19,7 +19,7 @@ MonoBehaviour:
   Description: 
   Notes: 
   spellVFXSettings:
-    isChild: 1
+    isChild: 0
     Prefab: {fileID: 1602379607235420, guid: 4ab0eb9747672dc4cb907c6c854ffad3, type: 3}
     Animation: {fileID: 7400000, guid: 81469fe76489a5547b7967c5ceb18346, type: 2}
     AnimTriggerName: SwordKick
@@ -27,7 +27,7 @@ MonoBehaviour:
     posOffSet: {x: 0.155, y: 1.148, z: 0.189}
     rotOffSet: {x: 0, y: -35, z: 0}
   spellModifierSettings:
-    spellDamage: 2
+    spellDamage: -2
     spellRadius: 4
-    cooldown: 4
+    cooldown: 8
     castTime: 2

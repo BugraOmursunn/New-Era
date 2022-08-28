@@ -10,6 +10,6 @@ public class Character : MonoBehaviour, IStats, IDamageAble
 
 	public void GetDamage(float damage)
 	{
-		Health -= damage;
+		Health += damage;
 	}
 }

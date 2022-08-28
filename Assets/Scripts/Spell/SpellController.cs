@@ -76,6 +76,6 @@ public class SpellController : MonoBehaviour
 		if (spellData.spellVFXSettings.isChild == false)
 			spell.transform.parent = null;
 
-		Destroy(spell, 3f);
+		Destroy(spell, 5f);
 	}
 }

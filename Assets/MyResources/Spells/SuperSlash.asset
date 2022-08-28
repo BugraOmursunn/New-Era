@@ -27,7 +27,7 @@ MonoBehaviour:
     posOffSet: {x: 0, y: 0.1, z: 1}
     rotOffSet: {x: 0, y: -90, z: 0}
   spellModifierSettings:
-    spellDamage: 4
-    spellRadius: 1
-    cooldown: 4
+    spellDamage: -4
+    spellRadius: 2
+    cooldown: 6
     castTime: 2

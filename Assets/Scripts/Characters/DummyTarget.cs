@@ -13,7 +13,6 @@ public class DummyTarget : MonoBehaviour, IStats, IDamageAble
 	[field: SerializeField] public bool IsDead { get; set; }
 
 	public Animator animator;
-	public GameObject damageIndicator;
 
 	public void GetDamage(float damage)
 	{
@@ -33,22 +32,8 @@ public class DummyTarget : MonoBehaviour, IStats, IDamageAble
 			animator.SetTrigger(Health > 0 ? "GetHit" : "Die");
 		}
 
-		GameObject newIndicator = Instantiate(damageIndicator);
-		TextMeshPro damageText = newIndicator.transform.GetChild(0).GetComponent<TextMeshPro>();
-		damageText.color = damage > 0 ? Color.green : Color.red;
-
-		Sequence seq = DOTween.Sequence();
-		seq.AppendCallback(() => {
-			newIndicator.transform.position = this.transform.position;
-			damageText.text = damage.ToString(CultureInfo.InvariantCulture);
-		});
-		seq.Append(newIndicator.transform.DOLocalMoveY(3, 0.8f).From(2).SetEase(Ease.Linear)).OnUpdate(() => {
-			if (newIndicator != null)
-				newIndicator.transform.DOLookAt(Camera.main.transform.position, 0.01f);
-		});
-		seq.AppendCallback(() => {
-			DestroyImmediate(newIndicator);
-		});
+		var newDamageIndicator = Instantiate(ResourcesContainer.DamageIndicator(), this.transform.position, Quaternion.identity);
+		newDamageIndicator.GetComponent<DamageIndicator>().Instantiate(damage);
 	}
 	private void Resurrection()
 	{

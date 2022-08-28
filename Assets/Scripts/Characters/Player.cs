@@ -1,18 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : Character
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	public override float Health { get; set; }
+	public override float Mana { get; set; }
+	public override float Stamina { get; set; }
+	public override bool IsDead { get; set; }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	private void Start()
+	{
+	}
+
+	public override void GetDamage(float damage)
+	{
+	}
 }

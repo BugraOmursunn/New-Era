@@ -2,16 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character : MonoBehaviour, IStats, IDamageAble
+public abstract class Character : MonoBehaviour, IStats, IDamageAble
 {
-	public float Health { get; set; }
-	public float Mana { get; set; }
-	public float Stamina { get; set; }
-	
-	public bool IsDead { get; set; }
-	
-	public void GetDamage(float damage)
-	{
-		Health += damage;
-	}
+	public abstract float Health { get; set; }
+	public abstract float Mana { get; set; }
+	public abstract float Stamina { get; set; }
+
+	public abstract bool IsDead { get; set; }
+
+	public abstract void GetDamage(float damage);
 }

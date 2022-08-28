@@ -24,11 +24,7 @@ public class ResourcesContainer : ScriptableObject
 				return Instantiate(singleDamageIndicator, transform.position, Quaternion.identity);
 				break;
 			case GameTypes.MultiPlayer:
-				var isMine = transform.GetComponent<PhotonView>().IsMine;
-				if (isMine == false)
-					return null;
-				else
-					return PhotonNetwork.Instantiate(multiDamageIndicator.name, transform.position, Quaternion.identity);
+				return PhotonNetwork.Instantiate(multiDamageIndicator.name, transform.position, Quaternion.identity);
 			default:
 				return null;
 		}

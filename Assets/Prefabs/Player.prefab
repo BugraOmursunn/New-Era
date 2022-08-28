@@ -1161,6 +1161,7 @@ GameObject:
   - component: {fileID: 4166964280473151425}
   - component: {fileID: 1762682269}
   - component: {fileID: 7776216945171169455}
+  - component: {fileID: 4243167274042899081}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -1802,6 +1803,24 @@ MonoBehaviour:
     spineStiffness: 0.5
     pullBodyVertical: 0.5
     pullBodyHorizontal: 0
+--- !u!114 &4243167274042899081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4416926081852918481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c7ac0328793554e9ef2fa91abf17ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <CharData>k__BackingField: {fileID: 11400000, guid: ae747a3d261f4c24c85c3f9161dcfa74, type: 2}
+  <CharAnimator>k__BackingField: {fileID: 6982812146204527121}
+  <Health>k__BackingField: 100
+  <Mana>k__BackingField: 100
+  <Stamina>k__BackingField: 100
+  <IsDead>k__BackingField: 0
 --- !u!1 &4523139366846529165
 GameObject:
   m_ObjectHideFlags: 0

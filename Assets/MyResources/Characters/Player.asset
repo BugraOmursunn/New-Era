@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f1e464c67ddf194a9c958cc52c840cf, type: 3}
+  m_Name: Player
+  m_EditorClassIdentifier: 
+  textureIon: {fileID: 2800000, guid: fc476c862eab60d4da1e9e2879fcd844, type: 3}
+  Name: Player
+  Description: 
+  Notes: 
+  Health: 100
+  Mana: 100
+  Stamina: 100
+  GetHitAnim: 
+  DieAnim: 

@@ -38,9 +38,9 @@ public class GameEditor : OdinMenuEditorWindow
 
 		// Adds all characters.
 
+		tree.AddAllAssetsAtPath("Characters", "Assets/MyResources/Characters", typeof(CharacterData), true, true);
 		tree.AddAllAssetsAtPath("Spells", "Assets/MyResources/Spells", typeof(SpellData), true, true);
 		tree.AddAllAssetsAtPath("Weapons", "Assets/MyResources/Weapons", typeof(WeaponData), true, true);
-
 		// Add all scriptable object items.
 		//tree.AddAllAssetsAtPath("", "Assets/Plugins/Sirenix/Demos/SAMPLE - RPG Editor/Items", typeof(Item), true)
 		//.ForEach(this.AddDragHandles);
@@ -49,6 +49,7 @@ public class GameEditor : OdinMenuEditorWindow
 		//tree.EnumerateTree().Where(x => x.Value as Item).ForEach(AddDragHandles);
 
 		// Add icons to characters and items.
+		tree.EnumerateTree().AddIcons<CharacterData>(x => x.textureIon);
 		tree.EnumerateTree().AddIcons<SpellData>(x => x.textureIon);
 		tree.EnumerateTree().AddIcons<WeaponData>(x => x.textureIon);
 		return tree;

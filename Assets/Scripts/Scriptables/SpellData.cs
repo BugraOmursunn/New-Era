@@ -36,6 +36,21 @@ public class SpellData : ScriptableObject
 	public string Notes;
 
 	[Serializable]
+	public class SpellModifierSettings
+	{
+		public float spellDamage;
+		public float spellRadius;
+		[SuffixLabel("seconds ", true)]
+		public float cooldown;
+		[SuffixLabel("seconds ", true)]
+		public float castTime;
+	}
+	[BoxGroup("Split/Right/Modifier Settings")]
+	[HideLabel]
+	public SpellModifierSettings spellModifierSettings;
+	
+	
+	[Serializable]
 	public class SpellVFXSettings
 	{
 		public bool isChild;
@@ -51,20 +66,6 @@ public class SpellData : ScriptableObject
 	[HideLabel]
 	public SpellVFXSettings spellVFXSettings;
 
-
-	[Serializable]
-	public class SpellModifierSettings
-	{
-		public float spellDamage;
-		public float spellRadius;
-		[SuffixLabel("seconds ", true)]
-		public float cooldown;
-		[SuffixLabel("seconds ", true)]
-		public float castTime;
-	}
-	[BoxGroup("Split/Right/Modifier Settings")]
-	[HideLabel]
-	public SpellModifierSettings spellModifierSettings;
 
 	//public StatList modifiers;
 

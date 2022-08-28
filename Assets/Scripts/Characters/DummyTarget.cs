@@ -5,11 +5,9 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
-public class DummyTarget : MonoBehaviour, IStats, IDamageAble
+public class DummyTarget : MonoBehaviour, IDamageAble
 {
 	[field: SerializeField] public float Health { get; set; }
-	[field: SerializeField] public float Mana { get; set; }
-	[field: SerializeField] public float Stamina { get; set; }
 	[field: SerializeField] public bool IsDead { get; set; }
 
 	public Animator animator;
@@ -31,7 +29,6 @@ public class DummyTarget : MonoBehaviour, IStats, IDamageAble
 
 			animator.SetTrigger(Health > 0 ? "GetHit" : "Die");
 		}
-
 		var newDamageIndicator = Instantiate(ResourcesContainer.DamageIndicator(), this.transform.position, Quaternion.identity);
 		newDamageIndicator.GetComponent<DamageIndicator>().Instantiate(damage);
 	}

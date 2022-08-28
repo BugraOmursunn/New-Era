@@ -36,9 +36,7 @@ public class Player : Character
 			CharAnimator.SetTrigger(Health > 0 ? CharData.GetHitAnim : CharData.DieAnim);
 		}
 
-		GameTypes gameType = EventManager.gameType.Invoke();
-
-		GameObject newDamageIndicator = ResourcesContainer.DamageIndicator(this.transform, gameType);
+		GameObject newDamageIndicator = ResourceManager.DamageIndicator(this.transform);
 		newDamageIndicator.GetComponent<DamageIndicator>().Instantiate(damage);
 	}
 

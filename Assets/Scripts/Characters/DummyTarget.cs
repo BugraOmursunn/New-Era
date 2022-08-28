@@ -32,9 +32,7 @@ public class DummyTarget : MonoBehaviour, IDamageAble
 			animator.SetTrigger(Health > 0 ? "GetHit" : "Die");
 		}
 
-		GameTypes gameType = EventManager.gameType.Invoke();
-		
-		GameObject newDamageIndicator = ResourcesContainer.DamageIndicator(this.transform,gameType);
+		GameObject newDamageIndicator = ResourceManager.DamageIndicator(this.transform);
 		newDamageIndicator.GetComponent<DamageIndicator>().Instantiate(damage);
 	}
 	private void Resurrection()

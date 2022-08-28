@@ -3,19 +3,23 @@ using JetBrains.Annotations;
 using Photon.Pun;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ResourcesContainer", menuName = "ScriptableObjects/ResourcesContainer", order = 5)]
-public class ResourcesContainer : ScriptableObject
+public class ResourceManager : MonoBehaviour
 {
 	[SerializeField] private GameObject damageIndicator;
 
-	public static Func<Transform, GameTypes, GameObject> DamageIndicator;
+	public static Func<Transform, GameObject> DamageIndicator;
 
+	private GameTypes gameType;
 	private void OnEnable()
 	{
 		DamageIndicator = ReturnPrefab;
 	}
 
-	private GameObject ReturnPrefab(Transform transform, GameTypes gameType)
+	private void Start()
+	{
+		gameType = EventManager.gameType.Invoke();
+	}
+	private GameObject ReturnPrefab(Transform transform)
 	{
 		switch (gameType)
 		{

@@ -10,6 +10,8 @@ public class DamageIndicator : MonoBehaviour
 {
 	public void Instantiate(float _damage)
 	{
+		Destroy(this.gameObject, 1f);
+		
 		TextMeshPro damageText = this.transform.GetChild(0).GetComponent<TextMeshPro>();
 		damageText.color = _damage > 0 ? Color.green : Color.red;
 
@@ -20,9 +22,6 @@ public class DamageIndicator : MonoBehaviour
 		seq.Append(this.transform.DOLocalMoveY(3, 0.8f).From(2).SetEase(Ease.Linear)).OnUpdate(() => {
 			if (this != null)
 				this.transform.DOLookAt(Camera.main.transform.position, 0.01f);
-		});
-		seq.OnComplete(() => {
-			Destroy(this.gameObject, 0.1f);
 		});
 	}
 }

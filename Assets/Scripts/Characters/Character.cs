@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Character : MonoBehaviour, IStats, IDamageAble
 {
-	[field: SerializeField] public float Health { get; set; }
-	[field: SerializeField] public float Mana { get; set; }
-	[field: SerializeField] public float Stamina { get; set; }
-
+	public float Health { get; set; }
+	public float Mana { get; set; }
+	public float Stamina { get; set; }
+	
+	public bool IsDead { get; set; }
+	
 	public void GetDamage(float damage)
 	{
 		Health += damage;

@@ -317,6 +317,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de1a34a8abe2ade4ea75b3fca44419b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Health>k__BackingField: 10
+  <Mana>k__BackingField: 0
+  <Stamina>k__BackingField: 0
+  <IsDead>k__BackingField: 0
   animator: {fileID: 2146768002}
   damageIndicator: {fileID: 4373938827545227751, guid: b816390b4cbe5d746afbdf63a21b337f, type: 3}
 --- !u!54 &128378961950676849

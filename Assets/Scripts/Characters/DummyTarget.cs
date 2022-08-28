@@ -5,13 +5,33 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
-public class DummyTarget : MonoBehaviour, IDamageAble
+public class DummyTarget : MonoBehaviour, IStats, IDamageAble
 {
+	[field: SerializeField] public float Health { get; set; }
+	[field: SerializeField] public float Mana { get; set; }
+	[field: SerializeField] public float Stamina { get; set; }
+	[field: SerializeField] public bool IsDead { get; set; }
+
 	public Animator animator;
 	public GameObject damageIndicator;
+
 	public void GetDamage(float damage)
 	{
-		animator.SetTrigger("GetHit");
+		if (IsDead == true)
+			return;
+
+		if (Health > 0 && IsDead == false)
+		{
+			Health += damage;
+
+			if (Health <= 0)
+			{
+				IsDead = true;
+				Invoke(nameof(Resurrection), 3f);
+			}
+
+			animator.SetTrigger(Health > 0 ? "GetHit" : "Die");
+		}
 
 		GameObject newIndicator = Instantiate(damageIndicator);
 		TextMeshPro damageText = newIndicator.transform.GetChild(0).GetComponent<TextMeshPro>();
@@ -29,5 +49,11 @@ public class DummyTarget : MonoBehaviour, IDamageAble
 		seq.AppendCallback(() => {
 			DestroyImmediate(newIndicator);
 		});
+	}
+	private void Resurrection()
+	{
+		animator.SetTrigger("Resurrection");
+		Health = 10;
+		IsDead = false;
 	}
 }

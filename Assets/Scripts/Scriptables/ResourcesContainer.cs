@@ -6,8 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ResourcesContainer", menuName = "ScriptableObjects/ResourcesContainer", order = 5)]
 public class ResourcesContainer : ScriptableObject
 {
-	[SerializeField] private GameObject singleDamageIndicator;
-	[SerializeField] private GameObject multiDamageIndicator;
+	[SerializeField] private GameObject damageIndicator;
 
 	public static Func<Transform, GameTypes, GameObject> DamageIndicator;
 
@@ -21,10 +20,10 @@ public class ResourcesContainer : ScriptableObject
 		switch (gameType)
 		{
 			case GameTypes.SinglePlayer:
-				return Instantiate(singleDamageIndicator, transform.position, Quaternion.identity);
+				return Instantiate(damageIndicator, transform.position, Quaternion.identity);
 				break;
 			case GameTypes.MultiPlayer:
-				return PhotonNetwork.Instantiate(multiDamageIndicator.name, transform.position, Quaternion.identity);
+				return PhotonNetwork.Instantiate(damageIndicator.name, transform.position, Quaternion.identity);
 			default:
 				return null;
 		}

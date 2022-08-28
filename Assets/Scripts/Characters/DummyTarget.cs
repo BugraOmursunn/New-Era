@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using DG.Tweening;
+using Photon.Pun;
 using TMPro;
 using UnityEngine;
 
@@ -29,7 +31,20 @@ public class DummyTarget : MonoBehaviour, IDamageAble
 
 			animator.SetTrigger(Health > 0 ? "GetHit" : "Die");
 		}
-		var newDamageIndicator = Instantiate(ResourcesContainer.DamageIndicator(), this.transform.position, Quaternion.identity);
+
+		GameTypes gameType = EventManager.gameType.Invoke();
+		GameObject newDamageIndicator;
+		switch (gameType)
+		{
+			case GameTypes.SinglePlayer:
+				newDamageIndicator = Instantiate(ResourcesContainer.DamageIndicator(), this.transform.position, Quaternion.identity);
+				break;
+			case GameTypes.MultiPlayer:
+				newDamageIndicator = PhotonNetwork.Instantiate(ResourcesContainer.DamageIndicator().name, this.transform.position, Quaternion.identity);
+				break;
+			default:
+				throw new ArgumentOutOfRangeException();
+		}
 		newDamageIndicator.GetComponent<DamageIndicator>().Instantiate(damage);
 	}
 	private void Resurrection()

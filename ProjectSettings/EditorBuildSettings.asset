@@ -17,8 +17,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PhotonTest.unity
     guid: 19f2c747baaaee34db2d2cdf8a4cbd4a
-  - enabled: 1
-    path: Assets/Scenes/BattleArea.unity
-    guid: dbb5b3a8094b9f94380287a8a1fbcba5
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}

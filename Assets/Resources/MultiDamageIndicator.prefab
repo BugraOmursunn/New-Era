@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -8039816989761839041}
   - component: {fileID: -1811667419844832800}
   m_Layer: 8
-  m_Name: DamageIndicator
+  m_Name: MultiDamageIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

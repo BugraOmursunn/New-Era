@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Sirenix.OdinInspector;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -10,6 +11,11 @@ public class SpawnManager : MonoBehaviour
 	public GameObject multiPlayerPlayerPrefab;
 
 	void Start()
+	{
+		Spawn();
+	}
+	[Button]
+	public void Spawn()
 	{
 		GameTypes gameType = EventManager.gameType.Invoke();
 

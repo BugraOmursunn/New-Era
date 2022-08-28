@@ -37,19 +37,8 @@ public class Player : Character
 		}
 
 		GameTypes gameType = EventManager.gameType.Invoke();
-		GameObject newDamageIndicator;
 
-		switch (gameType)
-		{
-			case GameTypes.SinglePlayer:
-				newDamageIndicator = Instantiate(ResourcesContainer.DamageIndicator(), this.transform.position, Quaternion.identity);
-				break;
-			case GameTypes.MultiPlayer:
-				newDamageIndicator = PhotonNetwork.Instantiate(ResourcesContainer.DamageIndicator().name, this.transform.position, Quaternion.identity);
-				break;
-			default:
-				throw new ArgumentOutOfRangeException();
-		}
+		GameObject newDamageIndicator = ResourcesContainer.DamageIndicator(this.transform, gameType);
 		newDamageIndicator.GetComponent<DamageIndicator>().Instantiate(damage);
 	}
 

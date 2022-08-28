@@ -21,9 +21,8 @@ public class DamageIndicator : MonoBehaviour
 			if (this != null)
 				this.transform.DOLookAt(Camera.main.transform.position, 0.01f);
 		});
-		seq.AppendCallback(() => {
-			DOTween.Kill(seq);
-			DestroyImmediate(this.gameObject);
+		seq.OnComplete(() => {
+			Destroy(this.gameObject, 0.1f);
 		});
 	}
 }

@@ -25,7 +25,7 @@ public class DamageSpell : Spell
 		effectedCharacters = effectedCollider
 			.Select(r => r.GetComponent<IDamageAble>())
 			.Where(g => g != null)
-			.Where(t => t != caster.GetComponent<IDamageAble>())
+			//.Where(t => t != caster.GetComponent<IDamageAble>())
 			.ToList();
 
 		//Debug.Log(caster.name);

@@ -810,6 +810,12 @@ MonoBehaviour:
   - Type: 9
     SynchronizeType: 1
     Name: SwordSlash
+  - Type: 9
+    SynchronizeType: 1
+    Name: SwordKick
+  - Type: 9
+    SynchronizeType: 1
+    Name: SwordThrow
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0

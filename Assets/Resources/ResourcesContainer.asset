@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34274e33d7517a241a31348f63c63b70, type: 3}
   m_Name: ResourcesContainer
   m_EditorClassIdentifier: 
-  damageIndicator: {fileID: 4373938827545227751, guid: b816390b4cbe5d746afbdf63a21b337f, type: 3}
+  singleDamageIndicator: {fileID: 2726663129308797961, guid: 068fad9f00b75af4eaf88be7ac5a07b4, type: 3}
+  multiDamageIndicator: {fileID: 4373938827545227751, guid: b816390b4cbe5d746afbdf63a21b337f, type: 3}

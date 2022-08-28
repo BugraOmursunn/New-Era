@@ -24,7 +24,8 @@ MonoBehaviour:
     Animation: {fileID: 7400000, guid: b1f076624d163034390c36f4491f3181, type: 2}
     AnimTriggerName: SwordSlash
     vfxActivationTime: 1
-    offSet: {x: 0, y: 0.1, z: 1}
+    posOffSet: {x: 0, y: 0.1, z: 1}
+    rotOffSet: {x: 0, y: -90, z: 0}
   spellModifierSettings:
     spellDamage: 4
     spellRadius: 1

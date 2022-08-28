@@ -47,7 +47,7 @@ public class BarManager : MonoBehaviour
 	{
 		//buttons = GameObject.FindObjectsOfType<BarItemManager>().Select(x => x.GetComponent<Transform>()).OrderBy(m => m.transform.GetSiblingIndex()).ToArray();
 		//WeaponData weaponData = slotsData.barItems[i] as WeaponData;
-
+		
 		foreach (var scriptable in slotsData.barItems)
 		{
 			if (scriptable == null)

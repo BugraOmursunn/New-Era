@@ -43,7 +43,8 @@ public class SpellData : ScriptableObject
 		public AnimationClip Animation;
 		public string AnimTriggerName;
 		public float vfxActivationTime;
-		public Vector3 offSet;
+		public Vector3 posOffSet;
+		public Vector3 rotOffSet;
 	}
 	[VerticalGroup("Split/Right")]
 	[BoxGroup("Split/Right/Animation Settings")]

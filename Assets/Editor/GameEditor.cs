@@ -10,12 +10,12 @@ using UnityEditor;
 using UnityEngine;
 using System.Linq;
 
-public class NewEraEditorWindow : OdinMenuEditorWindow
+public class GameEditor : OdinMenuEditorWindow
 {
 	[MenuItem("New Era/Game Editor")]
 	private static void OpenWindow()
 	{
-		var window = GetWindow<NewEraEditorWindow>();
+		var window = GetWindow<GameEditor>();
 		window.position = GUIHelper.GetEditorWindowRect().AlignCenter(800, 500);
 	}
 

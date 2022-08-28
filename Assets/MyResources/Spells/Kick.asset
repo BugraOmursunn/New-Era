@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af7ea82fc6030dd4aa26634074baa475, type: 3}
-  m_Name: Windfury
+  m_Name: Kick
   m_EditorClassIdentifier: 
-  textureIon: {fileID: 2800000, guid: aa562f9447233654789b885e0646fd2c, type: 3}
-  Name: Windfury
+  textureIon: {fileID: 2800000, guid: f0d9d2f5e5429d34c91e8beb15e483ea, type: 3}
+  Name: Kick
   Type: 0
-  Icon: {fileID: 21300000, guid: aa562f9447233654789b885e0646fd2c, type: 3}
+  Icon: {fileID: 21300000, guid: f0d9d2f5e5429d34c91e8beb15e483ea, type: 3}
   Description: 
   Notes: 
   spellVFXSettings:
     isChild: 1
-    Prefab: {fileID: 1294101409476956, guid: 231e3be01ac50c047bb16d07fd8d2ba5, type: 3}
-    Animation: {fileID: 7400000, guid: 3b7471c4f8b1071468e9bb3f23f6e53b, type: 2}
-    AnimTriggerName: SwordSpin
-    vfxActivationTime: 1.1
-    posOffSet: {x: 0, y: 0, z: 0}
-    rotOffSet: {x: 0, y: 0, z: 0}
+    Prefab: {fileID: 1602379607235420, guid: 4ab0eb9747672dc4cb907c6c854ffad3, type: 3}
+    Animation: {fileID: 7400000, guid: 81469fe76489a5547b7967c5ceb18346, type: 2}
+    AnimTriggerName: SwordKick
+    vfxActivationTime: 0.6
+    posOffSet: {x: 0.155, y: 1.148, z: 0.189}
+    rotOffSet: {x: 0, y: -35, z: 0}
   spellModifierSettings:
     spellDamage: 2
     spellRadius: 4

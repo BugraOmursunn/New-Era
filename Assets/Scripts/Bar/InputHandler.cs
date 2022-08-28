@@ -71,8 +71,6 @@ public class InputHandler : MonoBehaviour
 
 	private void BarSpellPressed(InputAction.CallbackContext context)
 	{
-
-
 		if (context.action == playerInputs.Player.Press1)
 			m_PressedButtonIndex = 0;
 

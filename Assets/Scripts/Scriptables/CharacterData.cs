@@ -32,16 +32,20 @@ public class CharacterData : ScriptableObject
 	[HideLabel, TextArea(6, 14)]
 	public string Notes;
 
+	[Serializable]
+	public class CharacterStats
+	{
+		[ProgressBar(0, 100), ShowInInspector]
+		public float Health;
+		[ProgressBar(0, 100), ShowInInspector]
+		public float Mana;
+		[ProgressBar(0, 100), ShowInInspector]
+		public float Stamina;
+	}
 	[VerticalGroup("Split/Right")]
 	[BoxGroup("Split/Right/Stat Settings")]
-	[ProgressBar(0, 100), ShowInInspector]
-	public float Health;
-	[BoxGroup("Split/Right/Stat Settings")]
-	[ProgressBar(0, 100), ShowInInspector]
-	public float Mana;
-	[BoxGroup("Split/Right/Stat Settings")]
-	[ProgressBar(0, 100), ShowInInspector]
-	public float Stamina;
+	[HideLabel]
+	public CharacterStats characterStats;
 
 	[BoxGroup("Split/Right/Animation Settings")]
 	public string GetHitAnim;

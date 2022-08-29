@@ -17,8 +17,9 @@ MonoBehaviour:
   DamageIndicator: {fileID: 4373938827545227751, guid: b816390b4cbe5d746afbdf63a21b337f, type: 3}
   Description: 
   Notes: 
-  Health: 100
-  Mana: 100
-  Stamina: 100
+  characterStats:
+    Health: 20
+    Mana: 100
+    Stamina: 100
   GetHitAnim: 
   DieAnim: 

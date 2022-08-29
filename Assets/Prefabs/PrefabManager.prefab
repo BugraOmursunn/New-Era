@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8017566461519915570}
   - component: {fileID: 2165955666400604443}
   m_Layer: 0
-  m_Name: ResourceManager
+  m_Name: PrefabManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,4 +44,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34274e33d7517a241a31348f63c63b70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageIndicator: {fileID: 4373938827545227751, guid: b816390b4cbe5d746afbdf63a21b337f, type: 3}

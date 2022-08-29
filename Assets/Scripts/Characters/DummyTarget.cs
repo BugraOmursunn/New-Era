@@ -9,11 +9,10 @@ using UnityEngine;
 
 public class DummyTarget : Character
 {
-	[field: SerializeField] public override CharacterData CharData { get; set; }
+	[field: SerializeField] public override CharacterData CharacterData { get; set; }
+	[field: SerializeField] public CharacterData.CharacterStats CurrentCharacterStats { get; set; }
 	[field: SerializeField] public override Animator CharAnimator { get; set; }
-	[field: SerializeField] public override float Health { get; set; }
-	[field: SerializeField] public override float Mana { get; set; }
-	[field: SerializeField] public override float Stamina { get; set; }
+
 	[field: SerializeField] public override bool IsDead { get; set; }
 
 	private PhotonView view;
@@ -38,36 +37,28 @@ public class DummyTarget : Character
 		if (IsDead == true)
 			return;
 
-		if (Health > 0 && IsDead == false)
+		if (CurrentCharacterStats.Health > 0 && IsDead == false)
 		{
-			Health += damage;
+			CurrentCharacterStats.Health += damage;
 
-			if (Health <= 0)
+			if (CurrentCharacterStats.Health <= 0)
 			{
 				IsDead = true;
 				Invoke(nameof(Resurrection), 3f);
 			}
 
-			CharAnimator.SetTrigger(Health > 0 ? CharData.GetHitAnim : CharData.DieAnim);
+			CharAnimator.SetTrigger(CurrentCharacterStats.Health > 0 ? CharacterData.GetHitAnim : CharacterData.DieAnim);
 		}
-		
-		GameObject newDamageIndicator = GameTypePrefabManager.ReturnGameTypeSelectionPrefab(CharData.DamageIndicator, this.transform.position, Quaternion.identity);
-		newDamageIndicator.GetComponent<DamageIndicator>().Instantiate(damage);
-	}
 
-	private void OnValidate()
-	{
-		if (CharData == null)
-			return;
-		Health = CharData.Health;
-		Mana = CharData.Mana;
-		Stamina = CharData.Stamina;
+		
+		GameObject newDamageIndicator = GameTypePrefabManager.ReturnGameTypeSelectionPrefab(CharacterData.DamageIndicator, this.transform.position, Quaternion.identity);
+		newDamageIndicator.GetComponent<DamageIndicator>().Instantiate(damage);
 	}
 
 	private void Resurrection()
 	{
 		CharAnimator.SetTrigger("Resurrection");
-		Health = 10;
+		CurrentCharacterStats.Health = 10;
 		IsDead = false;
 	}
 }

@@ -6,14 +6,24 @@ using UnityEngine;
 
 public class Player : Character
 {
-	[field: SerializeField] public override CharacterData CharData { get; set; }
+	[field: SerializeField] public override CharacterData CharacterData { get; set; }
 	[field: SerializeField] public override Animator CharAnimator { get; set; }
-	[field: SerializeField] public override float Health { get; set; }
-	[field: SerializeField] public override float Mana { get; set; }
-	[field: SerializeField] public override float Stamina { get; set; }
 	[field: SerializeField] public override bool IsDead { get; set; }
 
+	private readonly CharacterData.CharacterStats _currentCharacterStats = new CharacterData.CharacterStats();
 	private PhotonView view;
+	
+	private void OnEnable()
+	{
+		if (EventManager.IsGameMine.Invoke() == false) return;
+
+		_currentCharacterStats.Health = CharacterData.characterStats.Health;
+		_currentCharacterStats.Mana = CharacterData.characterStats.Mana;
+		_currentCharacterStats.Stamina = CharacterData.characterStats.Stamina;
+
+		EventManager.GetCharacterData = () => CharacterData;
+		EventManager.GetCurrentCharacterStats = () => _currentCharacterStats;
+	}
 	public override void GetDamage(float damage)
 	{
 		GameTypes gameType = EventManager.gameType.Invoke();
@@ -34,29 +44,20 @@ public class Player : Character
 		if (IsDead == true)
 			return;
 
-		if (Health > 0 && IsDead == false)
+		if (_currentCharacterStats.Health > 0 && IsDead == false)
 		{
-			Health += damage;
+			_currentCharacterStats.Health += damage;
+			EventManager.RefreshCharacterStats?.Invoke();
 
-			if (Health <= 0)
+			if (_currentCharacterStats.Health <= 0)
 			{
 				IsDead = true;
 			}
 
-			CharAnimator.SetTrigger(Health > 0 ? CharData.GetHitAnim : CharData.DieAnim);
+			CharAnimator.SetTrigger(_currentCharacterStats.Health > 0 ? CharacterData.GetHitAnim : CharacterData.DieAnim);
 		}
-
-		GameObject newDamageIndicator = GameTypePrefabManager.ReturnGameTypeSelectionPrefab(CharData.DamageIndicator, this.transform.position, Quaternion.identity);
+		
+		GameObject newDamageIndicator = GameTypePrefabManager.ReturnGameTypeSelectionPrefab(CharacterData.DamageIndicator, this.transform.position, Quaternion.identity);
 		newDamageIndicator.GetComponent<DamageIndicator>().Instantiate(damage);
-	}
-
-
-	private void OnValidate()
-	{
-		if (CharData == null)
-			return;
-		Health = CharData.Health;
-		Mana = CharData.Mana;
-		Stamina = CharData.Stamina;
 	}
 }

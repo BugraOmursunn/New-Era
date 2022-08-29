@@ -240,13 +240,13 @@ MonoBehaviour:
   ShowParameterInspector: 1
   m_SynchronizeParameters:
   - Type: 9
-    SynchronizeType: 1
+    SynchronizeType: 0
     Name: GetHit
   - Type: 9
-    SynchronizeType: 1
+    SynchronizeType: 0
     Name: Resurrection
   - Type: 9
-    SynchronizeType: 1
+    SynchronizeType: 0
     Name: Die
   m_SynchronizeLayers:
   - SynchronizeType: 0

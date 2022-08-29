@@ -364,18 +364,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70138164}
     m_Modifications:
-    - target: {fileID: 337702818, guid: 0331b169005eb1d469455efaa6b9024a, type: 3}
-      propertyPath: m_SynchronizeParameters.Array.data[0].SynchronizeType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 337702818, guid: 0331b169005eb1d469455efaa6b9024a, type: 3}
-      propertyPath: m_SynchronizeParameters.Array.data[1].SynchronizeType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 337702818, guid: 0331b169005eb1d469455efaa6b9024a, type: 3}
-      propertyPath: m_SynchronizeParameters.Array.data[2].SynchronizeType
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 337702819, guid: 0331b169005eb1d469455efaa6b9024a, type: 3}
       propertyPath: sceneViewId
       value: 3

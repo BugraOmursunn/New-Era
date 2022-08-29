@@ -19,26 +19,16 @@ public class BarManager : MonoBehaviour
 	[SerializeField] private Transform[] buttons;
 	[SerializeField] private List<BarCooldownData> barCooldownData;
 
-	private GameTypes gameType;
 	private void OnEnable()
 	{
-		gameType = EventManager.gameType.Invoke();
-		if (gameType == GameTypes.MultiPlayer)
-		{
-			if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
-				return;
-		}
+		if (EventManager.IsGameMine.Invoke() == false) return;
 
 		InputEventManager.BarIndexPressed += BarSpellPressed;
 		InputEventManager.IsCastingContinue += IsCastingContinue;
 	}
 	private void OnDisable()
 	{
-		if (gameType == GameTypes.MultiPlayer)
-		{
-			if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
-				return;
-		}
+		if (EventManager.IsGameMine.Invoke() == false) return;
 
 		InputEventManager.BarIndexPressed -= BarSpellPressed;
 		InputEventManager.IsCastingContinue -= IsCastingContinue;

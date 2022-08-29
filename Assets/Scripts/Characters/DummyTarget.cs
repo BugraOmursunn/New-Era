@@ -15,7 +15,7 @@ public class DummyTarget : Character
 	[field: SerializeField] public override bool IsDead { get; set; }
 
 	private PhotonView view;
-	private readonly CharacterData.CharacterStats _currentCharacterStats = new CharacterData.CharacterStats();
+	[SerializeField] private CharacterData.CharacterStats _currentCharacterStats = new CharacterData.CharacterStats();
 
 	private void Awake()
 	{
@@ -56,7 +56,7 @@ public class DummyTarget : Character
 			CharAnimator.SetTrigger(_currentCharacterStats.Health > 0 ? CharacterData.GetHitAnim : CharacterData.DieAnim);
 		}
 
-		
+
 		GameObject newDamageIndicator = GameTypePrefabManager.ReturnGameTypeSelectionPrefab(CharacterData.DamageIndicator, this.transform.position, Quaternion.identity);
 		newDamageIndicator.GetComponent<DamageIndicator>().Instantiate(damage);
 	}

@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f1e464c67ddf194a9c958cc52c840cf, type: 3}
-  m_Name: Player
+  m_Name: DummyTarget
   m_EditorClassIdentifier: 
-  textureIon: {fileID: 2800000, guid: fc476c862eab60d4da1e9e2879fcd844, type: 3}
-  Name: Player
+  textureIon: {fileID: 2800000, guid: bee2dc692f645eb4d848e17c6e65bdb0, type: 3}
+  Name: DummyTarget
   DamageIndicator: {fileID: 4373938827545227751, guid: b816390b4cbe5d746afbdf63a21b337f, type: 3}
   Description: 
   Notes: 
-  Health: 100
+  Health: 10
   Mana: 100
   Stamina: 100
   GetHitAnim: 

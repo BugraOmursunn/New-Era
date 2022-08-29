@@ -21,6 +21,9 @@ public class CharacterData : ScriptableObject
 	[VerticalGroup(GENERAL_SETTINGS_VERTICAL_GROUP)]
 	public string Name;
 
+	[VerticalGroup(GENERAL_SETTINGS_VERTICAL_GROUP)]
+	public GameObject DamageIndicator;
+
 	[VerticalGroup(LEFT_VERTICAL_GROUP)]
 	[BoxGroup("Split/Left/Description")]
 	[HideLabel, TextArea(6, 14)]
@@ -39,7 +42,7 @@ public class CharacterData : ScriptableObject
 	[BoxGroup("Split/Right/Stat Settings")]
 	[ProgressBar(0, 100), ShowInInspector]
 	public float Stamina;
-	
+
 	[BoxGroup("Split/Right/Animation Settings")]
 	public string GetHitAnim;
 	[BoxGroup("Split/Right/Animation Settings")]

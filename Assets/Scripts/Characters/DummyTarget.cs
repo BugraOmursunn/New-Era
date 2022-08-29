@@ -7,14 +7,33 @@ using Photon.Pun;
 using TMPro;
 using UnityEngine;
 
-public class DummyTarget : MonoBehaviour, IDamageAble
+public class DummyTarget : Character
 {
-	[field: SerializeField] public float Health { get; set; }
-	[field: SerializeField] public bool IsDead { get; set; }
+	[field: SerializeField] public override CharacterData CharData { get; set; }
+	[field: SerializeField] public override Animator CharAnimator { get; set; }
+	[field: SerializeField] public override float Health { get; set; }
+	[field: SerializeField] public override float Mana { get; set; }
+	[field: SerializeField] public override float Stamina { get; set; }
+	[field: SerializeField] public override bool IsDead { get; set; }
 
-	public Animator animator;
+	private PhotonView view;
 
-	public void GetDamage(float damage)
+	public override void GetDamage(float damage)
+	{
+		GameTypes gameType = EventManager.gameType.Invoke();
+		if (gameType == GameTypes.SinglePlayer)
+		{
+			DamageProcessor(damage);
+		}
+		else if (gameType == GameTypes.MultiPlayer)
+		{
+			view = this.GetComponent<PhotonView>();
+			view.RPC(nameof(DamageProcessor), RpcTarget.All, damage);
+		}
+	}
+
+	[PunRPC]
+	public override void DamageProcessor(float damage)
 	{
 		if (IsDead == true)
 			return;
@@ -29,15 +48,25 @@ public class DummyTarget : MonoBehaviour, IDamageAble
 				Invoke(nameof(Resurrection), 3f);
 			}
 
-			animator.SetTrigger(Health > 0 ? "GetHit" : "Die");
+			CharAnimator.SetTrigger(Health > 0 ? CharData.GetHitAnim : CharData.DieAnim);
 		}
 
-		GameObject newDamageIndicator = ResourceManager.DamageIndicator(this.transform);
+		GameObject newDamageIndicator = GameTypePrefabManager.ReturnGameTypeSelectionPrefab(CharData.DamageIndicator, this.transform.position, Quaternion.identity);
 		newDamageIndicator.GetComponent<DamageIndicator>().Instantiate(damage);
 	}
+
+	private void OnValidate()
+	{
+		if (CharData == null)
+			return;
+		Health = CharData.Health;
+		Mana = CharData.Mana;
+		Stamina = CharData.Stamina;
+	}
+
 	private void Resurrection()
 	{
-		animator.SetTrigger("Resurrection");
+		CharAnimator.SetTrigger("Resurrection");
 		Health = 10;
 		IsDead = false;
 	}

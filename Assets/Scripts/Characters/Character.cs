@@ -11,6 +11,6 @@ public abstract class Character : MonoBehaviour, IDamageAble
 	public abstract float Stamina { get; set; }
 
 	public abstract bool IsDead { get; set; }
-
 	public abstract void GetDamage(float damage);
+	public abstract void DamageProcessor(float damage);
 }

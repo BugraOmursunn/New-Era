@@ -7,8 +7,7 @@ using Sirenix.OdinInspector;
 
 public class SpawnManager : MonoBehaviour
 {
-	public GameObject singlePlayerPlayerPrefab;
-	public GameObject multiPlayerPlayerPrefab;
+	public GameObject playerPrefab;
 
 	void Start()
 	{
@@ -17,18 +16,21 @@ public class SpawnManager : MonoBehaviour
 	[Button]
 	public void Spawn()
 	{
-		GameTypes gameType = EventManager.gameType.Invoke();
+		//for single, multi selection
+		GameObject player = GameTypePrefabManager.ReturnGameTypeSelectionPrefab(playerPrefab, Vector3.zero, Quaternion.identity);
 
-		switch (gameType)
-		{
-			case GameTypes.SinglePlayer:
-				GameObject sPlayer = Instantiate(singlePlayerPlayerPrefab, Vector3.zero, Quaternion.identity);
-				break;
-			case GameTypes.MultiPlayer:
-				GameObject playerPackage = PhotonNetwork.Instantiate(multiPlayerPlayerPrefab.name, Vector3.zero, Quaternion.identity);
-				break;
-			default:
-				throw new ArgumentOutOfRangeException();
-		}
+		// GameTypes gameType = EventManager.gameType.Invoke();
+		//
+		// switch (gameType)
+		// {
+		// 	case GameTypes.SinglePlayer:
+		// 		GameObject sPlayer = Instantiate(singlePlayerPlayerPrefab, Vector3.zero, Quaternion.identity);
+		// 		break;
+		// 	case GameTypes.MultiPlayer:
+		// 		GameObject playerPackage = PhotonNetwork.Instantiate(multiPlayerPlayerPrefab.name, Vector3.zero, Quaternion.identity);
+		// 		break;
+		// 	default:
+		// 		throw new ArgumentOutOfRangeException();
+		// }
 	}
 }

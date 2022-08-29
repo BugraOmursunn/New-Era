@@ -8,18 +8,28 @@ public class Player : Character
 {
 	[field: SerializeField] public override CharacterData CharData { get; set; }
 	[field: SerializeField] public override Animator CharAnimator { get; set; }
-
 	[field: SerializeField] public override float Health { get; set; }
 	[field: SerializeField] public override float Mana { get; set; }
 	[field: SerializeField] public override float Stamina { get; set; }
-
 	[field: SerializeField] public override bool IsDead { get; set; }
 
-	private void Start()
+	private PhotonView view;
+	public override void GetDamage(float damage)
 	{
+		GameTypes gameType = EventManager.gameType.Invoke();
+		if (gameType == GameTypes.SinglePlayer)
+		{
+			DamageProcessor(damage);
+		}
+		else if (gameType == GameTypes.MultiPlayer)
+		{
+			view = this.GetComponent<PhotonView>();
+			view.RPC(nameof(DamageProcessor), RpcTarget.All, damage);
+		}
 	}
 
-	public override void GetDamage(float damage)
+	[PunRPC]
+	public override void DamageProcessor(float damage)
 	{
 		if (IsDead == true)
 			return;
@@ -36,9 +46,10 @@ public class Player : Character
 			CharAnimator.SetTrigger(Health > 0 ? CharData.GetHitAnim : CharData.DieAnim);
 		}
 
-		GameObject newDamageIndicator = ResourceManager.DamageIndicator(this.transform);
+		GameObject newDamageIndicator = GameTypePrefabManager.ReturnGameTypeSelectionPrefab(CharData.DamageIndicator, this.transform.position, Quaternion.identity);
 		newDamageIndicator.GetComponent<DamageIndicator>().Instantiate(damage);
 	}
+
 
 	private void OnValidate()
 	{

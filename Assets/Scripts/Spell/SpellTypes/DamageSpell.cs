@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Photon.Pun;
 using UnityEngine;
 
 public class DamageSpell : Spell
@@ -22,10 +23,11 @@ public class DamageSpell : Spell
 
 		//select effected characters from effected colliders except original caster
 		List<IDamageAble> effectedCharacters = new List<IDamageAble>();
+
 		effectedCharacters = effectedCollider
 			.Select(r => r.GetComponent<IDamageAble>())
 			.Where(g => g != null)
-			//.Where(t => t != caster.GetComponent<IDamageAble>())
+			.Where(t => t != caster.GetComponent<IDamageAble>())
 			.ToList();
 
 		//Debug.Log(caster.name);
@@ -38,7 +40,6 @@ public class DamageSpell : Spell
 
 		for (int i = 0; i < effectedCharacters.Count; i++)
 		{
-			Debug.Log(effectedCharacters[i]);
 			effectedCharacters[i].GetDamage(spellData.spellModifierSettings.spellDamage);
 		}
 	}

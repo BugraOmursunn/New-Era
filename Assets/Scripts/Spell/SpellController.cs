@@ -50,21 +50,11 @@ public class SpellController : MonoBehaviour
 	{
 		yield return new WaitForSeconds(spellData.spellVFXSettings.vfxActivationTime);
 
-		GameObject spell;
 		Vector3 position = new Vector3(playerTransform.position.x, spellData.spellVFXSettings.Prefab.transform.position.y, playerTransform.position.z);
 		Quaternion transformRotation = Quaternion.Euler(0, playerTransform.eulerAngles.y + spellData.spellVFXSettings.rotOffSet.y, 0);
 
-		switch (gameType)
-		{
-			case GameTypes.SinglePlayer:
-				spell = Instantiate(spellData.spellVFXSettings.Prefab, position, transformRotation);
-				break;
-			case GameTypes.MultiPlayer:
-				spell = PhotonNetwork.Instantiate(spellData.spellVFXSettings.Prefab.name, position, transformRotation);
-				break;
-			default:
-				throw new ArgumentOutOfRangeException();
-		}
+		//for single, multi selection
+		GameObject spell = GameTypePrefabManager.ReturnGameTypeSelectionPrefab(spellData.spellVFXSettings.Prefab, position, transformRotation);
 
 		spell.transform.parent = playerTransform;
 		spell.transform.localPosition = new Vector3(0, spell.transform.position.y, 0) + spellData.spellVFXSettings.posOffSet;

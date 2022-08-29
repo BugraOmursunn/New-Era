@@ -50,7 +50,7 @@ public class DummyTarget : Character
 
 			CharAnimator.SetTrigger(Health > 0 ? CharData.GetHitAnim : CharData.DieAnim);
 		}
-
+		
 		GameObject newDamageIndicator = GameTypePrefabManager.ReturnGameTypeSelectionPrefab(CharData.DamageIndicator, this.transform.position, Quaternion.identity);
 		newDamageIndicator.GetComponent<DamageIndicator>().Instantiate(damage);
 	}

@@ -29,9 +29,12 @@ public class DamageIndicator : MonoBehaviour
 	public void RPCInstantiate(float _damage)
 	{
 		if (view == null)
+		{
+			Destroy(this.gameObject);
 			return;
+		}
 		if (view.IsMine == false)
-			return;
+			Destroy(this.gameObject);
 
 		Destroy(this.gameObject, 1f);
 

@@ -10,13 +10,19 @@ using UnityEngine;
 public class DummyTarget : Character
 {
 	[field: SerializeField] public override CharacterData CharacterData { get; set; }
-	[field: SerializeField] public CharacterData.CharacterStats CurrentCharacterStats { get; set; }
 	[field: SerializeField] public override Animator CharAnimator { get; set; }
 
 	[field: SerializeField] public override bool IsDead { get; set; }
 
 	private PhotonView view;
+	private readonly CharacterData.CharacterStats _currentCharacterStats = new CharacterData.CharacterStats();
 
+	private void Awake()
+	{
+		_currentCharacterStats.Health = CharacterData.characterStats.Health;
+		_currentCharacterStats.Mana = CharacterData.characterStats.Mana;
+		_currentCharacterStats.Stamina = CharacterData.characterStats.Stamina;
+	}
 	public override void GetDamage(float damage)
 	{
 		GameTypes gameType = EventManager.gameType.Invoke();
@@ -37,17 +43,17 @@ public class DummyTarget : Character
 		if (IsDead == true)
 			return;
 
-		if (CurrentCharacterStats.Health > 0 && IsDead == false)
+		if (_currentCharacterStats.Health > 0 && IsDead == false)
 		{
-			CurrentCharacterStats.Health += damage;
+			_currentCharacterStats.Health += damage;
 
-			if (CurrentCharacterStats.Health <= 0)
+			if (_currentCharacterStats.Health <= 0)
 			{
 				IsDead = true;
 				Invoke(nameof(Resurrection), 3f);
 			}
 
-			CharAnimator.SetTrigger(CurrentCharacterStats.Health > 0 ? CharacterData.GetHitAnim : CharacterData.DieAnim);
+			CharAnimator.SetTrigger(_currentCharacterStats.Health > 0 ? CharacterData.GetHitAnim : CharacterData.DieAnim);
 		}
 
 		
@@ -58,7 +64,7 @@ public class DummyTarget : Character
 	private void Resurrection()
 	{
 		CharAnimator.SetTrigger("Resurrection");
-		CurrentCharacterStats.Health = 10;
+		_currentCharacterStats.Health = CharacterData.characterStats.Health;
 		IsDead = false;
 	}
 }

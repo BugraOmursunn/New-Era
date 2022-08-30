@@ -66,6 +66,19 @@ public class SpellController : MonoBehaviour
 		if (spellData.spellVFXSettings.isChild == false)
 			spell.transform.parent = null;
 
-		Destroy(spell, 5f);
+		StartCoroutine(Delay(spell));
+	}
+	private IEnumerator Delay(GameObject spell)
+	{
+		yield return new WaitForSeconds(5);
+
+		if (PhotonNetwork.IsMasterClient)
+		{
+			PhotonNetwork.Destroy(spell);
+		}
+		else
+		{
+			Destroy(spell);
+		}
 	}
 }

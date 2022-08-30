@@ -28,15 +28,13 @@ public class DamageIndicator : MonoBehaviour
 	[PunRPC]
 	public void RPCInstantiate(float _damage)
 	{
-		if (view == null)
+		if ((view == null || view.IsMine == false) && EventManager.gameType.Invoke() == GameTypes.MultiPlayer)
 		{
 			Destroy(this.gameObject);
 			return;
 		}
-		if (view.IsMine == false)
-			Destroy(this.gameObject);
 
-		Destroy(this.gameObject, 1f);
+		StartCoroutine(Delay());
 
 		TextMeshPro damageText = this.transform.GetChild(0).GetComponent<TextMeshPro>();
 		damageText.color = _damage > 0 ? Color.green : Color.red;
@@ -49,5 +47,18 @@ public class DamageIndicator : MonoBehaviour
 			if (this != null)
 				this.transform.DOLookAt(Camera.main.transform.position, 0.01f);
 		});
+	}
+	private IEnumerator Delay()
+	{
+		yield return new WaitForSeconds(1);
+
+		if (PhotonNetwork.IsMasterClient)
+		{
+			PhotonNetwork.Destroy(this.gameObject);
+		}
+		else
+		{
+			Destroy(this.gameObject);
+		}
 	}
 }

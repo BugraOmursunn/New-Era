@@ -10,6 +10,11 @@ public enum BarActionTypes
 	Spell,
 	Item
 }
+public enum ClassTypes
+{
+	Barbarian,
+	Warrior,
+}
 public enum WeaponType
 {
 	Empty,

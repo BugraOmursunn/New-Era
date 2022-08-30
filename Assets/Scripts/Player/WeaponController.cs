@@ -10,7 +10,7 @@ public class WeaponController : MonoBehaviour
 {
 	[SerializeField] private Animator playerAnimator;
 
-	private WeaponData weaponData;
+	[SerializeField] private WeaponData weaponData;
 
 	private bool isDraw;
 
@@ -19,7 +19,6 @@ public class WeaponController : MonoBehaviour
 	[SerializeField] private List<HandData> handData;
 
 	[Space(10)]
-	[SerializeField] private WeaponData spawnWeaponData;
 	private GameObject weaponGameObject;
 	private Transform weaponParent;
 	private Transform weaponTransform;
@@ -55,7 +54,9 @@ public class WeaponController : MonoBehaviour
 	}
 	private void Awake()
 	{
-		weaponGameObject = Instantiate(spawnWeaponData.weaponVFXSettings.Prefab, skeletonChestPos);
+		weaponData = EventManager.GetCharacterData.Invoke().Weapon;
+
+		weaponGameObject = Instantiate(weaponData.weaponVFXSettings.Prefab, skeletonChestPos);
 		weaponParent = weaponGameObject.transform;
 		weaponTransform = weaponGameObject.transform.GetChild(0);
 		weaponAttachmentData = weaponGameObject.GetComponent<WeaponAttachmentData>();

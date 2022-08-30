@@ -22,6 +22,9 @@ public class CharacterData : ScriptableObject
 	public string Name;
 
 	[VerticalGroup(GENERAL_SETTINGS_VERTICAL_GROUP)]
+	public ClassTypes Class;
+
+	[VerticalGroup(GENERAL_SETTINGS_VERTICAL_GROUP)]
 	public GameObject DamageIndicator;
 
 	[VerticalGroup(LEFT_VERTICAL_GROUP)]
@@ -31,6 +34,13 @@ public class CharacterData : ScriptableObject
 	[BoxGroup("Split/Left/Notes")]
 	[HideLabel, TextArea(6, 14)]
 	public string Notes;
+
+	[VerticalGroup("Split/Right")]
+	[BoxGroup("Split/Right/Class Settings")]
+	public SpellBook SpellBook;
+
+	[BoxGroup("Split/Right/Class Settings")]
+	public WeaponData Weapon;
 
 	[Serializable]
 	public class CharacterStats
@@ -42,7 +52,6 @@ public class CharacterData : ScriptableObject
 		[ProgressBar(0, 100), ShowInInspector]
 		public float Stamina;
 	}
-	[VerticalGroup("Split/Right")]
 	[BoxGroup("Split/Right/Stat Settings")]
 	[HideLabel]
 	public CharacterStats characterStats;

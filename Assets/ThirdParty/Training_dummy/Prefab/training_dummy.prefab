@@ -406,13 +406,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de1a34a8abe2ade4ea75b3fca44419b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CharacterData>k__BackingField: {fileID: 11400000, guid: 4fc0fa95fe616ab4a835c54bafceb117, type: 2}
-  <CharAnimator>k__BackingField: {fileID: 2146768002}
-  <IsDead>k__BackingField: 0
-  _currentCharacterStats:
-    Health: 0
-    Mana: 0
-    Stamina: 0
+  damageIndicatorPrefab: {fileID: 4373938827545227751, guid: b816390b4cbe5d746afbdf63a21b337f, type: 3}
+  charAnimator: {fileID: 2146768002}
+  Health: 10
 --- !u!54 &128378961950676849
 Rigidbody:
   m_ObjectHideFlags: 0

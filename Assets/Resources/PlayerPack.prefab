@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3f4939746460ff48b2628e9138ea2af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotsData: {fileID: 11400000, guid: dedee316a1b49ef4f8ed43919fe4c5af, type: 2}
+  spellBook: {fileID: 11400000, guid: dedee316a1b49ef4f8ed43919fe4c5af, type: 2}
   isCasting: 0
   buttons:
   - {fileID: 3534939314616480389}
@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41a2064ffd5656741856594ee00076c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterData: {fileID: 11400000, guid: ae747a3d261f4c24c85c3f9161dcfa74, type: 2}
   gameType: 1
   isGameMine: 0
 --- !u!1 &902774601

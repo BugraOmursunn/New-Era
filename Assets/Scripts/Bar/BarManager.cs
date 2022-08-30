@@ -10,7 +10,7 @@ using UnityEngine;
 
 public class BarManager : MonoBehaviour
 {
-	[SerializeField] private SlotsData slotsData;
+	[SerializeField] private SpellBook spellBook;
 
 	[CanBeNull]
 	private ScriptableObject m_BarItemData;
@@ -35,10 +35,11 @@ public class BarManager : MonoBehaviour
 	}
 	private void Awake()
 	{
+		spellBook = EventManager.characterData.Invoke().SpellBook;
 		//buttons = GameObject.FindObjectsOfType<BarItemManager>().Select(x => x.GetComponent<Transform>()).OrderBy(m => m.transform.GetSiblingIndex()).ToArray();
 		//WeaponData weaponData = slotsData.barItems[i] as WeaponData;
-		
-		foreach (var scriptable in slotsData.barItems)
+
+		foreach (var scriptable in spellBook.barItems)
 		{
 			if (scriptable == null)
 				continue;
@@ -63,21 +64,21 @@ public class BarManager : MonoBehaviour
 	}
 	private void Start()
 	{
-		for (int i = 0; i < slotsData.barItems.Count; i++)
+		for (int i = 0; i < spellBook.barItems.Count; i++)
 		{
-			if (slotsData.barItems[i] == null)
+			if (spellBook.barItems[i] == null)
 				continue;
 
 			var newData = new BarCooldownData();
 			Sprite icon = null;
-			switch (slotsData.barItems[i])
+			switch (spellBook.barItems[i])
 			{
 				case SpellData:
-					if (slotsData.barItems[i] is SpellData spellData)
+					if (spellBook.barItems[i] is SpellData spellData)
 						icon = spellData.Icon;
 					break;
 				case WeaponData:
-					if (slotsData.barItems[i] is WeaponData weaponData)
+					if (spellBook.barItems[i] is WeaponData weaponData)
 						icon = weaponData.Icon;
 					break;
 			}
@@ -88,7 +89,7 @@ public class BarManager : MonoBehaviour
 
 	private void BarSpellPressed(int index)
 	{
-		m_BarItemData = slotsData.barItems[index];
+		m_BarItemData = spellBook.barItems[index];
 
 		if (m_BarItemData != null)
 		{
@@ -121,9 +122,9 @@ public class BarManager : MonoBehaviour
 				barCooldownData[i].isReady = false;
 			}
 		}
-		for (int i = 0; i < slotsData.barItems.Count; i++) //set cooldown image
+		for (int i = 0; i < spellBook.barItems.Count; i++) //set cooldown image
 		{
-			if (slotsData.barItems[i] != null)
+			if (spellBook.barItems[i] != null)
 			{
 				float fillAmount = barCooldownData[i].barCurrentCooldown / barCooldownData[i].barDefaultCooldown;
 				buttons[i].GetComponent<BarItemManager>().cooldownImg.DOFillAmount(fillAmount, 0.01f);

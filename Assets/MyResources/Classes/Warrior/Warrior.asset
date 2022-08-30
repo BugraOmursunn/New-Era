@@ -10,13 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f1e464c67ddf194a9c958cc52c840cf, type: 3}
-  m_Name: Player
+  m_Name: Warrior
   m_EditorClassIdentifier: 
   textureIon: {fileID: 2800000, guid: fc476c862eab60d4da1e9e2879fcd844, type: 3}
-  Name: Player
+  Name: Warrior
+  Class: 1
   DamageIndicator: {fileID: 4373938827545227751, guid: b816390b4cbe5d746afbdf63a21b337f, type: 3}
   Description: 
   Notes: 
+  SpellBook: {fileID: 11400000, guid: dedee316a1b49ef4f8ed43919fe4c5af, type: 2}
+  Weapon: {fileID: 11400000, guid: a49e5a7b49316a84a908796d48434e02, type: 2}
   characterStats:
     Health: 20
     Mana: 100

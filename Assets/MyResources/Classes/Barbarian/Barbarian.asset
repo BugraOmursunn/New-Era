@@ -10,16 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f1e464c67ddf194a9c958cc52c840cf, type: 3}
-  m_Name: DummyTarget
+  m_Name: Barbarian
   m_EditorClassIdentifier: 
-  textureIon: {fileID: 2800000, guid: bee2dc692f645eb4d848e17c6e65bdb0, type: 3}
-  Name: DummyTarget
+  textureIon: {fileID: 2800000, guid: 90e99ee31082a974d8fe466a02d2195a, type: 3}
+  Name: Barbarian
+  Class: 0
   DamageIndicator: {fileID: 4373938827545227751, guid: b816390b4cbe5d746afbdf63a21b337f, type: 3}
   Description: 
   Notes: 
+  SpellBook: {fileID: 0}
+  Weapon: {fileID: 0}
   characterStats:
-    Health: 10.000001
+    Health: 20
     Mana: 100
     Stamina: 100
-  GetHitAnim: GetHit
-  DieAnim: Die
+  GetHitAnim: 
+  DieAnim: 

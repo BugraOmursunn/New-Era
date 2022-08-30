@@ -1283,9 +1283,29 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 561768345, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
+      propertyPath: spellBook
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 45614675640529581, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
       propertyPath: sceneViewId
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1482271920454953327, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1482271920454953327, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1482271920454953327, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1482271920454953327, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2632574300003854261, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
       propertyPath: m_RootOrder
@@ -1331,6 +1351,70 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3439842424881375076, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439842424881375076, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439842424881375076, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439842424881375076, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534939314616480389, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534939314616480389, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534939314616480389, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534939314616480389, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4867013826510324748, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4867013826510324748, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4867013826510324748, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4867013826510324748, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5167098729998967244, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5167098729998967244, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5167098729998967244, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5167098729998967244, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5535523782448629199, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
       propertyPath: m_Name
       value: PlayerPack
@@ -1339,10 +1423,34 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7396513699623875602, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7396513699623875602, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7396513699623875602, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7396513699623875602, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961835766340572031, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
+      propertyPath: spawnWeaponData
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7970440216779388943, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
       propertyPath: gameType
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7970440216779388943, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
+      propertyPath: characterData
+      value: 
+      objectReference: {fileID: 11400000, guid: ae747a3d261f4c24c85c3f9161dcfa74, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
 --- !u!1 &2020964104

@@ -7,23 +7,20 @@ using Photon.Pun;
 using TMPro;
 using UnityEngine;
 
-public class DummyTarget : Character
+public class DummyTarget : MonoBehaviour, IDamageAble
 {
-	[field: SerializeField] public override CharacterData CharacterData { get; set; }
-	[field: SerializeField] public override Animator CharAnimator { get; set; }
-
-	[field: SerializeField] public override bool IsDead { get; set; }
-
+	[SerializeField] private GameObject damageIndicatorPrefab;
+	[SerializeField] private Animator charAnimator;
+	[SerializeField] private float Health;
+	private float currentHealth;
+	private bool IsDead;
 	private PhotonView view;
-	[SerializeField] private CharacterData.CharacterStats _currentCharacterStats = new CharacterData.CharacterStats();
 
-	private void Awake()
+	private void Start()
 	{
-		_currentCharacterStats.Health = CharacterData.characterStats.Health;
-		_currentCharacterStats.Mana = CharacterData.characterStats.Mana;
-		_currentCharacterStats.Stamina = CharacterData.characterStats.Stamina;
+		currentHealth = Health;
 	}
-	public override void GetDamage(float damage)
+	public void GetDamage(float damage)
 	{
 		GameTypes gameType = EventManager.gameType.Invoke();
 		if (gameType == GameTypes.SinglePlayer)
@@ -38,33 +35,33 @@ public class DummyTarget : Character
 	}
 
 	[PunRPC]
-	public override void DamageProcessor(float damage)
+	public void DamageProcessor(float damage)
 	{
 		if (IsDead == true)
 			return;
 
-		if (_currentCharacterStats.Health > 0 && IsDead == false)
+		if (currentHealth > 0 && IsDead == false)
 		{
-			_currentCharacterStats.Health += damage;
+			currentHealth += damage;
 
-			if (_currentCharacterStats.Health <= 0)
+			if (currentHealth <= 0)
 			{
 				IsDead = true;
 				Invoke(nameof(Resurrection), 3f);
 			}
 
-			CharAnimator.SetTrigger(_currentCharacterStats.Health > 0 ? CharacterData.GetHitAnim : CharacterData.DieAnim);
+			charAnimator.SetTrigger(currentHealth > 0 ? "GetHit" : "Die");
 		}
 
 
-		GameObject newDamageIndicator = GameTypePrefabManager.ReturnGameTypeSelectionPrefab(CharacterData.DamageIndicator, this.transform.position, Quaternion.identity);
+		GameObject newDamageIndicator = GameTypePrefabManager.ReturnGameTypeSelectionPrefab(damageIndicatorPrefab, this.transform.position, Quaternion.identity);
 		newDamageIndicator.GetComponent<DamageIndicator>().Instantiate(damage);
 	}
 
 	private void Resurrection()
 	{
-		CharAnimator.SetTrigger("Resurrection");
-		_currentCharacterStats.Health = CharacterData.characterStats.Health;
+		charAnimator.SetTrigger("Resurrection");
+		currentHealth = Health;
 		IsDead = false;
 	}
 }

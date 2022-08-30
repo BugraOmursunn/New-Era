@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d91965549769fc54896374495ba98c87, type: 3}
   m_Name: BarbarianSpells
   m_EditorClassIdentifier: 
+  textureIon: {fileID: 2800000, guid: 068a0f5b7f8ae9c42b6373e76c82a7df, type: 3}
   barItems:
   - {fileID: 11400000, guid: a49e5a7b49316a84a908796d48434e02, type: 2}
-  - {fileID: 11400000, guid: 88efb592a743f4a42a414a2bff56a8b1, type: 2}
-  - {fileID: 11400000, guid: e29b5102166fcc446ac6df53e5c2f802, type: 2}
-  - {fileID: 11400000, guid: 7966a368c6babdf4190af73a94211df3, type: 2}
-  - {fileID: 11400000, guid: bcc0a4307e2f0ea4d9e83f708dc9fe11, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}

@@ -38,7 +38,8 @@ public class GameEditor : OdinMenuEditorWindow
 
 		// Adds all characters.
 
-		tree.AddAllAssetsAtPath("Characters", "Assets/MyResources/Characters", typeof(CharacterData), true, true);
+		tree.AddAllAssetsAtPath("Characters", "Assets/MyResources/Classes", typeof(CharacterData), true, true);
+		tree.AddAllAssetsAtPath("SpellBooks", "Assets/MyResources/Classes/", typeof(SpellBook), true, true);
 		tree.AddAllAssetsAtPath("Spells", "Assets/MyResources/Spells", typeof(SpellData), true, true);
 		tree.AddAllAssetsAtPath("Weapons", "Assets/MyResources/Weapons", typeof(WeaponData), true, true);
 		// Add all scriptable object items.
@@ -50,6 +51,7 @@ public class GameEditor : OdinMenuEditorWindow
 
 		// Add icons to characters and items.
 		tree.EnumerateTree().AddIcons<CharacterData>(x => x.textureIon);
+		tree.EnumerateTree().AddIcons<SpellBook>(x => x.textureIon);
 		tree.EnumerateTree().AddIcons<SpellData>(x => x.textureIon);
 		tree.EnumerateTree().AddIcons<WeaponData>(x => x.textureIon);
 		return tree;

@@ -18,8 +18,8 @@ MonoBehaviour:
   DamageIndicator: {fileID: 4373938827545227751, guid: b816390b4cbe5d746afbdf63a21b337f, type: 3}
   Description: 
   Notes: 
-  SpellBook: {fileID: 0}
-  Weapon: {fileID: 0}
+  SpellBook: {fileID: 11400000, guid: 8ad49ebacb19a3f49b8e85c0da60f978, type: 2}
+  Weapon: {fileID: 11400000, guid: a49e5a7b49316a84a908796d48434e02, type: 2}
   characterStats:
     Health: 20
     Mana: 100

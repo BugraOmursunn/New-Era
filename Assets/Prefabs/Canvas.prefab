@@ -2476,10 +2476,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BarItem
       objectReference: {fileID: 0}
-    - target: {fileID: 5727757510192318648, guid: 95a828949b9dc51418928d3c4c62fe22, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 7316db08996502d4595db505fe173a1e, type: 3}
     - target: {fileID: 9151089333840962328, guid: 95a828949b9dc51418928d3c4c62fe22, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2581,10 +2577,6 @@ PrefabInstance:
     - target: {fileID: 1554219235290073003, guid: 95a828949b9dc51418928d3c4c62fe22, type: 3}
       propertyPath: m_Name
       value: BarItem
-      objectReference: {fileID: 0}
-    - target: {fileID: 1554219235290073003, guid: 95a828949b9dc51418928d3c4c62fe22, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9151089333840962328, guid: 95a828949b9dc51418928d3c4c62fe22, type: 3}
       propertyPath: m_Pivot.x
@@ -2688,10 +2680,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BarItem
       objectReference: {fileID: 0}
-    - target: {fileID: 1554219235290073003, guid: 95a828949b9dc51418928d3c4c62fe22, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9151089333840962328, guid: 95a828949b9dc51418928d3c4c62fe22, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2794,10 +2782,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BarItem
       objectReference: {fileID: 0}
-    - target: {fileID: 5727757510192318648, guid: 95a828949b9dc51418928d3c4c62fe22, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 27919e65bf1574c468b0d2343b2b542e, type: 3}
     - target: {fileID: 9151089333840962328, guid: 95a828949b9dc51418928d3c4c62fe22, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2900,10 +2884,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BarItem
       objectReference: {fileID: 0}
-    - target: {fileID: 5727757510192318648, guid: 95a828949b9dc51418928d3c4c62fe22, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: aa562f9447233654789b885e0646fd2c, type: 3}
     - target: {fileID: 9151089333840962328, guid: 95a828949b9dc51418928d3c4c62fe22, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

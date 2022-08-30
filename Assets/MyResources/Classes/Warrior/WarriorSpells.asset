@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d91965549769fc54896374495ba98c87, type: 3}
   m_Name: WarriorSpells
   m_EditorClassIdentifier: 
+  textureIon: {fileID: 2800000, guid: b846030fca0c8014b9ca3b55c0713cd3, type: 3}
   barItems:
   - {fileID: 11400000, guid: a49e5a7b49316a84a908796d48434e02, type: 2}
   - {fileID: 11400000, guid: 88efb592a743f4a42a414a2bff56a8b1, type: 2}

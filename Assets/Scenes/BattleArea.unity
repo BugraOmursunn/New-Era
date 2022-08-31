@@ -1419,6 +1419,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerPack
       objectReference: {fileID: 0}
+    - target: {fileID: 6096991356021443691, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
+      propertyPath: <CharacterData>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: ade5c2b9d1d471d47b2c4942e3f7ae0e, type: 2}
+    - target: {fileID: 6243222844171116932, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.20000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 6243222844171116932, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5
+      objectReference: {fileID: 0}
     - target: {fileID: 6412840963502819826, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
       propertyPath: sceneViewId
       value: 5

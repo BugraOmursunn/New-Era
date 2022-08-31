@@ -35,7 +35,7 @@ public class BarManager : MonoBehaviour
 	}
 	private void Awake()
 	{
-		spellBook = EventManager.characterData.Invoke().SpellBook;
+		spellBook = EventManager.GetCharacterData.Invoke().SpellBook;
 		//buttons = GameObject.FindObjectsOfType<BarItemManager>().Select(x => x.GetComponent<Transform>()).OrderBy(m => m.transform.GetSiblingIndex()).ToArray();
 		//WeaponData weaponData = slotsData.barItems[i] as WeaponData;
 

@@ -55,7 +55,6 @@ public class WeaponController : MonoBehaviour
 	private void Awake()
 	{
 		weaponData = EventManager.GetCharacterData.Invoke().Weapon;
-
 		weaponGameObject = Instantiate(weaponData.weaponVFXSettings.Prefab, skeletonChestPos);
 		weaponParent = weaponGameObject.transform;
 		weaponTransform = weaponGameObject.transform.GetChild(0);

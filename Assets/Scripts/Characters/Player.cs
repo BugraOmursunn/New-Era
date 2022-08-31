@@ -23,7 +23,9 @@ public class Player : Character
 
 		EventManager.GetCharacterData = () => CharacterData;
 		EventManager.GetCurrentCharacterStats = () => _currentCharacterStats;
+		EventManager.GetCharacterData = () => CharacterData;
 	}
+
 	public override void GetDamage(float damage)
 	{
 		GameTypes gameType = EventManager.gameType.Invoke();

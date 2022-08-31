@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-	[SerializeField] private CharacterData characterData;
 	[SerializeField] private GameTypes gameType;
 	[SerializeField] private bool isGameMine;
 	private void Awake()
@@ -21,7 +20,6 @@ public class GameManager : MonoBehaviour
 		}
 		isGameMine = true;
 		EventManager.IsGameMine = () => true;
-		EventManager.characterData = () => characterData;
 	}
 
 	private void Start()

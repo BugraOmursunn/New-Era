@@ -18,8 +18,8 @@ public enum ClassTypes
 public enum WeaponType
 {
 	Empty,
-	Sword_1h_shield,
-	Sword_2h,
+	OneHand_Shield,
+	TwoHand,
 }
 public enum SpellType
 {

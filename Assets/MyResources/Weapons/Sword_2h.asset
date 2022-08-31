@@ -24,5 +24,5 @@ MonoBehaviour:
   weaponVFXSettings:
     is2Hand: 1
     Prefab: {fileID: 5012360810001529887, guid: 7ea70c8404821cc41a1c73b432440a1b, type: 3}
-    drawAnimName: Draw2hSword
-    sheetAnimName: Sheath2hSword
+    drawAnimName: Draw2h
+    sheetAnimName: Sheath2h

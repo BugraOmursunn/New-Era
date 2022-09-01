@@ -492,6 +492,18 @@ PrefabInstance:
       propertyPath: gameType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1624365299940500966, guid: d8cea3b2df6e83c4aa28634b381c2f0c, type: 3}
+      propertyPath: playerPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624365299940500966, guid: d8cea3b2df6e83c4aa28634b381c2f0c, type: 3}
+      propertyPath: playerPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 5535523782448629199, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
+    - target: {fileID: 1624365299940500966, guid: d8cea3b2df6e83c4aa28634b381c2f0c, type: 3}
+      propertyPath: playerPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 5535523782448629199, guid: 74e39baea390d884d93beee4200d673e, type: 3}
     - target: {fileID: 1624365299940500967, guid: d8cea3b2df6e83c4aa28634b381c2f0c, type: 3}
       propertyPath: m_Name
       value: SpawnManager

@@ -148,7 +148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41a2064ffd5656741856594ee00076c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterData: {fileID: 11400000, guid: ae747a3d261f4c24c85c3f9161dcfa74, type: 2}
   gameType: 1
   isGameMine: 0
 --- !u!1 &902774601
@@ -280,7 +279,7 @@ GameObject:
   - component: {fileID: 2632574300003854261}
   - component: {fileID: -8524523270730323720}
   m_Layer: 0
-  m_Name: PlayerPack
+  m_Name: Warrior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

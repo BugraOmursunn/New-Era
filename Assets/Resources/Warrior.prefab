@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3f4939746460ff48b2628e9138ea2af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellBook: {fileID: 11400000, guid: dedee316a1b49ef4f8ed43919fe4c5af, type: 2}
+  spellBook: {fileID: 0}
   isCasting: 0
   buttons:
   - {fileID: 3534939314616480389}
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41a2064ffd5656741856594ee00076c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameType: 1
+  gameType: 0
   isGameMine: 0
 --- !u!1 &902774601
 GameObject:
@@ -597,6 +597,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 2632574300003854261}
     m_Modifications:
     - target: {fileID: 1762682269, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: weaponData
+      value: 
+      objectReference: {fileID: 11400000, guid: a49e5a7b49316a84a908796d48434e02, type: 2}
+    - target: {fileID: 1762682269, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: spawnWeaponData
       value: 
       objectReference: {fileID: 11400000, guid: a49e5a7b49316a84a908796d48434e02, type: 2}
@@ -741,12 +745,6 @@ MonoBehaviour:
     Name: is2hDraw
   - Type: 9
     SynchronizeType: 1
-    Name: Draw2hSword
-  - Type: 9
-    SynchronizeType: 1
-    Name: Sheath2hSword
-  - Type: 9
-    SynchronizeType: 1
     Name: Attack
   - Type: 9
     SynchronizeType: 1
@@ -760,6 +758,12 @@ MonoBehaviour:
   - Type: 9
     SynchronizeType: 1
     Name: SwordThrow
+  - Type: 9
+    SynchronizeType: 0
+    Name: Draw2h
+  - Type: 9
+    SynchronizeType: 0
+    Name: Sheath2h
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0

@@ -1283,10 +1283,6 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 561768345, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
-      propertyPath: spellBook
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 45614675640529581, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
       propertyPath: sceneViewId
       value: 6
@@ -1419,18 +1415,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerPack
       objectReference: {fileID: 0}
-    - target: {fileID: 6096991356021443691, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
-      propertyPath: <CharacterData>k__BackingField
-      value: 
-      objectReference: {fileID: 11400000, guid: ade5c2b9d1d471d47b2c4942e3f7ae0e, type: 2}
-    - target: {fileID: 6243222844171116932, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.20000005
-      objectReference: {fileID: 0}
-    - target: {fileID: 6243222844171116932, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -5
-      objectReference: {fileID: 0}
     - target: {fileID: 6412840963502819826, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
       propertyPath: sceneViewId
       value: 5
@@ -1451,18 +1435,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7961835766340572031, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
-      propertyPath: spawnWeaponData
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7970440216779388943, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
-      propertyPath: gameType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7970440216779388943, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
-      propertyPath: characterData
-      value: 
-      objectReference: {fileID: 11400000, guid: ade5c2b9d1d471d47b2c4942e3f7ae0e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea892fe56d65dc742a05c5214356dfd1, type: 3}
 --- !u!1 &2020964104
@@ -1564,7 +1536,7 @@ MonoBehaviour:
   - _gameObject: {fileID: 1038987777488653339}
     _prefab: Assets/Prefabs/PrefabManager.prefab
   - _gameObject: {fileID: 394457968}
-    _prefab: Assets/Resources/PlayerPack.prefab
+    _prefab: Assets/Resources/Warrior.prefab
   - _gameObject: {fileID: 2091933178}
     _prefab: Assets/Prefabs/PlayerFollowCamera.prefab
   - _gameObject: {fileID: 31197223}

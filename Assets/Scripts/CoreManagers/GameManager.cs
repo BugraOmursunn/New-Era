@@ -15,11 +15,9 @@ public class GameManager : MonoBehaviour
 		if (EventManager.gameType.Invoke() == GameTypes.MultiPlayer && this.transform.parent.GetComponent<PhotonView>().IsMine == false)
 		{
 			isGameMine = false;
-			EventManager.IsGameMine = () => false;
 			return;
 		}
 		isGameMine = true;
-		EventManager.IsGameMine = () => true;
 	}
 
 	private void Start()

@@ -21,14 +21,24 @@ public class BarManager : MonoBehaviour
 
 	private void OnEnable()
 	{
-		if (EventManager.IsGameMine.Invoke() == false) return;
+		GameTypes gameType = EventManager.gameType.Invoke();
+		if (gameType == GameTypes.MultiPlayer)
+		{
+			if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
+				return;
+		}
 
 		InputEventManager.BarIndexPressed += BarSpellPressed;
 		InputEventManager.IsCastingContinue += IsCastingContinue;
 	}
 	private void OnDisable()
 	{
-		if (EventManager.IsGameMine.Invoke() == false) return;
+		GameTypes gameType = EventManager.gameType.Invoke();
+		if (gameType == GameTypes.MultiPlayer)
+		{
+			if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
+				return;
+		}
 
 		InputEventManager.BarIndexPressed -= BarSpellPressed;
 		InputEventManager.IsCastingContinue -= IsCastingContinue;

@@ -15,13 +15,23 @@ public class StatusManager : MonoBehaviour
 
 	private void OnEnable()
 	{
-		if (EventManager.IsGameMine.Invoke() == false) return;
+		GameTypes gameType = EventManager.gameType.Invoke();
+		if (gameType == GameTypes.MultiPlayer)
+		{
+			if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
+				return;
+		}
 
 		EventManager.RefreshCharacterStats += RefreshStats;
 	}
 	private void OnDisable()
 	{
-		if (EventManager.IsGameMine.Invoke() == false) return;
+		GameTypes gameType = EventManager.gameType.Invoke();
+		if (gameType == GameTypes.MultiPlayer)
+		{
+			if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
+				return;
+		}
 
 		EventManager.RefreshCharacterStats -= RefreshStats;
 	}

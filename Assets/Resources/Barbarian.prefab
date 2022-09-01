@@ -149,7 +149,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameType: 1
-  isGameMine: 0
 --- !u!1 &902774601
 GameObject:
   m_ObjectHideFlags: 0

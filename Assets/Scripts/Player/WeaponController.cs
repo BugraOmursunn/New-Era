@@ -35,6 +35,7 @@ public class WeaponController : MonoBehaviour
 			if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
 				return;
 		}
+		
 		Debug.Log("Test");
 		InputEventManager.DrawWeapon += DrawWeapon;
 		InputEventManager.Attack += OnAttack;

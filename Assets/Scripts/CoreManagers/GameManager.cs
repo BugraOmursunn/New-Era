@@ -8,16 +8,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 	[SerializeField] private GameTypes gameType;
-	[SerializeField] private bool isGameMine;
 	private void Awake()
 	{
 		EventManager.gameType = () => gameType;
-		if (EventManager.gameType.Invoke() == GameTypes.MultiPlayer && this.transform.parent.GetComponent<PhotonView>().IsMine == false)
-		{
-			isGameMine = false;
-			return;
-		}
-		isGameMine = true;
 	}
 
 	private void Start()

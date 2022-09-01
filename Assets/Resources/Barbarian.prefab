@@ -758,10 +758,10 @@ MonoBehaviour:
     SynchronizeType: 1
     Name: SwordThrow
   - Type: 9
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: Draw2h
   - Type: 9
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: Sheath2h
   m_SynchronizeLayers:
   - SynchronizeType: 0

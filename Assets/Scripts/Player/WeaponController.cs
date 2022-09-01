@@ -35,7 +35,7 @@ public class WeaponController : MonoBehaviour
 			if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
 				return;
 		}
-		
+
 		Debug.Log("Test");
 		InputEventManager.DrawWeapon += DrawWeapon;
 		InputEventManager.Attack += OnAttack;
@@ -55,7 +55,7 @@ public class WeaponController : MonoBehaviour
 	}
 	private void Awake()
 	{
-		weaponData = EventManager.GetCharacterData.Invoke().Weapon;
+		weaponData = this.GetComponent<Player>().CharacterData.Weapon;
 		weaponGameObject = Instantiate(weaponData.weaponVFXSettings.Prefab, skeletonChestPos);
 		weaponParent = weaponGameObject.transform;
 		weaponTransform = weaponGameObject.transform.GetChild(0);

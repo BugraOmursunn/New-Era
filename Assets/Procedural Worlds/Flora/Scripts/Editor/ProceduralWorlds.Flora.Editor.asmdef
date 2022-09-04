@@ -1,0 +1,20 @@
+{
+    "name": "ProceduralWorlds.Flora.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:ada6ffdf92885be4f87253b75159889e",
+        "GUID:00fd50f141540244f81380fe7cafc566",
+        "GUID:8c4dd21966739024fbd72155091d199e"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

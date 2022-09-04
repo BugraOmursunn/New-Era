@@ -1,0 +1,223 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e251860fcd970734c9f14ebd98a146c3, type: 3}
+  m_Name: GS-20220903 - 220803
+  m_EditorClassIdentifier: 
+  m_name: Session 20220903-220803
+  m_description: 'Rocking out at Creativity Central!
+
+
+    If you like Gaia please
+    consider rating it :)'
+  m_previewImage: {fileID: 0}
+  m_dateCreated: 3.09.2022 22:08:03
+  m_terrainWidth: 256
+  m_terrainDepth: 1024
+  m_terrainHeight: 256
+  m_seaLevel: 0.775
+  m_spawnDensity: 0.8
+  m_isLocked: 0
+  m_previewImageBytes: 
+  m_previewImageWidth: 0
+  m_previewImageHeight: 0
+  m_operations:
+  - m_description: Clear World
+    m_operationType: 10
+    m_isActive: 1
+    m_affectedTerrainNames: []
+    m_operationDateTime: 3.09.2022 23:29:59
+    scriptableObjectAssetGUID: 
+    m_isFoldedOut: 0
+    sessionPlaybackState: 1
+    m_terrainsFoldedOut: 0
+    m_serializedExternalAction: 
+  - m_description: 'Creating World: 1 x 1 tiles, tile size: 128'
+    m_operationType: 0
+    m_isActive: 1
+    m_affectedTerrainNames: []
+    m_operationDateTime: 3.09.2022 23:30:00
+    scriptableObjectAssetGUID: e2aceaf48e4e54046ac8bc086b6e2108
+    m_isFoldedOut: 0
+    sessionPlaybackState: 1
+    m_terrainsFoldedOut: 0
+    m_serializedExternalAction: 
+  - m_description: Spawning - Multiple Spawners (12)
+    m_operationType: 7
+    m_isActive: 1
+    m_affectedTerrainNames:
+    - Terrain_0_0-20220903 - 232959
+    m_operationDateTime: 3.09.2022 23:30:14
+    scriptableObjectAssetGUID: 3d1cf1f849ee2954fb1ad8e5a62676ff
+    m_isFoldedOut: 0
+    sessionPlaybackState: 1
+    m_terrainsFoldedOut: 0
+    m_serializedExternalAction: 
+  m_terrainMinMaxCache:
+  - guid: ceb7a6bc22231ed4ca712e489d4f56c5
+    isWorldmap: 0
+    recalculate: 0
+    min: 0
+    max: 14.1877165
+  - guid: 9cdb63e339417ba41bc1262e11a41d9b
+    isWorldmap: 0
+    recalculate: 0
+    min: 0
+    max: 10.281407
+  - guid: 8a58747ac19ce524b99dff42c91ca9f0
+    isWorldmap: 0
+    recalculate: 0
+    min: 0
+    max: 11.843931
+  - guid: 99216f80e79d9ea4fb8ea410e1bd59ea
+    isWorldmap: 0
+    recalculate: 0
+    min: 0
+    max: 11.843931
+  - guid: e897b4bf9e39ec14dbd2090f72b98d16
+    isWorldmap: 0
+    recalculate: 0
+    min: 0
+    max: 11.843931
+  - guid: 276b47122ec8b934d92d589a4c389a78
+    isWorldmap: 0
+    recalculate: 0
+    min: 0
+    max: 3.6992753
+  - guid: e3ce0d30ed20ce847bf3f79f887e490b
+    isWorldmap: 0
+    recalculate: 0
+    min: 0
+    max: 3.6992753
+  - guid: 96808dc91e22ab542a22f4c5b37ba9af
+    isWorldmap: 0
+    recalculate: 0
+    min: 0
+    max: 3.6992753
+  - guid: Worldmap
+    isWorldmap: 1
+    recalculate: 0
+    min: 0.0076668975
+    max: 3.9539936
+  - guid: 510767e433999004e8eb2c00e11dafb9
+    isWorldmap: 0
+    recalculate: 0
+    min: 0.007812619
+    max: 3.9688106
+  - guid: 4de2d3339453dcc4ca034065213ed910
+    isWorldmap: 0
+    recalculate: 0
+    min: 0
+    max: 3.9688106
+  m_bakedMaskCacheEntries:
+  - fileName: Terrain_0_0-20220903 - 232959_LayerTree_7168_1
+    assetPath: Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20220903
+      - 232959/Terrain_0_0-20220903 - 232959_LayerTree_7168_1
+    fullPath: C:/Users/Bugra/Desktop/New-Era/Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20220903
+      - 232959/Terrain_0_0-20220903 - 232959_LayerTree_7168_1
+    texture: {fileID: 0}
+  - fileName: Terrain_0_0-20220903 - 232959_LayerGameObject_7168_5
+    assetPath: Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20220903
+      - 232959/Terrain_0_0-20220903 - 232959_LayerGameObject_7168_5
+    fullPath: C:/Users/Bugra/Desktop/New-Era/Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20220903
+      - 232959/Terrain_0_0-20220903 - 232959_LayerGameObject_7168_5
+    texture: {fileID: 0}
+  - fileName: Terrain_0_0-20220903 - 232959_LayerGameObject_7168_9
+    assetPath: Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20220903
+      - 232959/Terrain_0_0-20220903 - 232959_LayerGameObject_7168_9
+    fullPath: C:/Users/Bugra/Desktop/New-Era/Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20220903
+      - 232959/Terrain_0_0-20220903 - 232959_LayerGameObject_7168_9
+    texture: {fileID: 0}
+  - fileName: Terrain_0_0-20220903 - 232959_RadiusTag_PW - Prop_3
+    assetPath: Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20220903
+      - 232959/Terrain_0_0-20220903 - 232959_RadiusTag_PW - Prop_3
+    fullPath: C:/Users/Bugra/Desktop/New-Era/Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20220903
+      - 232959/Terrain_0_0-20220903 - 232959_RadiusTag_PW - Prop_3
+    texture: {fileID: 0}
+  - fileName: Terrain_0_0-20220903 - 232959_LayerGameObject_4096_5
+    assetPath: Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20220903
+      - 232959/Terrain_0_0-20220903 - 232959_LayerGameObject_4096_5
+    fullPath: C:/Users/Bugra/Desktop/New-Era/Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20220903
+      - 232959/Terrain_0_0-20220903 - 232959_LayerGameObject_4096_5
+    texture: {fileID: 0}
+  - fileName: Terrain_0_0-20220903 - 232959_LayerGameObject_3072_1
+    assetPath: Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20220903
+      - 232959/Terrain_0_0-20220903 - 232959_LayerGameObject_3072_1
+    fullPath: C:/Users/Bugra/Desktop/New-Era/Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20220903
+      - 232959/Terrain_0_0-20220903 - 232959_LayerGameObject_3072_1
+    texture: {fileID: 0}
+  - fileName: Terrain_0_0-20220903 - 232959_LayerTree_7168_2
+    assetPath: Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20220903
+      - 232959/Terrain_0_0-20220903 - 232959_LayerTree_7168_2
+    fullPath: C:/Users/Bugra/Desktop/New-Era/Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20220903
+      - 232959/Terrain_0_0-20220903 - 232959_LayerTree_7168_2
+    texture: {fileID: 0}
+  - fileName: Terrain_0_0-20220903 - 232959_LayerGameObject_4096_50
+    assetPath: Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20220903
+      - 232959/Terrain_0_0-20220903 - 232959_LayerGameObject_4096_50
+    fullPath: C:/Users/Bugra/Desktop/New-Era/Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20220903
+      - 232959/Terrain_0_0-20220903 - 232959_LayerGameObject_4096_50
+    texture: {fileID: 0}
+  - fileName: Terrain_0_0-20220903 - 232959_LayerGameObject_3072_5
+    assetPath: Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20220903
+      - 232959/Terrain_0_0-20220903 - 232959_LayerGameObject_3072_5
+    fullPath: C:/Users/Bugra/Desktop/New-Era/Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20220903
+      - 232959/Terrain_0_0-20220903 - 232959_LayerGameObject_3072_5
+    texture: {fileID: 0}
+  - fileName: Terrain_0_0-20220903 - 232959_LayerGameObject_4096_60
+    assetPath: Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20220903
+      - 232959/Terrain_0_0-20220903 - 232959_LayerGameObject_4096_60
+    fullPath: C:/Users/Bugra/Desktop/New-Era/Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20220903
+      - 232959/Terrain_0_0-20220903 - 232959_LayerGameObject_4096_60
+    texture: {fileID: 0}
+  - fileName: Terrain_0_0-20220903 - 232959_LayerTree_7168_5
+    assetPath: Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20220903
+      - 232959/Terrain_0_0-20220903 - 232959_LayerTree_7168_5
+    fullPath: C:/Users/Bugra/Desktop/New-Era/Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20220903
+      - 232959/Terrain_0_0-20220903 - 232959_LayerTree_7168_5
+    texture: {fileID: 0}
+  - fileName: Terrain_0_0-20220903 - 232959_LayerGameObject_4096_10
+    assetPath: Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20220903
+      - 232959/Terrain_0_0-20220903 - 232959_LayerGameObject_4096_10
+    fullPath: C:/Users/Bugra/Desktop/New-Era/Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20220903
+      - 232959/Terrain_0_0-20220903 - 232959_LayerGameObject_4096_10
+    texture: {fileID: 0}
+  - fileName: Terrain_0_0-20220903 - 232959_LayerTree_3072_0
+    assetPath: Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20220903
+      - 232959/Terrain_0_0-20220903 - 232959_LayerTree_3072_0
+    fullPath: C:/Users/Bugra/Desktop/New-Era/Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20220903
+      - 232959/Terrain_0_0-20220903 - 232959_LayerTree_3072_0
+    texture: {fileID: 0}
+  - fileName: Terrain_0_0-20220903 - 232959_LayerTree_4096_0
+    assetPath: Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20220903
+      - 232959/Terrain_0_0-20220903 - 232959_LayerTree_4096_0
+    fullPath: C:/Users/Bugra/Desktop/New-Era/Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20220903
+      - 232959/Terrain_0_0-20220903 - 232959_LayerTree_4096_0
+    texture: {fileID: 0}
+  - fileName: Terrain_0_0-20220903 - 232959_LayerTree_0_0
+    assetPath: Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20220903
+      - 232959/Terrain_0_0-20220903 - 232959_LayerTree_0_0
+    fullPath: C:/Users/Bugra/Desktop/New-Era/Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20220903
+      - 232959/Terrain_0_0-20220903 - 232959_LayerTree_0_0
+    texture: {fileID: 0}
+  - fileName: Terrain_0_0-20220903 - 232959_LayerTree_1024_0
+    assetPath: Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20220903
+      - 232959/Terrain_0_0-20220903 - 232959_LayerTree_1024_0
+    fullPath: C:/Users/Bugra/Desktop/New-Era/Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20220903
+      - 232959/Terrain_0_0-20220903 - 232959_LayerTree_1024_0
+    texture: {fileID: 0}
+  - fileName: Terrain_0_0-20220903 - 232959_LayerGameObject_7168_10
+    assetPath: Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20220903
+      - 232959/Terrain_0_0-20220903 - 232959_LayerGameObject_7168_10
+    fullPath: C:/Users/Bugra/Desktop/New-Era/Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20220903
+      - 232959/Terrain_0_0-20220903 - 232959_LayerGameObject_7168_10
+    texture: {fileID: 0}
+  m_worldBiomeMaskSettings: {fileID: 0}

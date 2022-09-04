@@ -1162,6 +1162,7 @@ GameObject:
   - component: {fileID: 1762682269}
   - component: {fileID: 7776216945171169455}
   - component: {fileID: 4243167274042899081}
+  - component: {fileID: 4186968883496271973}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -1250,7 +1251,7 @@ MonoBehaviour:
   GroundedRadius: 0.28
   GroundLayers:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 7169
   CinemachineCameraTarget: {fileID: 8338988566280778634}
   TopClamp: 70
   BottomClamp: -30
@@ -1321,6 +1322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 6982812146204527121}
+  weaponData: {fileID: 0}
   skeletonChestPos: {fileID: 2719569588957798408}
   handData:
   - hand: {fileID: 9186500496127808867}
@@ -1343,7 +1345,6 @@ MonoBehaviour:
     - finger: {fileID: 5944892902790622099}
     - finger: {fileID: 4372607808223944788}
     - finger: {fileID: 3964097221717966225}
-  spawnWeaponData: {fileID: 11400000, guid: a49e5a7b49316a84a908796d48434e02, type: 2}
 --- !u!114 &7776216945171169455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1815,12 +1816,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c7ac0328793554e9ef2fa91abf17ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CharData>k__BackingField: {fileID: 11400000, guid: ae747a3d261f4c24c85c3f9161dcfa74, type: 2}
+  <CharacterData>k__BackingField: {fileID: 0}
   <CharAnimator>k__BackingField: {fileID: 6982812146204527121}
-  <Health>k__BackingField: 100
-  <Mana>k__BackingField: 100
-  <Stamina>k__BackingField: 100
   <IsDead>k__BackingField: 0
+  _currentCharacterStats:
+    Health: 0
+    Mana: 0
+    Stamina: 0
+--- !u!114 &4186968883496271973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4416926081852918481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c72e1df647af4c0098866e944a04b01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weight: 1
+  solver:
+    layers:
+      serializedVersion: 2
+      m_Bits: 7169
+    maxStep: 0.5
+    heightOffset: 0
+    footSpeed: 2.5
+    footRadius: 0.15
+    footCenterOffset: 0
+    prediction: 0.2
+    footRotationWeight: 0.5
+    footRotationSpeed: 7
+    maxFootRotationAngle: 45
+    rotateSolver: 0
+    pelvisSpeed: 5
+    pelvisDamper: 0
+    lowerPelvisWeight: 1
+    liftPelvisWeight: 1
+    rootSphereCastRadius: 1.16
+    overstepFallsDown: 1
+    quality: 1
+  ik: {fileID: 7776216945171169455}
+  spineBend: 2
+  spineSpeed: 3
+  spine: []
 --- !u!1 &4523139366846529165
 GameObject:
   m_ObjectHideFlags: 0

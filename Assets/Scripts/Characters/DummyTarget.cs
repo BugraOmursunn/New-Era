@@ -54,7 +54,11 @@ public class DummyTarget : MonoBehaviour, IDamageAble
 		}
 
 
-		GameObject newDamageIndicator = GameTypePrefabManager.ReturnGameTypeSelectionPrefab(damageIndicatorPrefab, this.transform.position, Quaternion.identity);
+		var transformPosition = this.transform.position;
+		GameObject newDamageIndicator = GameTypePrefabManager.ReturnGameTypeSelectionPrefab(damageIndicatorPrefab, 
+			new Vector3(transformPosition.x, transformPosition.y + 1f, transformPosition.z), 
+			Quaternion.identity);
+		
 		newDamageIndicator.GetComponent<DamageIndicator>().Instantiate(damage);
 	}
 

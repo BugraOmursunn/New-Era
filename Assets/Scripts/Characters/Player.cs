@@ -64,7 +64,11 @@ public class Player : Character
 			CharAnimator.SetTrigger(_currentCharacterStats.Health > 0 ? CharacterData.GetHitAnim : CharacterData.DieAnim);
 		}
 
-		GameObject newDamageIndicator = GameTypePrefabManager.ReturnGameTypeSelectionPrefab(CharacterData.DamageIndicator, this.transform.position, Quaternion.identity);
+		var transformPosition = this.transform.position;
+		GameObject newDamageIndicator = GameTypePrefabManager.ReturnGameTypeSelectionPrefab(CharacterData.DamageIndicator,
+			new Vector3(transformPosition.x, transformPosition.y + 1f, transformPosition.z),
+			Quaternion.identity);
+
 		newDamageIndicator.GetComponent<DamageIndicator>().Instantiate(damage);
 	}
 }

@@ -43,7 +43,7 @@ public class DamageIndicator : MonoBehaviour
 		seq.AppendCallback(() => {
 			damageText.text = _damage.ToString(CultureInfo.InvariantCulture);
 		});
-		seq.Append(this.transform.DOLocalMoveY(3, 0.8f).From(2).SetEase(Ease.Linear)).OnUpdate(() => {
+		seq.Append(this.transform.DOMoveY(this.transform.position.y + 2, 1f)).SetEase(Ease.Linear).OnUpdate(() => {
 			if (this != null)
 				this.transform.DOLookAt(Camera.main.transform.position, 0.01f);
 		});

@@ -36,7 +36,6 @@ public class WeaponController : MonoBehaviour
 				return;
 		}
 
-		Debug.Log("Test");
 		InputEventManager.DrawWeapon += DrawWeapon;
 		InputEventManager.Attack += OnAttack;
 		InputEventManager.IsDrawSword2h += IsDrawSword2h;
@@ -82,7 +81,11 @@ public class WeaponController : MonoBehaviour
 	private void OnAttack()
 	{
 		if (isDraw == true && InputEventManager.IsCastingContinue() == false)
+		{
+			InputEventManager.SetIsCasting.Invoke(weaponData.weaponModifierSettings.castTime);
 			playerAnimator.SetTrigger("Attack");
+			this.transform.GetComponentInChildren<WeaponInteractionController>().EnableCanDamage();
+		}
 	}
 
 	public void AttachWeaponToHand()

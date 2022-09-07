@@ -29,6 +29,7 @@ public class BarManager : MonoBehaviour
 		}
 
 		InputEventManager.BarIndexPressed += BarSpellPressed;
+		InputEventManager.SetIsCasting += SetIsCasting;
 		InputEventManager.IsCastingContinue += IsCastingContinue;
 	}
 	private void OnDisable()
@@ -41,6 +42,7 @@ public class BarManager : MonoBehaviour
 		}
 
 		InputEventManager.BarIndexPressed -= BarSpellPressed;
+		InputEventManager.SetIsCasting -= SetIsCasting;
 		InputEventManager.IsCastingContinue -= IsCastingContinue;
 	}
 	private void Awake()
@@ -145,7 +147,11 @@ public class BarManager : MonoBehaviour
 			}
 		}
 	}
-
+	private void SetIsCasting(float value)
+	{
+		isCasting = true;
+		StartCoroutine(CastingFinished(value));
+	}
 	private IEnumerator CastingFinished(float value)
 	{
 		yield return new WaitForSeconds(value);
@@ -156,6 +162,7 @@ public class BarManager : MonoBehaviour
 	{
 		return isCasting;
 	}
+	
 
 	// [Button]
 	// private void OnValidate()

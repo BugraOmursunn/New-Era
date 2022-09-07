@@ -54,6 +54,7 @@ public static class InputEventManager
 
 	#region Bar Manager
 
+	public static Action<float> SetIsCasting;
 	public static Func<bool> IsCastingContinue;
 
 	#endregion

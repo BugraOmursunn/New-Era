@@ -35,9 +35,11 @@ public class WeaponData : ScriptableObject
 	[HideLabel, TextArea(6, 14)]
 	public string Notes;
 
+	
 	[Serializable]
 	public class WeaponModifierSettings
 	{
+		public float attackDamage;
 		[SuffixLabel("seconds ", true)]
 		public float cooldown;
 		[SuffixLabel("seconds ", true)]

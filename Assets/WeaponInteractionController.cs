@@ -7,6 +7,7 @@ using UnityEngine.Rendering;
 
 public class WeaponInteractionController : MonoBehaviour
 {
+	[SerializeField] private WeaponData weaponData;
 	private bool CanAttack;
 	private float damageInterval = 0.2f;
 	private float tempTime;
@@ -37,7 +38,7 @@ public class WeaponInteractionController : MonoBehaviour
 				return;
 
 			attackTarget.Add(damageAble, 1);
-			int randomDmg = UnityEngine.Random.Range(30, 70);
+			int randomDmg = UnityEngine.Random.Range((int)weaponData.weaponModifierSettings.attackDamage - 20, (int)weaponData.weaponModifierSettings.attackDamage + 20);
 			damageAble.GetDamage(-randomDmg);
 		}
 	}

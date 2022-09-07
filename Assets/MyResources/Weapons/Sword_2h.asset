@@ -19,6 +19,7 @@ MonoBehaviour:
   Description: 
   Notes: 
   weaponModifierSettings:
+    attackDamage: 50
     cooldown: 2
     castTime: 1.2
   weaponVFXSettings:

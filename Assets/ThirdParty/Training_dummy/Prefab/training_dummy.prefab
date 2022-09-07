@@ -408,7 +408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageIndicatorPrefab: {fileID: 4373938827545227751, guid: b816390b4cbe5d746afbdf63a21b337f, type: 3}
   charAnimator: {fileID: 2146768002}
-  Health: 10
+  Health: 500
 --- !u!54 &128378961950676849
 Rigidbody:
   m_ObjectHideFlags: 0

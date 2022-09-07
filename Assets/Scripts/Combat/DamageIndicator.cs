@@ -25,6 +25,7 @@ public class DamageIndicator : MonoBehaviour
 		}
 	}
 
+	Sequence seq = DOTween.Sequence();
 	[PunRPC]
 	public void RPCInstantiate(float _damage)
 	{
@@ -39,14 +40,19 @@ public class DamageIndicator : MonoBehaviour
 		TextMeshPro damageText = this.transform.GetChild(0).GetComponent<TextMeshPro>();
 		damageText.color = _damage > 0 ? Color.green : Color.red;
 
-		Sequence seq = DOTween.Sequence();
-		seq.AppendCallback(() => {
-			damageText.text = _damage.ToString(CultureInfo.InvariantCulture);
-		});
-		seq.Append(this.transform.DOMoveY(this.transform.position.y + 2, 1f)).SetEase(Ease.Linear).OnUpdate(() => {
-			if (this != null)
-				this.transform.DOLookAt(Camera.main.transform.position, 0.01f);
-		});
+		_damage = Mathf.Abs(_damage);
+		
+		damageText.text = _damage.ToString(CultureInfo.InvariantCulture);
+		this.transform.DOMoveY(this.transform.position.y + 2, 1f).SetEase(Ease.Linear);
+
+		// seq.AppendCallback(() => {
+		// 	if (damageText != null)
+		// 		damageText.text = _damage.ToString(CultureInfo.InvariantCulture);
+		// });
+		// seq.Append(this.transform.DOMoveY(this.transform.position.y + 2, 1f)).SetEase(Ease.Linear).OnUpdate(() => {
+		// 	if (this.transform != null)
+		// 		this.transform.DOLookAt(Camera.main.transform.position, 0.01f);
+		// });
 	}
 	private IEnumerator Delay()
 	{
@@ -54,11 +60,17 @@ public class DamageIndicator : MonoBehaviour
 
 		if (PhotonNetwork.IsMasterClient)
 		{
+			DOTween.Kill(seq);
 			PhotonNetwork.Destroy(this.gameObject);
 		}
 		else
 		{
+			DOTween.Kill(seq);
 			Destroy(this.gameObject);
 		}
+	}
+	private void Update()
+	{
+		this.transform.DOLookAt(Camera.main.transform.position, 0.01f);
 	}
 }

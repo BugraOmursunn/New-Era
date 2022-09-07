@@ -19,7 +19,7 @@ MonoBehaviour:
   Description: 
   Notes: 
   spellModifierSettings:
-    spellDamage: -2
+    spellDamage: -200
     spellRadius: 4
     cooldown: 8
     castTime: 2

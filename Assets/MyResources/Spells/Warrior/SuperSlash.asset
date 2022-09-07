@@ -18,6 +18,11 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 27919e65bf1574c468b0d2343b2b542e, type: 3}
   Description: 
   Notes: 
+  spellModifierSettings:
+    spellDamage: -200
+    spellRadius: 2
+    cooldown: 6
+    castTime: 2
   spellVFXSettings:
     isChild: 0
     Prefab: {fileID: 1645009922904612, guid: 5e3170c6ef0f014409bd7423e3bb805a, type: 3}
@@ -26,8 +31,3 @@ MonoBehaviour:
     vfxActivationTime: 1
     posOffSet: {x: 0, y: 0.1, z: 1}
     rotOffSet: {x: 0, y: -90, z: 0}
-  spellModifierSettings:
-    spellDamage: -4
-    spellRadius: 2
-    cooldown: 6
-    castTime: 2

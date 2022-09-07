@@ -1819,9 +1819,9 @@ MonoBehaviour:
   <CharAnimator>k__BackingField: {fileID: 6982812146204527121}
   <IsDead>k__BackingField: 0
   _currentCharacterStats:
-    Health: 0
-    Mana: 0
-    Stamina: 0
+    Health: 1000
+    Mana: 1000
+    Stamina: 1000
 --- !u!1 &4523139366846529165
 GameObject:
   m_ObjectHideFlags: 0

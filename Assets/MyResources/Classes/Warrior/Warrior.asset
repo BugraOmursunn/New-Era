@@ -21,8 +21,8 @@ MonoBehaviour:
   SpellBook: {fileID: 11400000, guid: dedee316a1b49ef4f8ed43919fe4c5af, type: 2}
   Weapon: {fileID: 11400000, guid: a49e5a7b49316a84a908796d48434e02, type: 2}
   characterStats:
-    Health: 20
-    Mana: 100
-    Stamina: 100
+    Health: 1000
+    Mana: 1000
+    Stamina: 1000
   GetHitAnim: 
   DieAnim: 

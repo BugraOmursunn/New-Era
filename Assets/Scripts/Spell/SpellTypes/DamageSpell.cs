@@ -40,7 +40,8 @@ public class DamageSpell : Spell
 
 		for (int i = 0; i < effectedCharacters.Count; i++)
 		{
-			effectedCharacters[i].GetDamage(spellData.spellModifierSettings.spellDamage);
+			int randomDmg = UnityEngine.Random.Range((int)spellData.spellModifierSettings.spellDamage - 50, (int)spellData.spellModifierSettings.spellDamage + 50);
+			effectedCharacters[i].GetDamage(randomDmg);
 		}
 	}
 }

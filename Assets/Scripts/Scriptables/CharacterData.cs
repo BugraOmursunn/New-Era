@@ -45,11 +45,11 @@ public class CharacterData : ScriptableObject
 	[Serializable]
 	public class CharacterStats
 	{
-		[ProgressBar(0, 100), ShowInInspector]
+		[ProgressBar(0, 1000), ShowInInspector]
 		public float Health;
-		[ProgressBar(0, 100), ShowInInspector]
+		[ProgressBar(0, 1000), ShowInInspector]
 		public float Mana;
-		[ProgressBar(0, 100), ShowInInspector]
+		[ProgressBar(0, 1000), ShowInInspector]
 		public float Stamina;
 	}
 	[BoxGroup("Split/Right/Stat Settings")]

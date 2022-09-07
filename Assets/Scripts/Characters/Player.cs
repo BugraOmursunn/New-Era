@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
 
-public class Player : Character
+public class Player : Character, IPunObservable
 {
 	[field: SerializeField] public override CharacterData CharacterData { get; set; }
 	[field: SerializeField] public override Animator CharAnimator { get; set; }
@@ -22,14 +22,53 @@ public class Player : Character
 				return;
 		}
 
-		_currentCharacterStats.Health = CharacterData.characterStats.Health;
-		_currentCharacterStats.Mana = CharacterData.characterStats.Mana;
-		_currentCharacterStats.Stamina = CharacterData.characterStats.Stamina;
-
 		EventManager.GetCharacterData = () => CharacterData;
 		EventManager.GetCurrentCharacterStats = () => _currentCharacterStats;
 		EventManager.GetCharacterData = () => CharacterData;
 	}
+	private void Start()
+	{
+		GameTypes gameType = EventManager.gameType.Invoke();
+		if (gameType == GameTypes.MultiPlayer)
+		{
+			if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
+				return;
+
+			view = this.GetComponent<PhotonView>();
+			view.RPC(nameof(Initialize), RpcTarget.All);
+		}
+		else
+		{
+			Initialize();
+		}
+	}
+
+	[PunRPC]
+	private void Initialize()
+	{
+		_currentCharacterStats.Health = CharacterData.characterStats.Health;
+		_currentCharacterStats.Mana = CharacterData.characterStats.Mana;
+		_currentCharacterStats.Stamina = CharacterData.characterStats.Stamina;
+	}
+
+	[PunRPC]
+	//sync health
+	public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+	{
+		if (stream.IsWriting)
+		{
+			// We own this player: send the others our data
+			stream.SendNext(_currentCharacterStats.Health);
+		}
+		else
+		{
+			// Network player, receive data
+
+			if (stream.ReceiveNext() is float data)
+				_currentCharacterStats.Health = data;
+		}
+	}
+
 
 	public override void GetDamage(float damage)
 	{

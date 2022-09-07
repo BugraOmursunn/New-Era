@@ -10,9 +10,12 @@ using UnityEngine;
 public class DamageIndicator : MonoBehaviour
 {
 	private PhotonView view;
-
+	Sequence seq;
+	
 	public void Instantiate(float _damage)
 	{
+		seq = DOTween.Sequence();
+		
 		GameTypes gameType = EventManager.gameType.Invoke();
 		if (gameType == GameTypes.SinglePlayer)
 		{
@@ -25,7 +28,7 @@ public class DamageIndicator : MonoBehaviour
 		}
 	}
 
-	Sequence seq = DOTween.Sequence();
+	
 	[PunRPC]
 	public void RPCInstantiate(float _damage)
 	{

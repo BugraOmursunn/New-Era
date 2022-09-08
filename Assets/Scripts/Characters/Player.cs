@@ -31,8 +31,8 @@ public class Player : Character, IPunObservable
 		GameTypes gameType = EventManager.gameType.Invoke();
 		if (gameType == GameTypes.MultiPlayer)
 		{
-			if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
-				return;
+			// if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
+			// 	return;
 
 			view = this.GetComponent<PhotonView>();
 			view.RPC(nameof(Initialize), RpcTarget.All);
@@ -57,15 +57,18 @@ public class Player : Character, IPunObservable
 	{
 		if (stream.IsWriting)
 		{
+			object data = _currentCharacterStats.Health;
 			// We own this player: send the others our data
-			stream.SendNext(_currentCharacterStats.Health);
+			stream.SendNext(data);
 		}
 		else
 		{
 			// Network player, receive data
-
-			if (stream.ReceiveNext() is float data)
-				_currentCharacterStats.Health = data;
+			var data = stream.ReceiveNext();
+			if (data != null)
+			{
+				_currentCharacterStats.Health = (float)data;
+			}
 		}
 	}
 
@@ -109,5 +112,6 @@ public class Player : Character, IPunObservable
 			Quaternion.identity);
 
 		newDamageIndicator.GetComponent<DamageIndicator>().Instantiate(damage);
+		Debug.Log(_currentCharacterStats.Health);
 	}
 }

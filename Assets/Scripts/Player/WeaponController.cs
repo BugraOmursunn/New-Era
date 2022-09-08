@@ -54,12 +54,32 @@ public class WeaponController : MonoBehaviour
 	}
 	private void Awake()
 	{
-		weaponData = this.GetComponent<Player>().CharacterData.Weapon;
-		weaponGameObject = Instantiate(weaponData.weaponVFXSettings.Prefab, skeletonChestPos);
-		weaponParent = weaponGameObject.transform;
+		gameType = EventManager.gameType.Invoke();
+		if (gameType == GameTypes.MultiPlayer)
+		{
+			if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
+				return;
+		}
+
+
+		if (gameType == GameTypes.MultiPlayer)
+		{
+			weaponGameObject = GameTypePrefabManager.ReturnGameTypeSelectionPrefab(weaponData.weaponVFXSettings.Prefab,
+				skeletonChestPos.position,
+				Quaternion.identity);
+
+			weaponGameObject.transform.parent = skeletonChestPos;
+			weaponParent = weaponGameObject.transform;
+		}
+		else
+		{
+			weaponData = this.GetComponent<Player>().CharacterData.Weapon;
+			weaponGameObject = Instantiate(weaponData.weaponVFXSettings.Prefab, skeletonChestPos);
+			weaponParent = weaponGameObject.transform;
+		}
+
 		weaponTransform = weaponGameObject.transform.GetChild(0);
 		weaponAttachmentData = weaponGameObject.GetComponent<WeaponAttachmentData>();
-
 		bidepIK = this.GetComponent<FullBodyBipedIK>();
 	}
 	private void DrawWeapon(WeaponData _weaponData)
@@ -161,6 +181,9 @@ public class WeaponController : MonoBehaviour
 	}
 	private void LateUpdate()
 	{
+		if (bidepIK == null)
+			return;
+		
 		if (bidepIK.solver.leftHandEffector.target == null)
 		{
 			seq.Kill();

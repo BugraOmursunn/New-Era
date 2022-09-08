@@ -25,17 +25,17 @@ public class DummyTarget : MonoBehaviour, IDamageAble
 		GameTypes gameType = EventManager.gameType.Invoke();
 		if (gameType == GameTypes.SinglePlayer)
 		{
-			HealthProcessor(damage);
+			DamageProcessor(damage);
 		}
 		else if (gameType == GameTypes.MultiPlayer)
 		{
 			view = this.GetComponent<PhotonView>();
-			view.RPC(nameof(HealthProcessor), RpcTarget.All, damage);
+			view.RPC(nameof(DamageProcessor), RpcTarget.All, damage);
 		}
 	}
 
 	[PunRPC]
-	public void HealthProcessor(float damage)
+	public void DamageProcessor(float damage)
 	{
 		if (IsDead == true)
 			return;

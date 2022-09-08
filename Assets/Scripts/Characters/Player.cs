@@ -86,17 +86,17 @@ public class Player : Character, IPunObservable
 		GameTypes gameType = EventManager.gameType.Invoke();
 		if (gameType == GameTypes.SinglePlayer)
 		{
-			HealthProcessor(damage);
+			DamageProcessor(damage);
 		}
 		else if (gameType == GameTypes.MultiPlayer)
 		{
 			view = this.GetComponent<PhotonView>();
-			view.RPC(nameof(HealthProcessor), RpcTarget.All, damage);
+			view.RPC(nameof(DamageProcessor), RpcTarget.All, damage);
 		}
 	}
 
 	[PunRPC]
-	public override void HealthProcessor(float damage)
+	public override void DamageProcessor(float damage)
 	{
 		if (IsDead == true)
 			return;

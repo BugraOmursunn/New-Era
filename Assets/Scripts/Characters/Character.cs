@@ -9,7 +9,7 @@ public abstract class Character : MonoBehaviour, IDamageAble
 
 	public abstract bool IsDead { get; set; }
 	public abstract void GetDamage(float damage);
-	public abstract void HealthProcessor(float damage);
+	public abstract void DamageProcessor(float damage);
 	public abstract void DecreaseMana(float amount);
 	public abstract void ManaProcessor(float amount);
 	public abstract void RegenProcessor();

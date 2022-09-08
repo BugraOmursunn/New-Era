@@ -5,5 +5,5 @@ public interface IDamageAble
 	// public float Stamina { get; set; }
 
 	public void GetDamage(float damage) { }
-	public void HealthProcessor(float damage) { }
+	public void DamageProcessor(float damage) { }
 }

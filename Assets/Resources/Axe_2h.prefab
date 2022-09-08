@@ -511,6 +511,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6073844531208409146}
   - component: {fileID: 5110860883973613521}
+  - component: {fileID: 2611323754012939121}
   m_Layer: 0
   m_Name: Axe_2h
   m_TagString: Player
@@ -562,6 +563,28 @@ MonoBehaviour:
     rotationWeight: 0
     maintainRelativePositionWeight: 0
     fingers: []
+--- !u!114 &2611323754012939121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6071208088427101212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &7712352737073233731
 GameObject:
   m_ObjectHideFlags: 0

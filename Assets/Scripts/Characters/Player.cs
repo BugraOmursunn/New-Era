@@ -55,6 +55,7 @@ public class Player : Character, IPunObservable
 		_currentCharacterStats.healthRegen = CharacterData.characterStats.healthRegen;
 		_currentCharacterStats.manaRegen = CharacterData.characterStats.manaRegen;
 		_currentCharacterStats.staminaRegen = CharacterData.characterStats.staminaRegen;
+
 		EventManager.RefreshCharacterStats?.Invoke();
 	}
 
@@ -62,20 +63,20 @@ public class Player : Character, IPunObservable
 	//sync health
 	public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
 	{
+		// We own this player: send the others our data
 		if (stream.IsWriting)
 		{
-			object data = _currentCharacterStats.Health;
-			// We own this player: send the others our data
-			stream.SendNext(data);
+			object hpData = _currentCharacterStats.Health;
+			stream.SendNext(hpData);
+
+			object mpData = _currentCharacterStats.Mana;
+			stream.SendNext(mpData);
 		}
+		// Network player, receive data
 		else
 		{
-			// Network player, receive data
-			var data = stream.ReceiveNext();
-			if (data != null)
-			{
-				_currentCharacterStats.Health = (float)data;
-			}
+			_currentCharacterStats.Health = (float)stream.ReceiveNext();
+			_currentCharacterStats.Mana = (float)stream.ReceiveNext();
 		}
 	}
 
@@ -151,6 +152,13 @@ public class Player : Character, IPunObservable
 	private float tempTime;
 	private void Update()
 	{
+		GameTypes gameType = EventManager.gameType.Invoke();
+		if (gameType == GameTypes.MultiPlayer)
+		{
+			if (this.transform.parent.GetComponent<PhotonView>().IsMine == false)
+				return;
+		}
+
 		tempTime += Time.deltaTime;
 		if (_currentCharacterStats.Health > 0 && IsDead == false && tempTime >= 1f)
 		{
@@ -162,8 +170,8 @@ public class Player : Character, IPunObservable
 	[PunRPC]
 	public override void RegenProcessor()
 	{
-		_currentCharacterStats.Health += Mathf.Clamp(_currentCharacterStats.healthRegen, 0, CharacterData.characterStats.Health);
-		_currentCharacterStats.Mana += Mathf.Clamp(_currentCharacterStats.manaRegen, 0, CharacterData.characterStats.Mana);
+		_currentCharacterStats.Health = Mathf.Clamp(_currentCharacterStats.Health + _currentCharacterStats.healthRegen, 0, CharacterData.characterStats.Health);
+		_currentCharacterStats.Mana = Mathf.Clamp(_currentCharacterStats.Mana + _currentCharacterStats.manaRegen, 0, CharacterData.characterStats.Mana);
 
 		EventManager.RefreshCharacterStats?.Invoke();
 	}

@@ -21,6 +21,7 @@ MonoBehaviour:
   spellModifierSettings:
     spellDamage: -140
     spellRadius: 4
+    manaCost: 140
     cooldown: 5
     castTime: 2
   spellVFXSettings:

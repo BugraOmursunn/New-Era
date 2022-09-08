@@ -24,5 +24,8 @@ MonoBehaviour:
     Health: 1000
     Mana: 1000
     Stamina: 1000
+    healthRegen: 15
+    manaRegen: 15
+    staminaRegen: 0
   GetHitAnim: 
   DieAnim: 

@@ -51,6 +51,14 @@ public class CharacterData : ScriptableObject
 		public float Mana;
 		[ProgressBar(0, 1000), ShowInInspector]
 		public float Stamina;
+
+		[SuffixLabel("perSec ", true)]
+		public float healthRegen;
+		[SuffixLabel("perSec ", true)]
+		public float manaRegen;
+		[SuffixLabel("perSec ", true)]
+		public float staminaRegen;
+		
 	}
 	[BoxGroup("Split/Right/Stat Settings")]
 	[HideLabel]

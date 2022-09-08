@@ -44,6 +44,9 @@ public class StatusManager : MonoBehaviour
 	}
 	private void RefreshStats()
 	{
+		if (characterData == null)
+			return;
+		
 		var initialStats = characterData.characterStats;
 		var currentStats = currentCharacterStats;
 

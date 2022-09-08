@@ -40,6 +40,7 @@ public class SpellData : ScriptableObject
 	{
 		public float spellDamage;
 		public float spellRadius;
+		public float manaCost;
 		[SuffixLabel("seconds ", true)]
 		public float cooldown;
 		[SuffixLabel("seconds ", true)]

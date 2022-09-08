@@ -39,11 +39,23 @@ public class SpellController : MonoBehaviour
 	private bool CastSpell(SpellData spellData)
 	{
 		if (InputEventManager.IsDrawSword2h() == false)
+		{
+			Debug.Log("I can't do that");
 			return false;
+		}
+
+		var manaCost = spellData.spellModifierSettings.manaCost;
+		
+		if (EventManager.IsHaveEnoughMana.Invoke(manaCost) == false)
+		{
+			Debug.Log("Not enough mana");
+			return false;
+		}
 
 		playerAnimator.SetTrigger(spellData.spellVFXSettings.AnimTriggerName);
-		InputEventManager.EnableWeaponTrail.Invoke();
 		StartCoroutine(Cast(spellData));
+		EventManager.DecreaseMana.Invoke(manaCost);
+		InputEventManager.EnableWeaponTrail.Invoke();
 		return true;
 	}
 	private IEnumerator Cast(SpellData spellData)

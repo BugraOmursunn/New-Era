@@ -105,16 +105,24 @@ public class BarManager : MonoBehaviour
 
 		if (m_BarItemData != null)
 		{
-			if (barCooldownData[index].barCurrentCooldown == 0 && isCasting == false)
+			if (barCooldownData[index].barCurrentCooldown > 0)
 			{
-				bool isCastSuccessful = InputEventManager.InteractionHandler(m_BarItemData);
+				Debug.Log("I can't do that yet");
+				return;
+			}
+			if (isCasting == true)
+			{
+				Debug.Log("I am busy");
+				return;
+			}
+			
+			bool isCastSuccessful = InputEventManager.InteractionHandler(m_BarItemData);
 
-				if (isCastSuccessful == true)
-				{
-					barCooldownData[index].barCurrentCooldown = barCooldownData[index].barDefaultCooldown;
-					isCasting = true;
-					StartCoroutine(CastingFinished(barCooldownData[index].castTime));
-				}
+			if (isCastSuccessful == true)
+			{
+				barCooldownData[index].barCurrentCooldown = barCooldownData[index].barDefaultCooldown;
+				isCasting = true;
+				StartCoroutine(CastingFinished(barCooldownData[index].castTime));
 			}
 		}
 	}

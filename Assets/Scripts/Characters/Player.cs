@@ -25,7 +25,10 @@ public class Player : Character, IPunObservable
 		EventManager.GetCharacterData = () => CharacterData;
 		EventManager.GetCurrentCharacterStats = () => _currentCharacterStats;
 		EventManager.GetCharacterData = () => CharacterData;
+		EventManager.DecreaseMana = DecreaseMana;
+		EventManager.IsHaveEnoughMana = IsHaveEnoughMana;
 	}
+
 	private void Start()
 	{
 		GameTypes gameType = EventManager.gameType.Invoke();
@@ -49,6 +52,10 @@ public class Player : Character, IPunObservable
 		_currentCharacterStats.Health = CharacterData.characterStats.Health;
 		_currentCharacterStats.Mana = CharacterData.characterStats.Mana;
 		_currentCharacterStats.Stamina = CharacterData.characterStats.Stamina;
+		_currentCharacterStats.healthRegen = CharacterData.characterStats.healthRegen;
+		_currentCharacterStats.manaRegen = CharacterData.characterStats.manaRegen;
+		_currentCharacterStats.staminaRegen = CharacterData.characterStats.staminaRegen;
+		EventManager.RefreshCharacterStats?.Invoke();
 	}
 
 	[PunRPC]
@@ -78,17 +85,17 @@ public class Player : Character, IPunObservable
 		GameTypes gameType = EventManager.gameType.Invoke();
 		if (gameType == GameTypes.SinglePlayer)
 		{
-			DamageProcessor(damage);
+			HealthProcessor(damage);
 		}
 		else if (gameType == GameTypes.MultiPlayer)
 		{
 			view = this.GetComponent<PhotonView>();
-			view.RPC(nameof(DamageProcessor), RpcTarget.All, damage);
+			view.RPC(nameof(HealthProcessor), RpcTarget.All, damage);
 		}
 	}
 
 	[PunRPC]
-	public override void DamageProcessor(float damage)
+	public override void HealthProcessor(float damage)
 	{
 		if (IsDead == true)
 			return;
@@ -113,5 +120,51 @@ public class Player : Character, IPunObservable
 
 		newDamageIndicator.GetComponent<DamageIndicator>().Instantiate(damage);
 		Debug.Log(_currentCharacterStats.Health);
+	}
+
+	public override void DecreaseMana(float amount)
+	{
+		GameTypes gameType = EventManager.gameType.Invoke();
+		if (gameType == GameTypes.SinglePlayer)
+		{
+			ManaProcessor(amount);
+		}
+		else if (gameType == GameTypes.MultiPlayer)
+		{
+			view = this.GetComponent<PhotonView>();
+			view.RPC(nameof(ManaProcessor), RpcTarget.All, amount);
+		}
+	}
+
+	[PunRPC]
+	public override void ManaProcessor(float amount)
+	{
+		_currentCharacterStats.Mana -= amount;
+		EventManager.RefreshCharacterStats?.Invoke();
+	}
+
+	private bool IsHaveEnoughMana(float requiredMana)
+	{
+		return _currentCharacterStats.Mana >= requiredMana;
+	}
+
+	private float tempTime;
+	private void Update()
+	{
+		tempTime += Time.deltaTime;
+		if (_currentCharacterStats.Health > 0 && IsDead == false && tempTime >= 1f)
+		{
+			view = this.GetComponent<PhotonView>();
+			view.RPC(nameof(RegenProcessor), RpcTarget.All);
+			tempTime = 0;
+		}
+	}
+	[PunRPC]
+	public override void RegenProcessor()
+	{
+		_currentCharacterStats.Health += Mathf.Clamp(_currentCharacterStats.healthRegen, 0, CharacterData.characterStats.Health);
+		_currentCharacterStats.Mana += Mathf.Clamp(_currentCharacterStats.manaRegen, 0, CharacterData.characterStats.Mana);
+
+		EventManager.RefreshCharacterStats?.Invoke();
 	}
 }

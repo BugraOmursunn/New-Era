@@ -163,8 +163,11 @@ public class Player : Character, IPunObservable
 		if (_currentCharacterStats.Health > 0 && IsDead == false && tempTime >= 1f)
 		{
 			view = this.GetComponent<PhotonView>();
-			view.RPC(nameof(RegenProcessor), RpcTarget.All);
 			tempTime = 0;
+			if (gameType == GameTypes.MultiPlayer)
+				view.RPC(nameof(RegenProcessor), RpcTarget.All);
+			else
+				RegenProcessor();
 		}
 	}
 	[PunRPC]
